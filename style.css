@@ -2,7 +2,8 @@ body {
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.2em;
-    background-color: #485dc4;
+    background-color: #4672c4;
+    /* background-color: #214B47; */
 
 }
 
@@ -66,7 +67,7 @@ li{
     border-top: none;
     width: 60%;
     text-align: center;
-    background-color: rgba(211, 211, 211, 0.911);
+    background-color: #dadada;
     border-radius: 5px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -75,7 +76,7 @@ li{
 h1 {
     margin-top: 0%;
     background-color: #282828;
-    color: #485dc4;
+    color: #1973C1;
 }
 
 p {
@@ -92,10 +93,23 @@ p {
     border-radius: 10px;
     position: inherit;
     text-align: start;
-    background-color: lightgray;
+    /* background-color: lightgray; */
+    background-color: #bdbdbd;
+}
+
+.titulo-os {
+    width: fit-content;
+    border: 2px solid #888888;
+    border-radius: 4px;
+    background-color: #888888;
+    font-weight: 600;
 }
 
 .ordem-servico ul li {
     display: block;
+}
+
+.resolvido {
+    background-color: #dadada;
 }
 
