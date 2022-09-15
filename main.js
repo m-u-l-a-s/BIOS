@@ -33,13 +33,15 @@ function getData() {
 }
 
 function createOS() {
-    let conteudo = document.getElementById("ordem-servico");
+    let divConteudo = document.getElementById("conteudo");
     let osArr = JSON.parse(storage.getItem("ordens"))
     console.log(osArr)
-
+    
     // Create HTML elements:
     osArr.forEach(ordem => {
         
+        let divOrdem = document.createElement("div");
+        divOrdem.setAttribute("class", "ordem-servico")
         let ul = document.createElement("ul")
         let lab = document.createElement("li")
         let maq = document.createElement("li")
@@ -56,14 +58,14 @@ function createOS() {
     
         let resolvido = document.createElement("button")
         resolvido.innerText = "Resolvido!"
-        let excluir = document.createElement("button")
-        excluir.innerText = "Excluir"
     
         ul.appendChild(lab)
         ul.appendChild(maq)
         ul.appendChild(prob)
         ul.appendChild(date)
-        conteudo.appendChild(ul)
+        ul.appendChild(resolvido)
+        divOrdem.appendChild(ul)
+        divConteudo.appendChild(divOrdem)
 
     })
 
