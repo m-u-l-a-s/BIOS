@@ -32,6 +32,10 @@ body {
     border-radius: 6px;
 }
 
+.ordem-servico ul li {
+    display: block;
+
+}
 
 /*top, right, bottom, left */
 /* ul{
