@@ -39,6 +39,7 @@ function getData() {
 
 function createOS() {
     let divConteudo = document.getElementById("conteudo");
+    let divPendentes = document.getElementById("pendentes");
     let osArr = JSON.parse(storage.getItem("ordens"))
     console.log(osArr)
     
@@ -62,16 +63,16 @@ function createOS() {
         maq.textContent = "Máquina: "+ordem.maq
         prob.textContent = "Problema: "+ordem.prob
         date.textContent = "Reportado em: " + ordem.rep
-        
-        status.textContent = ordem.stat ? "Status: Resolvido!" : "Status: Pendente."
+        status.textContent = ordem.stat ? "Status: Resolvido" : "Status: Pendente."
     
         let resolvido = document.createElement("button")
-        resolvido.innerText = "Resolvido!"
-        resolvido.addEventListener("click", ()=>{
+        resolvido.innerText = "Marcar como Resolvido"
+        resolvido.addEventListener("click", ()=> {
             ordem.stat = !ordem.stat
             divOrdem.classList.toggle("resolvido")
             if (divOrdem.classList.contains("resolvido")) {
                 status.textContent = "Status: Resolvido!"
+                resolvido.textContent = "Marcar como Pendente"
             } else {
                 status.textContent = "Status: Pendente."
             }
@@ -85,7 +86,8 @@ function createOS() {
         ul.appendChild(status)
         ul.appendChild(resolvido)
         divOrdem.appendChild(ul)
-        divConteudo.appendChild(divOrdem)
+        divPendentes.appendChild(divOrdem)
+        divConteudo.appendChild(divPendentes)
     })
 }
 

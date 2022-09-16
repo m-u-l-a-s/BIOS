@@ -110,7 +110,7 @@ p {
 }
 
 .resolvido {
+    text-decoration: line-through;
     background-color: #dadada;
-    
 }
 
