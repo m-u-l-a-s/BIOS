@@ -75,6 +75,7 @@ function createOS() {
                 resolvido.textContent = "Marcar como Pendente"
             } else {
                 status.textContent = "Status: Pendente."
+                resolvido.textContent = "Marcar como Resolvido"
             }
         })
         
