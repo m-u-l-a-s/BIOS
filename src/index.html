@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>BIOS - Fatec | Home</title>
 </head>
+
 <body>
 
     <div class="header">
@@ -15,7 +17,7 @@
             <li><a href="./consulta.html">Consultar</a></li>
             <li><a href="./contato.html">Contato</a></li>
             <li><a href="./sobre.html">Sobre</a></li>
-          </ul>
+        </ul>
     </div>
 
     <div class="conteudo" id="conteudo">
@@ -25,15 +27,24 @@
             <br>
             Faculdade de Tecnologia de São Paulo - Campus São José dos Campos.
         </h4>
-        
-        <h3>Reporte um problema abaixo</h3>
-        <p>Laboratório: <input type="text" name="report" id="lab"></p>
-        <p>Máquina: <input type="text" name="report" id="maq"></p>        
-        <p>Problema: <input type="text" name="report" id="prob"></p>
-        <input type="submit" value="Enviar" id="submit">
-        <br><br>
-        <img src="./img/lab302.png" alt="" id="lab-layout">
+
+        <div>
+            <ul id="reportar">
+                <li style="margin-left: 5%;">
+                    <h3>Reporte um problema abaixo</h3>
+                    <p>Laboratório: <input type="text" name="report" id="lab"></p>
+                    <p>Máquina: <input type="text" name="report" id="maq"></p>
+                    <p>Problema: <input type="text" name="report" id="prob"></p>
+                    <input type="submit" value="Enviar" id="submit">
+                </li>
+    
+                <li>
+                    <img src="./img/lab302.png" alt="" id="lab-layout">
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="./scripts/main.js"></script>
 </body>
+
 </html>

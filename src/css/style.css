@@ -2,13 +2,32 @@ body {
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.2em;
-    background-color: #4672c4;
+    background-image: url("../img/fundo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    /*background-color: #4672c4;
     /* background-color: #214B47; */
 
 }
 
 #lab-layout {
     width: 70%;
+    border: 2px solid black;
+}
+
+#reportar {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+#reportar p {
+    font-size: 120%;
+}
+
+input {
+    font-size: 120%
 }
 
 .header {
@@ -20,16 +39,16 @@ body {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     border: 2px solid black;
-    border-bottom: none;
-    width: 60%;
+    width: 90%;
     height: 40px;
-    background-color: #dddddd;
+    background: rgba(0, 0, 0, 0.3);
+    /*background-color: #1566fd;*/
 }
 
 .header li a:hover{
     color: black;    
-    background-color: #fcfcfc;
-    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.4);
+    /*border-radius: 5px;*/
 }
 
 /*top, right, bottom, left */
@@ -45,17 +64,19 @@ li{
 .header li a {
     color: black;
     display: block;
-    background-color: #dddddd;
-    padding: 8px;
+    background: rgba(0, 0, 0, 0);
+    padding: 12px;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: bold;
-    padding-left: 5px;
+    /*padding-left: 5px;
+    padding-right: 5px;*/
+    
 }
 
 .active {
-    background-color: #fcfcfc !important;
-    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.1) !important;
+    /*border-radius: 5px;*/
 }
 
 .conteudo {
@@ -64,9 +85,10 @@ li{
     padding-bottom: 20px;
     border: 2px solid black;
     border-top: none;
-    width: 60%;
+    width: 90%;
     text-align: center;
-    background-color: #dadada;
+    /*background-color: #1566fd;*/
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -74,8 +96,9 @@ li{
 
 h1 {
     margin-top: 0%;
-    background-color: #282828;
-    color: #1973C1;
+    background: rgba(0, 0, 0, 0.2);
+    color: black;
+    border-bottom: 2px solid black;
 }
 
 .pendente {
@@ -93,14 +116,14 @@ h1 {
     position: inherit;
     text-align: start;
     /* background-color: lightgray; */
-    background-color: #bdbdbd;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .titulo-os {
     width: fit-content;
-    border: 2px solid #888888;
+    /*border: 2px solid #888888;*/
     border-radius: 4px;
-    background-color: #888888;
+    background-color: none /*#888888*/;
     font-weight: 600;
 }
 
@@ -109,7 +132,7 @@ h1 {
 }
 
 .resolvido {
-    background-color: #dadada;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .resolvido li{
