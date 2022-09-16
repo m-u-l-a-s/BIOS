@@ -56,7 +56,7 @@ function createOS() {
         let date = document.createElement("li")
     
         // Get data from localStorage:
-        osNumber.textContent = "Ordem de Serviço #"+osArr.indexOf(ordem)
+        osNumber.textContent = "Ordem de Serviço #"+(osArr.indexOf(ordem)+1)
         osNumber.setAttribute("class", "titulo-os")
         lab.textContent = "Laboratório: "+ ordem.lab
         maq.textContent = "Máquina: "+ordem.maq
