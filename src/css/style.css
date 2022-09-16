@@ -8,8 +8,7 @@ body {
 }
 
 #lab-layout {
-    width: 80%;
-    height: 60%;
+    width: 70%;
 }
 
 .header {
@@ -79,9 +78,9 @@ h1 {
     color: #1973C1;
 }
 
-p {
-    width: 340px;
-    margin: auto;
+.pendente {
+    text-align: center;
+
 }
 
 .ordem-servico {
@@ -110,7 +109,10 @@ p {
 }
 
 .resolvido {
-    text-decoration: line-through;
     background-color: #dadada;
+}
+
+.resolvido li{
+    text-decoration: line-through;
 }
 

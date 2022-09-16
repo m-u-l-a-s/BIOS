@@ -55,7 +55,8 @@ function createOS() {
         let prob = document.createElement("li")
         let status = document.createElement("li")
         let date = document.createElement("li")
-    
+        let resolvidoData = document.createElement('p')
+        
         // Get data from localStorage:
         osNumber.textContent = "Ordem de Serviço #"+(osArr.indexOf(ordem)+1)
         osNumber.setAttribute("class", "titulo-os")
@@ -73,9 +74,12 @@ function createOS() {
             if (divOrdem.classList.contains("resolvido")) {
                 status.textContent = "Status: Resolvido!"
                 resolvido.textContent = "Marcar como Pendente"
+                resolvidoData.textContent = `Resolvido: ${semana[d.getDay()]}, ${d.getDate()}/${ano[d.getMonth()]}/${d.getFullYear()} - ${d.getHours()}:${d.getMinutes()}`
+                ul.appendChild(resolvidoData)
             } else {
                 status.textContent = "Status: Pendente."
                 resolvido.textContent = "Marcar como Resolvido"
+                ul.removeChild(resolvidoData)
             }
         })
         
