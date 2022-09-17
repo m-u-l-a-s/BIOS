@@ -1,5 +1,5 @@
 
-<p style="align = center;">
+<p align="center">
     <img src="./src/img/logo_mulas.png">
 </p>
 
