@@ -14,6 +14,8 @@
 * [Preview da Plataforma](#plataforma)
 
 ## Apresentação da Equipe:
+Somos uma equipe de jovens programadores interessados em criar soluções simples para problemas complexos e em aprender o máximo possível no processo.
+Nosso foco é sempre identificar o objetivo principal de um produto em primeiro lugar para desenvolver soluções de maneira gradual e modular em torno deste objetivo, de forma que cada passo seja validado pelo(a) cliente e/ou usuários e o produto evolua organicamente.
 
 ## Integrantes:
 
