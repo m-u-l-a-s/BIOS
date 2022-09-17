@@ -35,6 +35,9 @@ Nosso foco é sempre identificar o objetivo principal de um produto em primeiro 
 
 ## Protótipo:
 
+O protótipo da plataforma foi feito com o auxílio da ferramenta "Figma" e pode ser conferido interativamente através do link:
+https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%3A1
+
 ## Tecnologias e ferramentas utilizadas:
 
 ## Backlog do produto:
@@ -48,5 +51,8 @@ Nosso foco é sempre identificar o objetivo principal de um produto em primeiro 
 # BIOS - Brilliant Integrated Organic Systems 
 
 Plataforma desenvolvida pela equipe M.U.L.A.S. para o Projeto Integrador - 1º ADS 2022/2
+
+Acesse a nossa plataforma através do link:
+https://sprightly-cajeta-fcf065.netlify.app/
 
 ![bios-preview](https://user-images.githubusercontent.com/64814482/190860498-e1f4e2b3-2517-4a7a-b245-874a5abc3863.png)
