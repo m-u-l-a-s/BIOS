@@ -1,4 +1,8 @@
 
+<p style="text-align = center;">
+    <img src="./src/img/logo_mulas.png">
+</p>
+
 ## Apresentação da Equipe:
 
 ## Integrantes:
