@@ -3,6 +3,16 @@
     <img src="./src/img/logo_mulas.png">
 </p>
 
+## Sumário:
+* [Apresentação da Equipe](#apresentação-da-equipe)
+* [Planejamento de Entregas](#planejamento-de-entregas)
+* [Projeto](#projeto)
+* [Objetivo](#objetivo)
+* [Protótipo](#protótipo)
+* [Tecnologias](#tecnologias-e-ferramentas-utilizadas)
+* [Backlog](#backlog-do-produto)
+* [Preview da Plataforma](#plataforma)
+
 ## Apresentação da Equipe:
 
 ## Integrantes:
@@ -31,9 +41,9 @@
 
 ### Requisitos não-funcionais:
 
-## Apresentação:
+## Plataforma:
 
-# Plataforma BIOS - Brilliant Integrated Organic Systems 
+# BIOS - Brilliant Integrated Organic Systems 
 
 Plataforma desenvolvida pela equipe M.U.L.A.S. para o Projeto Integrador - 1º ADS 2022/2
 
