@@ -49,8 +49,10 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 * GitHub: controle de versionamento, documentação e colaboração.
 
 ## Backlog do produto:
+###User Stories:
+![bios-user-stories-sprint_01](https://user-images.githubusercontent.com/64814482/190914307-f371512f-8441-47b5-b0f0-89ac87606dd6.png)
 
-## Planejamento de Entregas:
+### Planejamento de Entregas:
 
 ## Plataforma:
 
