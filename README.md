@@ -41,6 +41,7 @@ O protótipo da plataforma foi feito com o auxílio da ferramenta "Figma" e pode
 https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%3A1
 
 ## Tecnologias e ferramentas utilizadas:
+![bios-tech-stack_sprint-01](https://user-images.githubusercontent.com/64814482/190913279-bf0ff237-a442-4f4f-82ad-45d3c9e03050.png)
 
 ## Backlog do produto:
 
