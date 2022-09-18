@@ -46,7 +46,7 @@ input {
 }
 
 .header li a:hover{
-    color: black;    
+    color: white;    
     background: rgba(0, 0, 0, 0.4);
     /*border-radius: 5px;*/
 }
@@ -62,7 +62,7 @@ li{
 }
 
 .header li a {
-    color: black;
+    color: white;
     display: block;
     background: rgba(0, 0, 0, 0);
     padding: 12px;
@@ -87,6 +87,7 @@ li{
     border-top: none;
     width: 90%;
     text-align: center;
+    color: white;
     /*background-color: #1566fd;*/
     background: rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -97,7 +98,7 @@ li{
 h1 {
     margin-top: 0%;
     background: rgba(0, 0, 0, 0.2);
-    color: black;
+    color: white;
     border-bottom: 2px solid black;
 }
 
