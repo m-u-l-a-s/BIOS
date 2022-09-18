@@ -26,14 +26,12 @@ Nosso foco é em identificar o objetivo principal de um produto para desenvolver
 * Renan Graciano Faria
 * Thomas Januzzi Lewindon
 #### Product Owner:
-* Alita Willians Amâncio
+* Alita Willians Amancio
 #### Scrum Master:
 * Jonas Alves Bueno
 
-
-## Projeto:
-
-## Objetivo:
+## Objetivo do Produto:
+O objetivo do projeto é desenvolver uma plataforma onde possam ser reportados e verificados quaisquer problemas em uma ou mais máquinas localizadas em qualquer laboratório da Fatec SJC. Nossa plataforma, a BIOS, busca cumprir esse objetivo, sendo uma solução prática e intuitiva capaz de auxiliar e tornar mais eficiente o processo de manuntenção.
 
 ## Protótipo:
 
