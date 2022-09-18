@@ -49,8 +49,8 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 * GitHub: controle de versionamento, documentação e colaboração.
 
 ## Backlog do produto:
-###User Stories:
-![bios-user-stories-sprint_01](https://user-images.githubusercontent.com/64814482/190914307-f371512f-8441-47b5-b0f0-89ac87606dd6.png)
+### User Stories:
+![bios-user-stories-sprint_01](https://user-images.githubusercontent.com/64814482/190919563-6523d206-04ad-4348-a7f5-ad78d48ab812.png)
 
 ### Planejamento de Entregas:
 
@@ -58,9 +58,7 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 
 # BIOS - Brilliant Integrated Organic Systems 
 
-Plataforma desenvolvida pela equipe M.U.L.A.S. para o Projeto Integrador - 1º ADS 2022/2
+Acesse a nossa plataforma através do link: https://sprightly-cajeta-fcf065.netlify.app/
 
-Acesse a nossa plataforma através do link:
-https://sprightly-cajeta-fcf065.netlify.app/
+![bios-preview](https://user-images.githubusercontent.com/64814482/190919618-bc61c2c1-195f-437c-b896-643120f84526.png)
 
-![bios-preview](https://user-images.githubusercontent.com/64814482/190860498-e1f4e2b3-2517-4a7a-b245-874a5abc3863.png)
