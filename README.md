@@ -53,6 +53,7 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 ![bios-user-stories-sprint_01](https://user-images.githubusercontent.com/64814482/190919563-6523d206-04ad-4348-a7f5-ad78d48ab812.png)
 
 ### Planejamento de Entregas:
+![bios-planejamento-entregas](https://user-images.githubusercontent.com/64814482/190921865-d4aded52-ae43-4b77-bbf5-258d165644db.png)
 
 ## Plataforma:
 
