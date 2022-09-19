@@ -50,11 +50,14 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 ### User Stories:
 ![bios-backlog-user-stories](https://user-images.githubusercontent.com/64814482/190936243-afa665a7-fd38-49f3-8f08-7e5659a5d81b.png)
 
-### Planejamento de Entregas:https://user-images.githubusercontent.com/64814482/190921865-d4aded52-ae43-4b77-bbf5-258d165644db.png
+### Planejamento de Entregas:
+![bios-planejamento-entregas](https://user-images.githubusercontent.com/64814482/190936369-0210bff2-f41b-4e1a-a537-8419d5e380cc.png)
+
+
 
 ## Plataforma:
 
-# BIOS - Brilliant Integrated Organic Systems 
+### BIOS - Brilliant Integrated Organic Systems 
 
 Acesse a nossa plataforma através do link: https://sprightly-cajeta-fcf065.netlify.app/
 
