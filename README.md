@@ -48,10 +48,9 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 
 ## Backlog do produto:
 ### User Stories:
-![bios-user-stories-sprint_01](https://user-images.githubusercontent.com/64814482/190919563-6523d206-04ad-4348-a7f5-ad78d48ab812.png)
+![bios-backlog-user-stories](https://user-images.githubusercontent.com/64814482/190936243-afa665a7-fd38-49f3-8f08-7e5659a5d81b.png)
 
-### Planejamento de Entregas:
-![bios-planejamento-entregas](https://user-images.githubusercontent.com/64814482/190935938-2e0be83c-393f-442e-9e15-afc92fc75180.png)
+### Planejamento de Entregas:https://user-images.githubusercontent.com/64814482/190921865-d4aded52-ae43-4b77-bbf5-258d165644db.png
 
 ## Plataforma:
 
