@@ -32,12 +32,68 @@
             <ul id="reportar">
                 <li style="margin-left: 5%;">
                     <h3>Reporte um problema abaixo</h3>
-                    <p>Laboratório: <input type="text" name="report" id="lab"></p>
-                    <p>Máquina: <input type="text" name="report" id="maq"></p>
-                    <p>Problema: <input type="text" name="report" id="prob"></p>
+                    <p>Laboratório:
+                        <!--<input type="text" name="report" id="lab">-->
+
+                        <select id="lab" name="report">
+                            <optgroup label="Terceiro Andar">
+                                <option value="301"> 301 </option>
+                                <option value="302"> 302 </option>
+                                <option value="303"> 303 </option>
+                                <option value="304"> 304 </option>
+                                <option value="305"> 305 </option>
+                                <option value="306"> 306 </option>
+                            </optgroup>
+
+                            <optgroup label="Quarto Andar">
+                                <option value="401"> 401 </option>
+                                <option value="402"> 402 </option>
+                                <option value="403"> 403 </option>
+                                <option value="404"> 404 </option>
+                                <option value="405"> 405 </option>
+                                <option value="406"> 406 </option>
+                            </optgroup>
+                        </select>
+
+                    </p>
+
+                    <p>Máquina:
+                        <!--<input type="text" name="report" id="maq">-->
+
+                        <select id="maq" name="report">
+                            <option value="01"> 01 </option>
+                            <option value="02"> 02 </option>
+                            <option value="03"> 03 </option>
+                            <option value="04"> 04 </option>
+                            <option value="05"> 05 </option>
+                            <option value="06"> 06 </option>
+
+                            <option value="07"> 07 </option>
+                            <option value="08"> 08 </option>
+                            <option value="09"> 09 </option>
+                            <option value="10"> 10 </option>
+                            <option value="11"> 11 </option>
+                            <option value="12"> 12 </option>
+                        </select>
+
+                    </p>
+
+                    <p>Problema:
+                        <!--<input type="text" name="report" id="prob">-->
+
+                        <select id="prob" name="report">
+                            <option value="Monitor Não Liga"> Monitor Não Liga </option>
+                            <option value="PC Não Liga"> PC Não Liga </option>
+                            <option value="Mouse Não Funciona"> Mouse Não Funciona </option>
+                            <option value="Não Conecta com Internet"> Não Conecta com Internet </option>
+                            <option value="PC Lento Demais"> PC Lento Demais </option>
+                            <option value="Teclado Não Funciona"> Teclado Não Funciona </option>
+                        </select>
+
+                    </p>
                     <input type="submit" value="Enviar" id="submit">
                 </li>
-    
+
                 <li>
                     <img src="./img/lab302.png" alt="" id="lab-layout">
                 </li>

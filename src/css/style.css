@@ -26,8 +26,8 @@ body {
     font-size: 120%;
 }
 
-input {
-    font-size: 120%
+input, select {
+    font-size: 100%
 }
 
 .header {
