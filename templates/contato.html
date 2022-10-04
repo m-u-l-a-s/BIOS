@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css') }} ">
     <title>BIOS - Fatec | Contato</title>
 </head>
 <body>
 
     <div class="header">
         <ul>
-            <li><a href="index">Reportar Um Problema</a></li>
-            <li><a href="consulta" class="active">Consultar</a></li>
-            <li><a href="contato">Contato</a></li>
-            <li><a href="sobre">Sobre</a></li>
+            <li><a href="{{ url_for('index') }}">Reportar Um Problema</a></li>
+            <li><a href="{{ url_for('consulta') }}">Consultar</a></li>
+            <li><a href="{{ url_for('contato') }}" class="active">Contato</a></li>
+            <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
           </ul>
     </div>
 

@@ -1,12 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, redirect
 
 app = Flask(__name__)
 
-title = "Heric"
-
 @app.route("/")
 def home():
-    return render_template("index.html", title=title)
+    return render_template("index.html")
 
 @app.route("/consulta")
 def consulta():
@@ -23,3 +21,4 @@ def sobre():
 @app.route("/index")
 def index():
     return render_template("index.html")
+
