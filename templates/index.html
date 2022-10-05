@@ -32,30 +32,35 @@
             <ul id="reportar">
                 <li style="margin-left: 5%;">
                     <h3>Reporte um problema abaixo</h3>
-                    <p>Laboratório:
-                        <!--<input type="text" name="report" id="lab">-->
 
-                        <select id="lab" name="report">
-                            <optgroup label="Terceiro Andar">
-                                <option value="301"> 301 </option>
-                                <option value="302"> 302 </option>
-                                <option value="303"> 303 </option>
-                                <option value="304"> 304 </option>
-                                <option value="305"> 305 </option>
-                                <option value="306"> 306 </option>
-                            </optgroup>
+                    <form action="{{ url_for('gfg')}}" method="post">
+                        <p>Laboratório:
+                            <select id="lab" name="lab" required>
+                                <optgroup label="Terceiro Andar">
+                                    <option value="301"> 301 </option>
+                                    <option value="302"> 302 </option>
+                                    <option value="303"> 303 </option>
+                                    <option value="304"> 304 </option>
+                                    <option value="305"> 305 </option>
+                                    <option value="306"> 306 </option>
+                                </optgroup>
 
-                            <optgroup label="Quarto Andar">
-                                <option value="401"> 401 </option>
-                                <option value="402"> 402 </option>
-                                <option value="403"> 403 </option>
-                                <option value="404"> 404 </option>
-                                <option value="405"> 405 </option>
-                                <option value="406"> 406 </option>
-                            </optgroup>
-                        </select>
+                                <optgroup label="Quarto Andar">
+                                    <option value="401"> 401 </option>
+                                    <option value="402"> 402 </option>
+                                    <option value="403"> 403 </option>
+                                    <option value="404"> 404 </option>
+                                    <option value="405"> 405 </option>
+                                    <option value="406"> 406 </option>
+                                </optgroup>
+                            </select>
+                            <input type="submit" value="Enviar">
+                        </p>
+                    </form>
 
-                    </p>
+
+
+
 
                     <p>Máquina:
                         <!--<input type="text" name="report" id="maq">-->
@@ -95,7 +100,7 @@
                 </li>
 
                 <li>
-                    <img src="../static/imgs/lab302.png" alt="" id="lab-layout">
+                    <img src="{{url_for('static', filename = lab) }}" alt="" id="lab-layout">
                 </li>
             </ul>
         </div>

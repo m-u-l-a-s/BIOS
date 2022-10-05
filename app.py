@@ -1,10 +1,12 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 
+lab = '../static/imgs/lab302.png'
 app = Flask(__name__)
 
 @app.route("/")
-def home():
-    return render_template("index.html")
+@app.route("/index")
+def index():
+    return render_template("index.html", lab = lab)
 
 @app.route("/consulta")
 def consulta():
@@ -18,7 +20,14 @@ def contato():
 def sobre():
     return render_template("sobre.html")
 
-@app.route("/index")
-def index():
-    return render_template("index.html")
+
+@app.route('/', methods=["GET", "POST"])
+def gfg():
+    if request.method == "POST":
+        lab = request.form.get("lab")
+        if (lab >= "301") and (lab <= "309"):
+            lab = '../static/imgs/lab302.png'
+        else:
+            lab = '../static/imgs/logo_mulas.png'
+    return render_template("index.html", lab=lab,)
 
