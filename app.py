@@ -26,8 +26,8 @@ def gfg():
     if request.method == "POST":
         lab = request.form.get("lab")
         if (lab >= "301") and (lab <= "309"):
-            lab = '../static/imgs/lab302.png'
+            lab = '../static/imgs/Lab302.png'
         else:
-            lab = '../static/imgs/logo_mulas.png'
+            lab = '../static/imgs/Lab402.png'
     return render_template("index.html", lab=lab,)
 
