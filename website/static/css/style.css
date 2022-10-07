@@ -1,0 +1,127 @@
+body {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.2em;
+    background-image: url("../imgs/2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#lab-layout {
+    width: 70%;
+    border: 2px solid black;
+}
+
+#reportar {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+#reportar p {
+    font-size: 120%;
+}
+
+input, select {
+    font-size: 100%
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: auto;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: 2px solid black;
+    width: 90%;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.header li a:hover{
+    color: white;    
+    background: rgba(0, 0, 0, 0.4);
+}
+
+li{
+    display: inline-block;
+}
+
+.header li a {
+    color: white;
+    display: block;
+    background: rgba(0, 0, 0, 0);
+    padding: 12px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    /*padding-left: 5px;
+    padding-right: 5px;*/
+    
+}
+
+.conteudo {
+    margin: auto;
+    margin-top: 1%;
+    padding-bottom: 20px;
+    border: 2px solid black;
+    width: 90%;
+    color: white;
+    background: rgba(34, 34, 34, 0.808);
+    border-radius: 5px;
+}
+
+h1 {
+    margin-top: 0%;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    border-bottom: 2px solid black;
+}
+
+.pendente {
+    text-align: center;
+}
+
+.ordem-servico {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    position: inherit;
+    text-align: start;
+    /* background-color: lightgray; */
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.titulo-os {
+    width: fit-content;
+    /*border: 2px solid #888888;*/
+    border-radius: 4px;
+    background-color: none /*#888888*/;
+    font-weight: 600;
+}
+
+.ordem-servico ul li {
+    display: block;
+}
+
+.resolvido {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.resolvido li{
+    text-decoration: line-through;
+}
+
+.novo-usuario {
+    margin: auto;
+    width: 40%;
+}
+
+.form-login {
+    text-align: center;
+}

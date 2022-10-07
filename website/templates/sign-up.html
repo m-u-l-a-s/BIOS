@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} BIOS - Criar uma conta {% endblock %}
+
+{% block content %}
+ 
+    <form method="POST" class="novo-usuario">
+        <h3 align="center" class="form-group">Crie uma conta</h3>
+            <div class="form-group form-login">
+                <label for="email"></label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <label for="username"></label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Usuário">
+            </div>
+            
+            <div class="form-group">
+                <label for="password1"></label>
+                <input type="password" class="form-control" id="password1" name="password1" placeholder="Crie uma senha">
+            </div>
+
+            <div class="form-group">
+                <label for="password2"></label>
+                <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirme sua senha">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-secondary">Enviar</button>
+    </form>
+
+{% endblock %}
