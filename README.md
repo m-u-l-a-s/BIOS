@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img src=".website/static/imgs/logo_mulas.png">
+    <img src="website/static/imgs/logo_mulas.png">
 </p>
 
 ## Sumário:
