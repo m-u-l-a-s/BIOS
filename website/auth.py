@@ -17,7 +17,7 @@ def gfg():
 
 @auth.route('/index', methods=['GET', 'POST'])
 def root():
-    return render_template('index.html', lab='imgs/logo_mulas.png')
+    return render_template('index.html')
 
 
 @auth.route('/consulta')
