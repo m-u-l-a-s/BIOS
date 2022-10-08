@@ -19,15 +19,15 @@ Nosso foco é em identificar o objetivo principal de um produto para desenvolver
 ## Integrantes:
 
 #### Devs:
-* Alexandre Jonas de Souza Fonseca
-* Amanda Mendes Caldeira
-* Jean Cesar de Oliveira Rodrigues
-* Renan Graciano Faria
-* Thomas Januzzi Lewindon
+* [Alexandre Jonas de Souza Fonseca](https://github.com/AlexandreJonas)
+* [Amanda Mendes Caldeira](https://github.com/AmendoaM)
+* [Jean Cesar de Oliveira Rodrigues](https://github.com/JeanRodrigues1)
+* [Renan Graciano Faria](https://github.com/VonNexx)
+* [Thomas Januzzi Lewindon](https://github.com/Thomasjanuzzi)
 #### Product Owner:
-* Alita Willians Amancio
+* [Alita Willians da Silva Amancio](https://github.com/AlitaAmancio)
 #### Scrum Master:
-* Jonas Alves Bueno
+* [Jonas Alves Bueno](https://github.com/dodekafonos)
 
 ## Objetivo do Produto:
 O objetivo do projeto é desenvolver uma plataforma onde possam ser reportados e verificados quaisquer problemas em uma ou mais máquinas localizadas em qualquer laboratório da Fatec SJC. Nossa plataforma, a BIOS, busca cumprir esse objetivo, sendo uma solução prática e intuitiva capaz de auxiliar e tornar mais eficiente o processo de manuntenção.
