@@ -33,7 +33,7 @@ function getData() {
     ordens.push(os)
     let tmp = JSON.stringify(ordens)
     storage.setItem("ordens", tmp)
-    cleanField()
+    //cleanField()
 }
 
 function createOS() {

@@ -9,17 +9,35 @@
         <h1>Problemas Reportados:</h1>
     </div>
 
-    <div class="resolvidos detalhes-os" id="resolvidos"></div>   
+    <div class="resolvidos detalhes-os" id="resolvidos">
+        {% for i in ar %}
+
+            <div class="ordem-servico">
+
+                <ul class="pendente">
+                    <li>OS Número: {{ ar.index(i) + 1 }} </li> <br>
+                    <li>Laboratório: {{ i[0] }} </li><br>
+                    <li>Máquina: {{ i[1] }} </li><br>
+                    <li>Problema: {{ i[2] }} </li><br>
+                    <li>Reportado em: {{ i[3] }} </li><br>
+                    <li>Status: Pendente </li><br>
+                </ul>
+            </div>
+            {% endfor %}
+    </div>   
 
 </div>    
 
 
 <div class="right">
+    {% for i in ar %}
 
-    <div class="detalhes-os">
-        <h3>Detalhes da Ordem de Serviço:</h3>
-    </div>
-
+        <div class="detalhes-os">
+            <h3>Detalhes da Ordem de Serviço:</h3>
+            <p> {{ i[5] }}</p>
+        </div>
+        <div>.</div>
+    {% endfor %}
 </div>
   
 

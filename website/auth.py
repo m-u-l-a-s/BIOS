@@ -2,17 +2,26 @@ from flask import Blueprint, render_template, url_for, request, flash
 
 
 auth = Blueprint('auth', __name__)
-
+"""
+os = (lab,maq,prob,rep,stat,detalhes)
+"""
+os = ('1','1','1','1',False, "waow")
+ar = []
 
 @auth.route('/', methods=["GET", "POST"])
 def gfg():
     if request.method == "POST":
-        lab = request.form.get("lab")
+        lab = str(request.form.get("lab"))
+        maq = str(request.form.get("maq"))
+        prob = str(request.form.get("prob"))
+        detalhes = str(request.form.get("detalhes-os"))
+        os = (lab,maq,prob,'1',False, detalhes)
+        ar.append(os)
         if (lab >= "301") and (lab <= "309"):
             lab = '/imgs/lab302.png'
         else:
             lab = '/imgs/lab402.png'
-    return render_template("index.html", lab=lab)
+    return render_template("index.html", lab=lab,os = os)
 
 
 @auth.route('/index', methods=['GET', 'POST'])
@@ -22,7 +31,7 @@ def root():
 
 @auth.route('/consulta')
 def consulta():
-    return render_template('consulta.html')
+    return render_template('consulta.html', ar = ar)
 
 
 @auth.route('/contato')
