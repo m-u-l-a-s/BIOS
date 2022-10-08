@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %} BIOS - Consultar {% endblock %}
+
+{% block content %}
+
+<div class="left" style="display: block">
+    <div class="pendentes" id="pendentes">
+        <h1>Problemas Reportados:</h1>
+    </div>
+
+    <div class="resolvidos detalhes-os" id="resolvidos">
+        {% for i in ar %}
+
+            <div class="ordem-servico">
+
+                <ul class="pendente">
+                    <li>OS Número: {{ ar.index(i) + 1 }} </li> <br>
+                    <li>Laboratório: {{ i[0] }} </li><br>
+                    <li>Máquina: {{ i[1] }} </li><br>
+                    <li>Problema: {{ i[2] }} </li><br>
+                    <li>Reportado em: {{ i[3] }} </li><br>
+                    <li>Status: Pendente </li><br>
+                </ul>
+            </div>
+            {% endfor %}
+    </div>   
+
+</div>    
+
+
+<div class="right">
+    {% for i in ar %}
+
+        <div class="detalhes-os">
+            <h3>Detalhes da Ordem de Serviço:</h3>
+            <p> {{ i[5] }}</p>
+        </div>
+        <div>.</div>
+    {% endfor %}
+</div>
+  
+
+<script src="{{ url_for ('static', filename='scripts/main.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+from flask import Blueprint, render_template, url_for, request, flash
+from flask_mysqldb import MySQL
+import yaml
+
+# Configurando banco de dados:
+db = yaml.load(open(db.yaml))
+
+app.config['MYSQL_HOST'] = db['mysql_host']
+app.config['MYSQL_USER'] = db['mysql_user']
+app.config['MYSQL_PASSWORD'] = db['mysql_password']
+app.config['MYSQL_DB'] = db['mysql_db']
+
+# Instanciando objeto "MySQL" com as informações da aplicação:
+mysql = MySQL(app)
+
+auth = Blueprint('auth', __name__)
+"""
+os = (lab, maq, prob, rep, stat, detalhes)
+"""
+os = ('1','1','1','1',False, "waow")
+ar = []
+
+@auth.route('/', methods=["GET", "POST"])
+def gfg():
+    if request.method == "POST":
+        lab = str(request.form.get("lab"))
+        maq = str(request.form.get("maq"))
+        prob = str(request.form.get("prob"))
+        detalhes = str(request.form.get("detalhes-os"))
+        os = (lab,maq,prob,'1',False, detalhes)
+        ar.append(os)
+        if (lab >= "301") and (lab <= "309"):
+            lab = '/imgs/lab302.png'
+        else:
+            lab = '/imgs/lab402.png'
+    return render_template("index.html", lab=lab,os = os)
+
+
+@auth.route('/index', methods=['GET', 'POST'])
+def root():
+    return render_template('index.html')
+
+
+@auth.route('/consulta')
+def consulta():
+    return render_template('consulta.html', ar = ar)
+
+
+@auth.route('/contato')
+def contato():
+    return render_template('contato.html')
+
+
+@auth.route('/login', methods=['GET', 'POST'])
+def login():
+    data = request.form
+    print(data)
+    return render_template('login.html')
+
+
+@auth.route('/logout')
+def logout():
+    return render_template('sign-up.html')
+
+
+@auth.route('/sign-up', methods=['GET', 'POST'])
+def sign_up():
+    if request.method == 'POST':
+        # Pegar dados do formulário:
+        email = request.form.get('email')
+        username = request.form.get('username')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+        admin = False
+
+        cursor = mysql.connection.cursor()
+        cursor.execute("INSERT INTO users (user, passw, email, admin) VALUES (%s, %s, %s, %s)", username, password1, email, admin)
+
+        mysql.connection.commit()
+        cursor.close()
+        return "Adicionado com sucesso."
+    
+        # Pegar dados do usuário do banco de dados:
+        # user = ?
+        # if user:
+        #     flash('Email already exists.', category='error')
+        if len(email) < 4:
+            flash('Seu email deve ter pelo menos 4 caracteres.', category='error')
+        elif len(username) < 3:
+            flash('Seu nome de usuário deve ter pelo menos 3 caracteres.', category='error')
+        elif password1 != password2:
+            flash('Senhas não coincidem.', category='error')
+        elif len(password1) < 6:
+            flash('Para sua segurança, crie uma senha de pelo menos 6 caracteres!', category='error')
+        else:
+            new_user = User(email=email, username=username, password=generate_password_hash(
+                password1, method='sha256'))
+            # Adicionar usuário ao banco de dados:
+            # db.session.add(new_user)
+            # db.session.commit()
+            # login_user(new_user, remember=True)
+            # flash('Account created!', category='success')
+            # return redirect(url_for('views.home'))
+    return render_template("sign-up.html") #user=current_user
+    
+

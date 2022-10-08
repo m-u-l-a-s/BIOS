@@ -1,0 +1,147 @@
+body {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.2em;
+    background-color: rgb(122, 122, 122);
+}
+
+/* responsive font sizes: */
+h1 {
+    font-size: 2.5vw;
+    margin-top: 0%;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+h3 {
+    font-size: 1.8vw;
+}
+
+p {
+    font-size: 1.4vw;
+}
+
+#reportar {
+    text-align: start;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+input, select {
+    font-size: 100%
+}
+
+li{
+    display: inline-block;
+}
+
+.conteudo {
+    display: flex;
+    
+    height: 78vh;
+    width: 80%;
+
+    margin: 1% auto;
+    
+    color: white;
+    background: rgba(34, 34, 34, 0.808);
+    
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.left {
+    display: flex;
+    color: black;
+    background-color: white;
+    width: 50%;
+    image-resolution: inherit;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    overflow: scroll;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../imgs/2.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 50%;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+}
+
+.right img {
+
+    width: 90%;
+    height: auto;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+}
+
+#logo {
+    width: 60%;
+}
+
+.right h1 {
+    margin-top: 80px;
+}
+
+.pendente {
+    text-align: center;
+}
+
+.ordem-servico {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    position: inherit;
+    text-align: start;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.titulo-os {
+    width: fit-content;
+    border-radius: 4px;
+    background-color: none /*#888888*/;
+    font-weight: 600;
+}
+
+.ordem-servico ul li {
+    display: block;
+}
+
+.detalhes-os {
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.resolvido {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.resolvido li{
+    text-decoration: line-through;
+}
+
+.novo-usuario {
+    margin: auto;
+    width: 40%;
+}
+
+.form-login {
+    text-align: center;
+}
