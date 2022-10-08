@@ -1,9 +1,21 @@
 from flask import Blueprint, render_template, url_for, request, flash
+from flask_mysqldb import MySQL
+import yaml
 
+# Configurando banco de dados:
+db = yaml.load(open(db.yaml))
+
+app.config['MYSQL_HOST'] = db['mysql_host']
+app.config['MYSQL_USER'] = db['mysql_user']
+app.config['MYSQL_PASSWORD'] = db['mysql_password']
+app.config['MYSQL_DB'] = db['mysql_db']
+
+# Instanciando objeto "MySQL" com as informações da aplicação:
+mysql = MySQL(app)
 
 auth = Blueprint('auth', __name__)
 """
-os = (lab,maq,prob,rep,stat,detalhes)
+os = (lab, maq, prob, rep, stat, detalhes)
 """
 os = ('1','1','1','1',False, "waow")
 ar = []
@@ -54,10 +66,19 @@ def logout():
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
+        # Pegar dados do formulário:
         email = request.form.get('email')
         username = request.form.get('username')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
+        admin = False
+
+        cursor = mysql.connection.cursor()
+        cursor.execute("INSERT INTO users (user, passw, email, admin) VALUES (%s, %s, %s, %s)", username, password1, email, admin)
+
+        mysql.connection.commit()
+        cursor.close()
+        return "Adicionado com sucesso."
     
         # Pegar dados do usuário do banco de dados:
         # user = ?

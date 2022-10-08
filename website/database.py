@@ -10,7 +10,7 @@ def Insert_Login(Usuario, Senha, Email, Técnico):
 
     mycursor = mydb.cursor()
 
-    sql = "INSERT INTO login (Usuario, Senha, Email, Técnico) VALUES (%s, %s, %s, %s)"
+    sql = "INSERT INTO users (user, passw, email, admin) VALUES (%s, %s, %s, %s)"
     val = [Usuario, Senha, Email, Técnico]
 
     mycursor.execute(sql, val)
