@@ -12,15 +12,33 @@ body {
     border: 0.2px solid rgba(0, 0, 0, 0.404);
 } */
 
+/* responsive font sizes: */
+h1 {
+    font-size: 2.5vw;
+    margin-top: 0%;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+h3 {
+    font-size: 1.8vw;
+}
+
+p {
+    font-size: 1.4vw;
+}
+
 #reportar {
     text-align: start;
     display: flex;
     align-items: center;
     width: fit-content;
-}
-
-#reportar p {
-    font-size: 120%;
 }
 
 input, select {
@@ -58,10 +76,6 @@ li{
     border-radius: 4px;
 }
 
-.left h2 {
-    font-size: 1.3rem;
-}
-
 .right {
     display: flex;
     justify-content: center;
@@ -90,13 +104,6 @@ li{
     margin-top: 80px;
 }
 
-h1 {
-    margin-top: 0%;
-    background: rgba(0, 0, 0, 0.2);
-    color: white;
-    border-bottom: 2px solid black;
-}
-
 .pendente {
     text-align: center;
 }
@@ -110,7 +117,6 @@ h1 {
     border-radius: 10px;
     position: inherit;
     text-align: start;
-    /* background-color: lightgray; */
     background: rgba(0, 0, 0, 0.2);
 }
 
