@@ -22,14 +22,14 @@ def Insert_OS(Sala, Maquina, Problema, Reportado, Resolvido):
 
     mydb = mysql.connector.connect(
         host="localhost",
-        user="M.U.L.A.S",
+        user="root",
         password="MUL1NH4S",
-        database="testes"
+        database="os"
     )
-
+#CREATE TABLE bd (user varchar(20), senha varchar(20), data varchar(10));
     mycursor = mydb.cursor()
 
-    sql = "INSERT INTO os (Sala, Maquina, Problema, Reportado, Resolvido) VALUES (%s, %s, %s, %s, %s)"
+    sql = "INSERT INTO oss (Sala, Maquina, Problema, Reportado, Resolvido) VALUES (%s, %s, %s, %s, %s)"
     val = [Sala, Maquina, Problema, Reportado, Resolvido]
 
     mycursor.execute(sql, val)
@@ -60,9 +60,9 @@ def Select_OS():
 
     mydb = mysql.connector.connect(
         host="localhost",
-        user="M.U.L.A.S",
+        user="root",
         password="MUL1NH4S",
-        database="testes"
+        database="teste"
     )
 
     mycursor = mydb.cursor()
