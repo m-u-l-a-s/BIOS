@@ -36,63 +36,63 @@ function getData() {
     //cleanField()
 }
 
-function createOS() {
-    // let divConteudo = document.getElementById("conteudo");
-    let divPendentes = document.getElementById("pendentes");
-    let osArr = JSON.parse(storage.getItem("ordens"))
-    console.log(osArr)
+// function createOS() {
+//     // let divConteudo = document.getElementById("conteudo");
+//     let divPendentes = document.getElementById("pendentes");
+//     let osArr = JSON.parse(storage.getItem("ordens"))
+//     console.log(osArr)
     
-    // Create HTML elements:
-    osArr.forEach(ordem => {
+//     // Create HTML elements:
+//     osArr.forEach(ordem => {
         
-        let divOrdem = document.createElement("div");
-        divOrdem.setAttribute("class", "ordem-servico")
-        let ul = document.createElement("ul")
-        let osNumber = document.createElement("li")
-        let lab = document.createElement("li")
-        let maq = document.createElement("li")
-        let prob = document.createElement("li")
-        let status = document.createElement("li")
-        let date = document.createElement("li")
-        let resolvidoData = document.createElement('p')
+//         let divOrdem = document.createElement("div");
+//         divOrdem.setAttribute("class", "ordem-servico")
+//         let ul = document.createElement("ul")
+//         let osNumber = document.createElement("li")
+//         let lab = document.createElement("li")
+//         let maq = document.createElement("li")
+//         let prob = document.createElement("li")
+//         let status = document.createElement("li")
+//         let date = document.createElement("li")
+//         let resolvidoData = document.createElement('p')
         
-        // Get data from localStorage:
-        osNumber.textContent = "Ordem de Serviço #"+(osArr.indexOf(ordem)+1)
-        osNumber.setAttribute("class", "titulo-os")
-        lab.textContent = "Laboratório: "+ ordem.lab
-        maq.textContent = "Máquina: "+ordem.maq
-        prob.textContent = "Problema: "+ordem.prob
-        date.textContent = "Reportado em: " + ordem.rep
-        status.textContent = ordem.stat ? "Status: Resolvido" : "Status: Pendente."
+//         // Get data from localStorage:
+//         osNumber.textContent = "Ordem de Serviço #"+(osArr.indexOf(ordem)+1)
+//         osNumber.setAttribute("class", "titulo-os")
+//         lab.textContent = "Laboratório: "+ ordem.lab
+//         maq.textContent = "Máquina: "+ordem.maq
+//         prob.textContent = "Problema: "+ordem.prob
+//         date.textContent = "Reportado em: " + ordem.rep
+//         status.textContent = ordem.stat ? "Status: Resolvido" : "Status: Pendente."
     
-        let resolvido = document.createElement("button")
-        resolvido.innerText = "Marcar como Resolvido"
-        resolvido.addEventListener("click", ()=> {
-            ordem.stat = !ordem.stat
-            divOrdem.classList.toggle("resolvido")
-            if (divOrdem.classList.contains("resolvido")) {
-                status.textContent = "Status: Resolvido!"
-                resolvido.textContent = "Marcar como Pendente"
-                resolvidoData.textContent = `Resolvido: ${semana[d.getDay()]}, ${d.getDate()}/${ano[d.getMonth()]}/${d.getFullYear()} - ${d.getHours()}:${d.getMinutes()}`
-                ul.appendChild(resolvidoData)
-            } else {
-                status.textContent = "Status: Pendente."
-                resolvido.textContent = "Marcar como Resolvido"
-                ul.removeChild(resolvidoData)
-            }
-        })
+//         let resolvido = document.createElement("button")
+//         resolvido.innerText = "Marcar como Resolvido"
+//         resolvido.addEventListener("click", ()=> {
+//             ordem.stat = !ordem.stat
+//             divOrdem.classList.toggle("resolvido")
+//             if (divOrdem.classList.contains("resolvido")) {
+//                 status.textContent = "Status: Resolvido!"
+//                 resolvido.textContent = "Marcar como Pendente"
+//                 resolvidoData.textContent = `Resolvido: ${semana[d.getDay()]}, ${d.getDate()}/${ano[d.getMonth()]}/${d.getFullYear()} - ${d.getHours()}:${d.getMinutes()}`
+//                 ul.appendChild(resolvidoData)
+//             } else {
+//                 status.textContent = "Status: Pendente."
+//                 resolvido.textContent = "Marcar como Resolvido"
+//                 ul.removeChild(resolvidoData)
+//             }
+//         })
         
-        ul.appendChild(osNumber)
-        ul.appendChild(lab)
-        ul.appendChild(maq)
-        ul.appendChild(prob)
-        ul.appendChild(date)
-        ul.appendChild(status)
-        ul.appendChild(resolvido)
-        divOrdem.appendChild(ul)
-        divPendentes.appendChild(divOrdem)
-        // divConteudo.appendChild(divPendentes)
-    })
-}
+//         ul.appendChild(osNumber)
+//         ul.appendChild(lab)
+//         ul.appendChild(maq)
+//         ul.appendChild(prob)
+//         ul.appendChild(date)
+//         ul.appendChild(status)
+//         ul.appendChild(resolvido)
+//         divOrdem.appendChild(ul)
+//         divPendentes.appendChild(divOrdem)
+//         // divConteudo.appendChild(divPendentes)
+//     })
+//}
 
 submit.addEventListener("click", getData)
