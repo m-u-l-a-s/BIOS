@@ -4,9 +4,9 @@
 
 {% block content %}
 
-    <h1>Reporte um problema abaixo</h1>
+    <!-- <h1>Reporte um problema abaixo</h1> -->
 
-    <div>
+    <div class="left" style="text-align: start;">
 
         <ul id="reportar">
             <li style="margin-left: 5%;">
@@ -71,11 +71,12 @@
                 <br>
                 <input type="submit" value="Enviar" id="submit" class="btn btn-secondary">
             </li>
-
-            <li>
-                <img src="{{url_for('static', filename = lab) }}" alt="" id="lab-layout">
-            </li>
         </ul>
+    </div>
+
+
+    <div class="right">
+                <img src="{{url_for('static', filename = lab) }}" alt="" id="lab-layout">
     </div>
 <script src="{{ url_for ('static', filename='scripts/main.js') }}"></script>
 
