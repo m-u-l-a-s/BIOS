@@ -96,7 +96,6 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
    |- 📑 .gitignore
    |- 📑 LICENSE
    |- 📑 main.py
-   |- 📑 package.json
    |- 📑 README.md
    |- 📑 requirements.txt
 ```
