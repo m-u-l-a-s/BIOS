@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img src="./static/imgs/logo_mulas.png">
+    <img src="https://user-images.githubusercontent.com/89790349/194731925-ee0f047c-2a8a-4a0b-8d63-88b40f11cafa.png">
 </p>
 
 ## Sumário:
