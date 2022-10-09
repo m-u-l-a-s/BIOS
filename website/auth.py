@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, url_for, request, flash
-
+from .database import create_oss_table, create_users_table
 
 auth = Blueprint('auth', __name__)
 """
@@ -10,6 +10,23 @@ os = ('1','1','1','1',"Pendente", "waow")
 ar = []
 lab = ""
 
+user = {
+    "user": "aluno", 
+    "senha": "", 
+    "email": "aluno@fatec.gov.sp.br", 
+    "admin": False
+}
+admin = {
+    "user": "admin", 
+    "senha": "admin", 
+    "email": "admin@fatec.gov.sp.br", 
+    "admin": True
+}
+
+try: create_oss_table()
+except: pass
+try: create_users_table()
+except: pass
 
 @auth.route('/', methods=['GET', 'POST'])
 def home():
@@ -31,10 +48,7 @@ def gfg():
         #os = (lab,maq,prob,'1',False, detalhes)
         #ar.append(os)
         from .database import Insert_OS, create_oss_table
-        try: 
-            create_oss_table()
-        except:
-            pass
+
         Insert_OS(lab, maq, prob, detalhes, "Pendente")
         if (lab >= "301") and (lab <= "309"):
             lab = '/imgs/lab302.png'
@@ -44,16 +58,11 @@ def gfg():
 
 
 @auth.route('/consulta')
-def consulta():
-    from .database import Select_OS
-    user = {
-        "user": "jonas",
-        "senha": "123",
-        "email": "jonas@fatec",
-        "admin": True
-    }
+def consulta(current_user = user):
+    from .database import Select_OS, Select_Login
+
     ar = Select_OS()
-    return render_template('consulta.html', ar = ar, user = user)
+    return render_template('consulta.html', ar = ar, user = current_user)
 
 
 @auth.route('/contato')
@@ -63,8 +72,19 @@ def contato():
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
-    data = request.form
-    print(data)
+    # from .database import Select_Login
+
+    if request.method == 'POST':
+        # email = request.form.get('email')
+        username = request.form.get('username')
+        password = request.form.get('password')
+        print(username, password)
+
+        if username == "admin" and password == "admin":
+            return consulta(admin)
+        else: 
+            flash('Usuário não encontrado.', category='error')
+    
     return render_template('login.html')
 
 
@@ -75,6 +95,8 @@ def logout():
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
+    from .database import Insert_Login
+
     if request.method == 'POST':
         email = request.form.get('email')
         username = request.form.get('username')
@@ -94,13 +116,9 @@ def sign_up():
         elif len(password1) < 6:
             flash('Para sua segurança, crie uma senha de pelo menos 6 caracteres!', category='error')
         else:
-            new_user = User(email=email, username=username, password=generate_password_hash(
-                password1, method='sha256'))
             # Adicionar usuário ao banco de dados:
-            # db.session.add(new_user)
-            # db.session.commit()
-            # login_user(new_user, remember=True)
-            # flash('Account created!', category='success')
+            Insert_Login(username, password1, email, False)
+            flash('Conta criada!', category='success')
             # return redirect(url_for('views.home'))
     return render_template("sign-up.html") #user=current_user
     

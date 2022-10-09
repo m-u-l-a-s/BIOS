@@ -6,7 +6,7 @@ def connect_db():
         host="localhost",
         user="root",
         password="mulinhas", #"MUL1NH4S"
-        database="testes"
+        database="mulas"
     )
     return mydb
 
@@ -31,7 +31,7 @@ def create_oss_table():
     mydb.commit()
     
 
-def Insert_Login(Usuario, Senha, Email, Técnico):
+def Insert_Login(user, senha, email, admin):
     import mysql.connector
 
     mydb = connect_db()
@@ -63,17 +63,18 @@ def Insert_OS(Sala, Maquina, Problema, Reportado, Resolvido):
     #print(mycursor.rowcount, "record inserted.")
 
 
-def Select_Login():
+def Select_Login(current_user):
     import mysql.connector
 
     mydb = connect_db()
     mycursor = mydb.cursor()
 
-    mycursor.execute("SELECT * FROM login")
+    sql = f"SELECT * FROM users WHERE user = '{current_user}';"
+
+    mycursor.execute(sql)
     myresult = mycursor.fetchall()
 
-    for x in myresult:
-        print(x)
+    return myresult
 
 
 def Select_OS():
