@@ -109,6 +109,7 @@ li{
 .home img{
     width: 40%;
     margin-top: -90px;
+    margin: 40px;
 }
 
 .right h1 {
@@ -179,6 +180,22 @@ li{
 
 .btn-home:hover{
     background-color: grey;
+}
+
+.specs {
+    margin: auto;
+    margin-top: 30%;
+    width: 90%;
+    height: 40%;
+    color: black;
+    background-color: white;
+    overflow: scroll;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.specs p {
+    font-size: 1.2rem;
 }
 
 @keyframes change{
