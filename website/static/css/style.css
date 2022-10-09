@@ -105,6 +105,11 @@ li{
     width: 60%;
 }
 
+.home img{
+    width: 40%;
+    margin-top: -90px;
+}
+
 .right h1 {
     margin-top: 80px;
 }
@@ -162,4 +167,15 @@ li{
 
 .form-login {
     text-align: center;
+}
+
+.btn-home{
+    background-color: black;
+    width: 90%;
+    border-radius: 0%;
+    border: black;
+}
+
+.btn-home:hover{
+    background-color: grey;
 }
