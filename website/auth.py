@@ -6,7 +6,7 @@ auth = Blueprint('auth', __name__)
 <input type="submit" value="Selecionar" class="btn btn-secondary">
 os = (lab,maq,prob,rep,stat,detalhes)
 """
-os = ('1','1','1','1',False, "waow")
+os = ('1','1','1','1',"Pendente", "waow")
 ar = []
 
 @auth.route('/', methods=["GET", "POST"])
@@ -19,7 +19,7 @@ def gfg():
         #os = (lab,maq,prob,'1',False, detalhes)
         #ar.append(os)
         from .database import Insert_OS
-        Insert_OS(lab, maq, prob, detalhes, "False")
+        Insert_OS(lab, maq, prob, detalhes, "Pendente")
         if (lab >= "301") and (lab <= "309"):
             lab = '/imgs/lab302.png'
         else:

@@ -27,6 +27,7 @@ def Insert_OS(Sala, Maquina, Problema, Reportado, Resolvido):
         database="os"
     )
 #CREATE TABLE bd (user varchar(20), senha varchar(20), data varchar(10));
+# CREATE TABLE oss (Sala varchar(3), Maquina varchar(2), Problema varchar(50), Reportado varchar(100), Resolvido varchar(18))
     mycursor = mydb.cursor()
 
     sql = "INSERT INTO oss (Sala, Maquina, Problema, Reportado, Resolvido) VALUES (%s, %s, %s, %s, %s)"
@@ -34,7 +35,7 @@ def Insert_OS(Sala, Maquina, Problema, Reportado, Resolvido):
 
     mycursor.execute(sql, val)
     mydb.commit()
-    print(mycursor.rowcount, "record inserted.")
+    #print(mycursor.rowcount, "record inserted.")
 
 
 def Select_Login():
