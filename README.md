@@ -40,7 +40,7 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 ![tech-sprint-02](https://user-images.githubusercontent.com/89790349/194731179-61ae09b8-ccf0-4369-8ff9-8ca088ac3392.png)
 * HTML: Estrutura das páginas.
 * CSS: Estilização.
-* Javascript: Manipulação de input e armazenamento no localStorage.
+* Javascript: Manipulação de input.
 * Pyhton/Flask: Backend do produto.
 * Bootstrap: Estilização.
 * Figma: Prototipagem.
