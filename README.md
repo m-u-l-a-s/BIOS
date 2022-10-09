@@ -37,7 +37,7 @@ O protótipo da plataforma foi feito com o auxílio da ferramenta "Figma" e pode
 https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%3A1
 
 ## Tecnologias e ferramentas utilizadas:
-![tech-sprint-02](https://user-images.githubusercontent.com/89790349/194731179-61ae09b8-ccf0-4369-8ff9-8ca088ac3392.png)
+![Tech_Sprint_02](https://user-images.githubusercontent.com/89790349/194782330-56dff9b2-6e2a-4a33-9bd6-76f5357cb15d.png)
 * HTML: Estrutura das páginas.
 * CSS: Estilização.
 * Javascript: Manipulação de input.
@@ -105,7 +105,7 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 ![userStories](https://user-images.githubusercontent.com/89790349/194779353-6e1cba0c-f457-48f1-8689-1557a5263ed4.jpeg)
 
 ### Planejamento de Entregas:
-![planejamento-entregas](https://user-images.githubusercontent.com/89790349/194731181-5991f789-9116-4fd3-878a-a924808c8e10.png)
+![planejamentoEntregas](https://user-images.githubusercontent.com/89790349/194782333-eff5535a-eee3-4bd8-8087-6a2b89d6eb26.png)
 
 
 
@@ -116,4 +116,3 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 Acesse a nossa plataforma através do link: https://sprightly-cajeta-fcf065.netlify.app/
 
 ![TelaHome](https://user-images.githubusercontent.com/89790349/194779366-eeb643f4-3f16-4f99-b428-5be25e1d969b.jpeg)
-
