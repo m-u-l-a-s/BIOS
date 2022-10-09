@@ -8,6 +8,7 @@ os = (lab,maq,prob,rep,stat,detalhes)
 """
 os = ('1','1','1','1',"Pendente", "waow")
 ar = []
+lab = ""
 
 
 @auth.route('/', methods=['GET', 'POST'])
@@ -15,12 +16,12 @@ def home():
     return render_template('index.html')
 
 
-@auth.route('/reportar', methods=['GET', 'POST'])
+@auth.route('/reportar')
 def reportar():
-    return render_template('reportar.html')
+    return render_template('reportar.html', lab=lab)
 
 
-@auth.route('/', methods=["GET", "POST"])
+@auth.route('/reportar', methods=["GET", "POST"])
 def gfg():
     if request.method == "POST":
         lab = str(request.form.get("lab"))
@@ -29,20 +30,30 @@ def gfg():
         detalhes = str(request.form.get("detalhes-os"))
         #os = (lab,maq,prob,'1',False, detalhes)
         #ar.append(os)
-        from .database import Insert_OS
+        from .database import Insert_OS, create_oss_table
+        try: 
+            create_oss_table()
+        except:
+            pass
         Insert_OS(lab, maq, prob, detalhes, "Pendente")
         if (lab >= "301") and (lab <= "309"):
             lab = '/imgs/lab302.png'
         else:
             lab = '/imgs/lab402.png'
-    return render_template("reportar.html", lab=lab,os = os)
+    return render_template("reportar.html", lab = lab, os = os)
 
 
 @auth.route('/consulta')
 def consulta():
     from .database import Select_OS
+    user = {
+        "user": "jonas",
+        "senha": "123",
+        "email": "jonas@fatec",
+        "admin": True
+    }
     ar = Select_OS()
-    return render_template('consulta.html', ar = ar)
+    return render_template('consulta.html', ar = ar, user = user)
 
 
 @auth.route('/contato')

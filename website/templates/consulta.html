@@ -11,27 +11,31 @@
 
     <div class="resolvidos detalhes-os" id="resolvidos">
         {% for i in ar %}
-
             <div class="ordem-servico">
-
-                <ul class="pendente">
+                <ul class="pendente" style="text-align: start;">
                     <li>Ordem de Serviço #{{ ar.index(i) + 1 }} </li> 
                     <li>Laboratório: {{ i[0] }} </li>
                     <li>Máquina: {{ i[1] }} </li>
                     <li>Problema: {{ i[2] }} </li>
-                    <li>Reportado em: </li>
+                    <li>Reportado em:</li>
                     <li>Status: {{ i[4] }} </li>
+                    <li>
+                        <button type="button" class="btn btn-primary">Ver detalhes</button>
+                        {% if user.admin %}
+                        <button type="button" class="btn btn-secondary">Marcar como resolvido</button>
+                        {% endif %}
+                    </li>
                 </ul>
             </div>
-            {% endfor %}
+        {% endfor %}
     </div>   
 
 </div>    
 
 
 <div class="right" style="display: block;">
-    {% for i in ar %}
     <h1 style="margin: 0px;">Detalhes:</h1>
+    {% for i in ar %}
 
         <div class="detalhes-os" style="width: 90%; margin: auto;">
             <p style="margin: 10px; font-size: 1.4em;"> {{ i[3] }}</p>
