@@ -3,7 +3,14 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.2em;
     background-color: rgb(122, 122, 122);
+    /* background-image: url("../imgs/2.png"); */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
 }
+/* 
+#lab-layout {
+    border: 0.2px solid rgba(0, 0, 0, 0.404);
+} */
 
 /* responsive font sizes: */
 h1 {
@@ -58,6 +65,7 @@ li{
 }
 
 .left {
+    /* font-size: smaller; */
     display: flex;
     color: black;
     background-color: white;
@@ -114,6 +122,7 @@ li{
 
 .titulo-os {
     width: fit-content;
+    /*border: 2px solid #888888;*/
     border-radius: 4px;
     background-color: none /*#888888*/;
     font-weight: 600;
