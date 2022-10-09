@@ -9,6 +9,17 @@ os = (lab,maq,prob,rep,stat,detalhes)
 os = ('1','1','1','1',"Pendente", "waow")
 ar = []
 
+
+@auth.route('/', methods=['GET', 'POST'])
+def home():
+    return render_template('index.html')
+
+
+@auth.route('/reportar', methods=['GET', 'POST'])
+def reportar():
+    return render_template('reportar.html')
+
+
 @auth.route('/', methods=["GET", "POST"])
 def gfg():
     if request.method == "POST":
@@ -24,12 +35,7 @@ def gfg():
             lab = '/imgs/lab302.png'
         else:
             lab = '/imgs/lab402.png'
-    return render_template("index.html", lab=lab,os = os)
-
-
-@auth.route('/index', methods=['GET', 'POST'])
-def root():
-    return render_template('index.html')
+    return render_template("reportar.html", lab=lab,os = os)
 
 
 @auth.route('/consulta')

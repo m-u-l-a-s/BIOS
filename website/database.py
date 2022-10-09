@@ -1,13 +1,19 @@
-def Insert_Login(Usuario, Senha, Email, Técnico):
+
+def connect_db():
     import mysql.connector
 
     mydb = mysql.connector.connect(
         host="localhost",
-        user="M.U.L.A.S",
-        password="MUL1NH4S",
+        user="root",
+        password="mulinhas", #"MUL1NH4S"
         database="testes"
     )
+    return mydb
 
+def Insert_Login(Usuario, Senha, Email, Técnico):
+    import mysql.connector
+
+    mydb = connect_db()
     mycursor = mydb.cursor()
 
     sql = "INSERT INTO login (Usuario, Senha, Email, Técnico) VALUES (%s, %s, %s, %s)"
@@ -17,18 +23,15 @@ def Insert_Login(Usuario, Senha, Email, Técnico):
     mydb.commit()
     print(mycursor.rowcount, "record inserted.")
 
+
 def Insert_OS(Sala, Maquina, Problema, Reportado, Resolvido):
     import mysql.connector
 
-    mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="MUL1NH4S",
-        database="os"
-    )
-#CREATE TABLE bd (user varchar(20), senha varchar(20), data varchar(10));
-# CREATE TABLE oss (Sala varchar(3), Maquina varchar(2), Problema varchar(50), Reportado varchar(100), Resolvido varchar(18))
+    mydb = connect_db()
     mycursor = mydb.cursor()
+
+    # CREATE TABLE bd (user varchar(20), senha varchar(20), data varchar(10));
+    # CREATE TABLE oss (Sala varchar(3), Maquina varchar(2), Problema varchar(50), Reportado varchar(100), Resolvido varchar(18))
 
     sql = "INSERT INTO oss (Sala, Maquina, Problema, Reportado, Resolvido) VALUES (%s, %s, %s, %s, %s)"
     val = [Sala, Maquina, Problema, Reportado, Resolvido]
@@ -41,13 +44,7 @@ def Insert_OS(Sala, Maquina, Problema, Reportado, Resolvido):
 def Select_Login():
     import mysql.connector
 
-    mydb = mysql.connector.connect(
-        host="localhost",
-        user="M.U.L.A.S",
-        password="MUL1NH4S",
-        database="testes"
-    )
-
+    mydb = connect_db()
     mycursor = mydb.cursor()
 
     mycursor.execute("SELECT * FROM login")
@@ -56,27 +53,23 @@ def Select_Login():
     for x in myresult:
         print(x)
 
+
 def Select_OS():
     import mysql.connector
 
-    mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="MUL1NH4S",
-        database="os"
-    )
-
+    mydb = connect_db()
     mycursor = mydb.cursor()
 
     mycursor.execute("SELECT * FROM oss")
     myresult = mycursor.fetchall()
-    return myresult;
+    return myresult
 
 
 '''
 Funções Existentes:
-    Insert_Login()
-        Insert_OS()
-            Select_Login()
-                Select_OS()
+    connect_db() # criar conexão com banco de dados
+        Insert_Login()
+            Insert_OS()
+                Select_Login()
+                    Select_OS()
 '''

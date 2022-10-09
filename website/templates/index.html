@@ -4,89 +4,22 @@
 
 {% block content %}
 
-<!-- <h1>Reporte um problema abaixo</h1> -->
 
-<div class="left" style="display: block;">
-    <h1 style="text-align: center;">Reporte um problema abaixo:</h1>
-    <br><br>
-    <ul id="reportar">
-        <li style="margin-left: 5%;">
-            <form action="{{ url_for('auth.gfg')}}" method="post" id="gfg">
-                <p>Laboratório:
-                    <select id="lab" name="lab" required>
-                        <optgroup label="Terceiro Andar">
-                            <option value="301"> 301 </option>
-                            <option value="302"> 302 </option>
-                            <option value="303"> 303 </option>
-                            <option value="304"> 304 </option>
-                            <option value="305"> 305 </option>
-                            <option value="306"> 306 </option>
-                        </optgroup>
+<div class="left">
+    <div class="home">
+        <h1>BIOS - Fatec</h1>
+        <a href="reportar">
+            <button type="button" class="btn btn-primary btn-lg">Sou aluno</button>
+        </a>
 
-                        <optgroup label="Quarto Andar">
-                            <option value="401"> 401 </option>
-                            <option value="402"> 402 </option>
-                            <option value="403"> 403 </option>
-                            <option value="404"> 404 </option>
-                            <option value="405"> 405 </option>
-                            <option value="406"> 406 </option>
-                        </optgroup>
-                    </select>
-            
-                </p>
-
-
-                <p>Máquina:
-                    <!--<input type="text" name="report" id="maq">-->
-                    <select id="maq" name="maq">
-                        <option value="01"> 01 </option>
-                        <option value="02"> 02 </option>
-                        <option value="03"> 03 </option>
-                        <option value="04"> 04 </option>
-                        <option value="05"> 05 </option>
-                        <option value="06"> 06 </option>
-                        <option value="07"> 07 </option>
-                        <option value="08"> 08 </option>
-                        <option value="09"> 09 </option>
-                        <option value="10"> 10 </option>
-                        <option value="11"> 11 </option>
-                        <option value="12"> 12 </option>
-                    </select>
-                </p>
-
-                <p>Categoria do Problema:
-                    <!--<input type="text" name="report" id="prob">-->
-                    <select id="prob" name="prob">
-                        <option value="Monitor Não Liga"> Monitor </option>
-                        <option value="Mouse Não Funciona"> Mouse </option>
-                        <option value="Teclado Não Funciona"> Teclado </option>
-                        <option value="PC Não Liga"> Máquina não liga </option>
-                        <option value="Não Conecta com Internet"> Internet </option>
-                        <option value="PC Lento Demais"> Máquina muito lenta </option>
-                        <option value="PC Lento Demais"> Programas / Software </option>
-                        <option value="PC Lento Demais"> Outros </option>
-                    </select>
-                </p>
-
-                <textarea name="detalhes-os" id="detalhes-os" cols="30" rows="5"
-                    placeholder="Nos dê mais alguns detalhes!"></textarea>
-            </form>
-            <br>
-            <input type="submit" value="Enviar" id="submit" class="btn btn-secondary" form="gfg">
-        </li>
-    </ul>
+        <a href="login">
+            <button type="button" class="btn btn-secondary btn-lg">Sou Técnico</button>
+        </a>
+    </div>
 </div>
-
 
 <div class="right">
-    {% if lab %}
-    <img src="{{url_for('static', filename = lab) }}" alt="" id="lab-layout">
-    {% else %}
     <img src="../static/imgs/logo_mulas.png" id="logo">
-    {% endif %}
 </div>
-<script src="{{ url_for ('static', filename='scripts/main.js') }}"></script>
-
-
 
 {% endblock %}

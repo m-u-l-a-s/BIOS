@@ -15,12 +15,12 @@
             <div class="ordem-servico">
 
                 <ul class="pendente">
-                    <li>OS Número: {{ ar.index(i) + 1 }} </li> <br>
-                    <li>Laboratório: {{ i[0] }} </li><br>
-                    <li>Máquina: {{ i[1] }} </li><br>
-                    <li>Problema: {{ i[2] }} </li><br>
-                    <li>Reportado em: </li><br>
-                    <li>Status: {{ i[4] }} </li><br>
+                    <li>Ordem de Serviço #{{ ar.index(i) + 1 }} </li> 
+                    <li>Laboratório: {{ i[0] }} </li>
+                    <li>Máquina: {{ i[1] }} </li>
+                    <li>Problema: {{ i[2] }} </li>
+                    <li>Reportado em: </li>
+                    <li>Status: {{ i[4] }} </li>
                 </ul>
             </div>
             {% endfor %}
@@ -29,14 +29,13 @@
 </div>    
 
 
-<div class="right">
+<div class="right" style="display: block;">
     {% for i in ar %}
+    <h1 style="margin: 0px;">Detalhes:</h1>
 
-        <div class="detalhes-os">
-            <h3>Detalhes da Ordem de Serviço:</h3>
-            <p> {{ i[3] }}</p>
+        <div class="detalhes-os" style="width: 90%; margin: auto;">
+            <p style="margin: 10px; font-size: 1.4em;"> {{ i[3] }}</p>
         </div>
-        <div>.</div>
     {% endfor %}
 </div>
   
