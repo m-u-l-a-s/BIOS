@@ -100,7 +100,7 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 
 ## Backlog do produto:
 ### User Stories:
-![bios-backlog-user-stories](https://user-images.githubusercontent.com/64814482/190936243-afa665a7-fd38-49f3-8f08-7e5659a5d81b.png)
+![userStories](https://user-images.githubusercontent.com/89790349/194779353-6e1cba0c-f457-48f1-8689-1557a5263ed4.jpeg)
 
 ### Planejamento de Entregas:
 ![planejamento-entregas](https://user-images.githubusercontent.com/89790349/194731181-5991f789-9116-4fd3-878a-a924808c8e10.png)
@@ -113,5 +113,5 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 
 Acesse a nossa plataforma através do link: https://sprightly-cajeta-fcf065.netlify.app/
 
-![bios-preview](https://user-images.githubusercontent.com/64814482/190919618-bc61c2c1-195f-437c-b896-643120f84526.png)
+![TelaHome](https://user-images.githubusercontent.com/89790349/194779366-eeb643f4-3f16-4f99-b428-5be25e1d969b.jpeg)
 
