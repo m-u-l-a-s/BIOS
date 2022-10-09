@@ -9,6 +9,7 @@
 * [Objetivo](#objetivo)
 * [Protótipo](#protótipo)
 * [Tecnologias](#tecnologias-e-ferramentas-utilizadas)
+* [Arquitetura do projeto](#arquitetura-do-projeto)
 * [Backlog](#backlog-do-produto)
 * [Preview da Plataforma](#plataforma)
 
@@ -47,6 +48,57 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 * Figma: Prototipagem.
 * GitHub: Controle de versionamento, documentação e colaboração.
 * MySQL: Banco de Dados.
+
+## Arquitetura do projeto:
+```
+ 📁 BIOS
+   |
+   |-  📁 docs
+   |    |
+   |    |- 📁 Sprint01
+   |         |- 📑 Backlog_Produto.ods
+   |         |- 📑 Burndow_Sprint_01.ods
+   |         |- 📑 README.md
+   |         |- 📑 Sprint_Backlog.ods
+   |    |- 📁 Sprint02
+   |         |- 📑 Burndonw_Sprint_02.ods
+   |
+   |-  📁 website
+   |    |
+   |    |- 📁 static
+   |        |
+   |        |- 📁 css
+   |            |- 📑 style.css
+   |        |- 📁 imgs
+   |            |- 📑 1.png
+   |            |- 📑 2.png
+   |            |- 📑 3.png
+   |            |- 📑 4.png
+   |            |- 📑 fundo.png
+   |            |- 📑 lab302.png
+   |            |- 📑 lab304.png
+   |            |- 📑 logo_mulas.png
+   |        |- 📁 scripts
+   |            |- 📑 main.js
+   |    |- 📁 templates
+   |         |- 📑 base.html
+   |         |- 📑 consulta.html
+   |         |- 📑 contato.html
+   |         |- 📑 index.html
+   |         |- 📑 login.html
+   |         |- 📑 sign-up.html
+   |   |- 📑 __init__.py
+   |   |- 📑 auth.py
+   |   |- 📑 database.py
+   |   |- 📑 db.yaml
+   |   |- 📑 models.py
+   |   |- 📑 views.py
+   |- 📑 .gitignore
+   |- 📑 LICENSE
+   |- 📑 main.py
+   |- 📑 package.json
+   |- 📑 README.md
+```
 
 ## Backlog do produto:
 ### User Stories:
