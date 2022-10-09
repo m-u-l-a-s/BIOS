@@ -45,7 +45,7 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 * Bootstrap: Estilização.
 * Figma: Prototipagem.
 * GitHub: Controle de versionamento, documentação e colaboração.
-* MySQL: Banco de Dados.
+* MySQL: Banco de Dados utilizado.
 
 ## Arquitetura do projeto:
 ```
