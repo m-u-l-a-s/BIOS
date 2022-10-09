@@ -113,6 +113,6 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 
 ### BIOS - Brilliant Integrated Organic Systems 
 
-Acesse a nossa plataforma através do link: https://sprightly-cajeta-fcf065.netlify.app/
+Acesse a nossa plataforma através do link: http://anxjos.pythonanywhere.com/
 
 ![TelaHome](https://user-images.githubusercontent.com/89790349/194779366-eeb643f4-3f16-4f99-b428-5be25e1d969b.jpeg)
