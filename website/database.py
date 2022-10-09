@@ -6,18 +6,40 @@ def connect_db():
         host="localhost",
         user="root",
         password="mulinhas", #"MUL1NH4S"
-        database="testes"
+        database="mulas"
     )
     return mydb
 
-def Insert_Login(Usuario, Senha, Email, Técnico):
+def create_users_table():
     import mysql.connector
 
     mydb = connect_db()
     mycursor = mydb.cursor()
 
-    sql = "INSERT INTO login (Usuario, Senha, Email, Técnico) VALUES (%s, %s, %s, %s)"
-    val = [Usuario, Senha, Email, Técnico]
+    sql = "CREATE TABLE users (user varchar(20), senha varchar(20), email varchar(40), admin bool);"
+    mycursor.execute(sql)
+    mydb.commit()
+
+def create_oss_table():
+    import mysql.connector
+
+    mydb = connect_db()
+    mycursor = mydb.cursor()
+
+    sql = "CREATE TABLE oss (Sala varchar(3), Maquina varchar(2), Problema varchar(50), Reportado varchar(100), Resolvido varchar(18));"
+    mycursor.execute(sql)
+    mydb.commit()
+    
+
+def Insert_Login(user, senha, email, admin):
+    import mysql.connector
+
+    mydb = connect_db()
+    mycursor = mydb.cursor()
+
+
+    sql = "INSERT INTO users (user, senha, email, admin) VALUES (%s, %s, %s, %s)"
+    val = [user, senha, email, admin]
 
     mycursor.execute(sql, val)
     mydb.commit()
@@ -41,17 +63,18 @@ def Insert_OS(Sala, Maquina, Problema, Reportado, Resolvido):
     #print(mycursor.rowcount, "record inserted.")
 
 
-def Select_Login():
+def Select_Login(current_user):
     import mysql.connector
 
     mydb = connect_db()
     mycursor = mydb.cursor()
 
-    mycursor.execute("SELECT * FROM login")
+    sql = f"SELECT * FROM users WHERE user = '{current_user}';"
+
+    mycursor.execute(sql)
     myresult = mycursor.fetchall()
 
-    for x in myresult:
-        print(x)
+    return myresult
 
 
 def Select_OS():

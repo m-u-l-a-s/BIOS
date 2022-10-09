@@ -9,36 +9,43 @@
 <div class="left" style="display: block;">
     <h1 style="text-align: center;">Reporte um problema abaixo:</h1>
     <br><br>
+    <form action="{{ url_for('auth.img')}}" method="post" id="img"></form>
     <ul id="reportar">
         <li style="margin-left: 5%;">
             <form action="{{ url_for('auth.gfg')}}" method="post" id="gfg">
-                <p>Laboratório:
-                    <select id="lab" name="lab" required>
-                        <optgroup label="Terceiro Andar">
-                            <option value="301"> 301 </option>
-                            <option value="302"> 302 </option>
-                            <option value="303"> 303 </option>
-                            <option value="304"> 304 </option>
-                            <option value="305"> 305 </option>
-                            <option value="306"> 306 </option>
-                        </optgroup>
-
-                        <optgroup label="Quarto Andar">
-                            <option value="401"> 401 </option>
-                            <option value="402"> 402 </option>
-                            <option value="403"> 403 </option>
-                            <option value="404"> 404 </option>
-                            <option value="405"> 405 </option>
-                            <option value="406"> 406 </option>
-                        </optgroup>
-                    </select>
-            
-                </p>
+                <div>
+                    <p>Laboratório:
+                        <select id="lab" name="lab">
+                            <optgroup label="Terceiro Andar">
+                                
+                                <option value="301"> 301 </option>
+                                <option value="302"> 302 </option>
+                                <option value="303"> 303 </option>
+                                <option value="304"> 304 </option>
+                                <option value="305"> 305 </option>
+                                <option value="306"> 306 </option>
+                            </optgroup>
+    
+                            <optgroup label="Quarto Andar">
+                                <option value="401"> 401 </option>
+                                <option value="402"> 402 </option>
+                                <option value="403"> 403 </option>
+                                <option value="404"> 404 </option>
+                                <option value="405"> 405 </option>
+                                <option value="406"> 406 </option>
+                            </optgroup>
+                        </select>
+                
+                    </p>
+                    <input type="submit" value="Selecionar" class="btn btn-secondary" id="btn_img"  hidden>
+                </div>
+                
 
 
                 <p>Máquina:
                     <!--<input type="text" name="report" id="maq">-->
                     <select id="maq" name="maq">
+                        <option value="">  </option>
                         <option value="01"> 01 </option>
                         <option value="02"> 02 </option>
                         <option value="03"> 03 </option>

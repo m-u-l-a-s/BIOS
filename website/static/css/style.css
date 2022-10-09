@@ -91,6 +91,7 @@ li{
     width: 50%;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 4px;
+    animation: change 10s infinite ease-in-out;
 }
 
 .right img {
@@ -103,6 +104,12 @@ li{
 
 #logo {
     width: 60%;
+}
+
+.home img{
+    width: 40%;
+    margin-top: -90px;
+    margin: 40px;
 }
 
 .right h1 {
@@ -162,4 +169,49 @@ li{
 
 .form-login {
     text-align: center;
+}
+
+.btn-home{
+    background-color: black;
+    width: 90%;
+    border-radius: 0%;
+    border: black;
+}
+
+.btn-home:hover{
+    background-color: grey;
+}
+
+.specs {
+    margin: auto;
+    margin-top: 30%;
+    width: 90%;
+    height: 40%;
+    color: black;
+    background-color: white;
+    overflow: scroll;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.specs p {
+    font-size: 1.2rem;
+}
+
+@keyframes change{
+    0% {
+        background-image: url('../imgs/1.png');
+    }
+    25% {
+        background-image: url('../imgs/2.png');
+    }
+    50% {
+        background-image: url('../imgs/3.png');
+    }
+    75% {
+        background-image: url('../imgs/4.png');
+    }
+    100% {
+        background-image: url('../imgs/1.png');
+    }
 }

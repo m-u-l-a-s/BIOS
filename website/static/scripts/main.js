@@ -1,5 +1,6 @@
 const submit = document.getElementById("submit");
 const storage = window.localStorage;
+const labo = document.getElementById("lab");
 d = new Date();
 
 semana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
@@ -8,6 +9,12 @@ ano = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Ago
 // Aqui serão armazenados objetos com as infos das ordens de serviço
 let ordens = JSON.parse(storage.getItem("ordens")) || []
 let resolvidos = JSON.parse(storage.getItem("resolvidos")) || []
+
+labo.addEventListener("change", changeImg)
+function changeImg()
+{
+    document.getElementById("btn_img").click();
+}
 
 function cleanField() {
     document.getElementById("lab").value = "";
