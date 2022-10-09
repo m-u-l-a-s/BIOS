@@ -62,16 +62,15 @@ def Select_OS():
         host="localhost",
         user="root",
         password="MUL1NH4S",
-        database="teste"
+        database="os"
     )
 
     mycursor = mydb.cursor()
 
-    mycursor.execute("SELECT * FROM os")
+    mycursor.execute("SELECT * FROM oss")
     myresult = mycursor.fetchall()
+    return myresult;
 
-    for x in myresult:
-        print(x)
 
 '''
 Funções Existentes:

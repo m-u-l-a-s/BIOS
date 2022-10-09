@@ -19,8 +19,8 @@
                     <li>Laboratório: {{ i[0] }} </li><br>
                     <li>Máquina: {{ i[1] }} </li><br>
                     <li>Problema: {{ i[2] }} </li><br>
-                    <li>Reportado em: {{ i[3] }} </li><br>
-                    <li>Status: Pendente </li><br>
+                    <li>Reportado em: </li><br>
+                    <li>Status: {{ i[4] }} </li><br>
                 </ul>
             </div>
             {% endfor %}
@@ -34,7 +34,7 @@
 
         <div class="detalhes-os">
             <h3>Detalhes da Ordem de Serviço:</h3>
-            <p> {{ i[5] }}</p>
+            <p> {{ i[3] }}</p>
         </div>
         <div>.</div>
     {% endfor %}

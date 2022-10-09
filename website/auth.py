@@ -16,8 +16,8 @@ def gfg():
         maq = str(request.form.get("maq"))
         prob = str(request.form.get("prob"))
         detalhes = str(request.form.get("detalhes-os"))
-        os = (lab,maq,prob,'1',False, detalhes)
-        ar.append(os)
+        #os = (lab,maq,prob,'1',False, detalhes)
+        #ar.append(os)
         from .database import Insert_OS
         Insert_OS(lab, maq, prob, detalhes, "False")
         if (lab >= "301") and (lab <= "309"):
@@ -34,6 +34,8 @@ def root():
 
 @auth.route('/consulta')
 def consulta():
+    from .database import Select_OS
+    ar = Select_OS()
     return render_template('consulta.html', ar = ar)
 
 
