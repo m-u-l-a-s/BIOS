@@ -45,13 +45,6 @@ def gfg():
         maq = str(request.form.get("maq"))
         prob = str(request.form.get("prob"))
         detalhes = str(request.form.get("detalhes-os"))
-<<<<<<< Updated upstream
-        #os = (lab,maq,prob,'1',False, detalhes)
-        #ar.append(os)
-        from .database import Insert_OS, create_oss_table
-
-        Insert_OS(lab, maq, prob, detalhes, "Pendente")
-=======
         if (not(lab == "" or maq == "" or prob == "" or detalhes == "")):
             from .database import Insert_OS, create_oss_table
             try: 
@@ -70,7 +63,6 @@ def img():
     if request.method == "POST":
         lab = str(request.form.get("lab"))
         print(lab)
->>>>>>> Stashed changes
         if (lab >= "301") and (lab <= "309"):
             lab = '/imgs/lab302.png'
         else:

@@ -5,13 +5,8 @@ def connect_db():
     mydb = mysql.connector.connect(
         host="localhost",
         user="root",
-<<<<<<< Updated upstream
         password="mulinhas", #"MUL1NH4S"
         database="mulas"
-=======
-        password="MUL1NH4S", #"" mulinhas
-        database="teste"
->>>>>>> Stashed changes
     )
     return mydb
 
