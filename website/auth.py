@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, url_for, request, flash
-from .database import create_oss_table, create_users_table
+# from .database import create_oss_table, create_users_table
 
 auth = Blueprint('auth', __name__)
 """
@@ -23,10 +23,6 @@ admin = {
     "admin": True
 }
 
-try: create_oss_table()
-except: pass
-try: create_users_table()
-except: pass
 
 @auth.route('/', methods=['GET', 'POST'])
 def home():

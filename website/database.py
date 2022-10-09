@@ -1,3 +1,16 @@
+def create_database():
+    import mysql.connector
+
+    mydb = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="mulinhas", #"MUL1NH4S"
+    )
+    cur = mydb.cursor()
+
+    sql = "CREATE DATABASE db; USE db"
+    cur.execute(sql)
+    mydb.commit()
 
 def connect_db():
     import mysql.connector
@@ -6,9 +19,10 @@ def connect_db():
         host="localhost",
         user="root",
         password="mulinhas", #"MUL1NH4S"
-        database="mulas"
+        database="db"
     )
     return mydb
+
 
 def create_users_table():
     import mysql.connector

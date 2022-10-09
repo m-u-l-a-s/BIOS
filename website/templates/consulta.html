@@ -5,42 +5,42 @@
 {% block content %}
 
 <div class="left" style="display: block">
-    <div class="pendentes" id="pendentes">
+    <div class="pendentes" id="pendentes-div">
         <h1>Problemas Reportados:</h1>
-    </div>
-
-    <div class="resolvidos detalhes-os" id="resolvidos">
+        
         {% for i in ar %}
             <div class="ordem-servico">
-                <ul class="pendente" style="text-align: start;">
+                <ul class="pendente" id="pendentes-ul" style="text-align: start;">
                     <li>Ordem de Serviço #{{ ar.index(i) + 1 }} </li> 
-                    <li>Laboratório: {{ i[0] }} </li>
-                    <li>Máquina: {{ i[1] }} </li>
-                    <li>Problema: {{ i[2] }} </li>
-                    <li>Reportado em:</li>
-                    <li>Status: {{ i[4] }} </li>
+                    <li class="detalhes">Laboratório: {{ i[0] }} </li>
+                    <li class="detalhes">Máquina: {{ i[1] }} </li>
+                    <li class="detalhes">Problema: {{ i[2] }} </li>
+                    <li class="detalhes">Descrição: {{ i[3] }}</li>
+                    <li class="detalhes">Status: {{ i[4] }} </li>
                     <li>
-                        <button type="button" class="btn btn-primary">Ver detalhes</button>
+                        <button type="button" class="btn btn-primary" onclick="showDetails()">Ver detalhes</button>
                         {% if user.admin %}
-                        <button type="button" class="btn btn-secondary">Marcar como resolvido</button>
+                        <button type="button" class="btn btn-secondary" onclick="showDetails()">Marcar como resolvido</button>
                         {% endif %}
                     </li>
                 </ul>
             </div>
-        {% endfor %}
-    </div>   
-
+            {% endfor %}
+        </div>
+            
+    <!-- <div class="resolvidos detalhes-os" id="resolvidos"> -->
+    <!-- </div>    -->
 </div>    
-
 
 <div class="right" style="display: block;">
     <h1 style="margin: 0px;">Detalhes:</h1>
-    {% for i in ar %}
 
         <div class="detalhes-os" style="width: 90%; margin: auto;">
-            <p style="margin: 10px; font-size: 1.4em;"> {{ i[3] }}</p>
+            <p style="margin: 10px; font-size: 1.4em;" id="detalhes">
+
+            </p>
         </div>
-    {% endfor %}
+
         <div class="specs">
             <p>
    <strong>
@@ -54,6 +54,7 @@ RAM instalada: 8,00 GB<br>
 ID do dispositivo: 9C41604B-5B4C-4034-9A23-9585620597F8<br>
 ID do produto: 00329-00000-00003-AA870<br>
 Sistema operacional de 64 bits, processador baseado em x64<br>
+<br>
 <strong>
     ESPECIFICAÇÕES DO WINDOWS
 </strong>
@@ -62,6 +63,7 @@ Windows 10 Enterprise<br>
 Versão: 21H2<br>
 Compilação do SO: 19044.1645<br>
 Windows Feature Experience Pack 120.2212.4170.0<br>
+<br>
 <strong>
     ESPECIFICAÇÕES DO MONITOR
 </strong>
