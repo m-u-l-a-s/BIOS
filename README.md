@@ -1,6 +1,4 @@
-
-  <img src="https://user-images.githubusercontent.com/89790349/194731178-f02b3b24-e3dd-4ef2-a7f9-52c83dc8cfc1.png" alt="Logo"/>
-
+<img src="https://user-images.githubusercontent.com/89790349/194731178-f02b3b24-e3dd-4ef2-a7f9-52c83dc8cfc1.png" alt="Logo"/>
 
 ## Sumário:
 * [Apresentação da Equipe](#apresentação-da-equipe)
