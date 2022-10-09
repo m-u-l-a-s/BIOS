@@ -54,12 +54,14 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
    |-  📁 docs
    |    |
    |    |- 📁 Sprint01
-   |         |- 📑 Backlog_Produto.ods
-   |         |- 📑 Burndow_Sprint_01.ods
+   |         |- 📑 Backlog_Produto_01.ods
+   |         |- 📑 Backlog_Sprint_01.ods
+   |         |- 📑 Burndown_Sprint_01.ods
    |         |- 📑 README.md
-   |         |- 📑 Sprint_Backlog.ods
    |    |- 📁 Sprint02
-   |         |- 📑 Burndonw_Sprint_02.ods
+   |         |- 📑 Backlog_Produto_02.ods
+   |         |- 📑 Backlog_Sprint_02.ods
+   |         |- 📑 Burndown_Sprint_02.ods
    |
    |-  📁 website
    |    |
@@ -96,6 +98,7 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
    |- 📑 main.py
    |- 📑 package.json
    |- 📑 README.md
+   |- 📑 requirements.txt
 ```
 
 ## Backlog do produto:
