@@ -2,13 +2,13 @@ def create_database():
     import mysql.connector
 
     mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
+        host="anxjos.mysql.pythonanywhere-services.com",
+        user="anxjos",
         password="mulinhas", #"MUL1NH4S"
     )
     cur = mydb.cursor()
 
-    sql = "CREATE DATABASE db; USE db"
+    sql = "CREATE DATABASE anxjos$db; USE anxjos$db"
     cur.execute(sql)
     mydb.commit()
 
@@ -16,10 +16,10 @@ def connect_db():
     import mysql.connector
 
     mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
+        host="anxjos.mysql.pythonanywhere-services.com",
+        user="anxjos",
         password="mulinhas", #"MUL1NH4S"
-        database="db"
+        database="anxjos$db"
     )
     return mydb
 
