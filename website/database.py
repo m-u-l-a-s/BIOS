@@ -23,7 +23,6 @@ def connect_db():
     )
     return mydb
 
-
 def create_users_table():
     import mysql.connector
 

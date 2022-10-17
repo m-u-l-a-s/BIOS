@@ -57,7 +57,7 @@ li{
 .conteudo {
     display: flex;
     
-    height: 78vh;
+    height: 84vh;
     width: 80%;
 
     margin: 1% auto;
@@ -184,9 +184,10 @@ li{
 
 .specs {
     margin: auto;
-    margin-top: 30%;
-    width: 90%;
+    margin-bottom: 0px;
+    width: 96%;
     height: 40%;
+
     color: black;
     background-color: white;
     overflow: scroll;
@@ -196,6 +197,15 @@ li{
 
 .specs p {
     font-size: 1.2rem;
+}
+
+.detalhes-div {
+    display: none;
+}
+
+#pDetalhes ul li {
+    display: block;
+    text-align: start;
 }
 
 @keyframes change{

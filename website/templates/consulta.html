@@ -8,113 +8,166 @@
     <div class="pendentes" id="pendentes-div">
         <h1>Problemas Reportados:</h1>
         
-        {% for i in ar %}
+            {% for i in ar %}
             <div class="ordem-servico">
-                <ul class="pendente" id="pendentes-ul" style="text-align: start;">
+                <ul class="pendente" style="text-align: start;">
                     <li>Ordem de Serviço #{{ ar.index(i) + 1 }} </li> 
-                    <li class="detalhes">Laboratório: {{ i[0] }} </li>
+                    <!-- <li class="detalhes">Laboratório: {{ i[0] }} </li>
                     <li class="detalhes">Máquina: {{ i[1] }} </li>
                     <li class="detalhes">Problema: {{ i[2] }} </li>
                     <li class="detalhes">Descrição: {{ i[3] }}</li>
-                    <li class="detalhes">Status: {{ i[4] }} </li>
+                    <li class="detalhes">Status: {{ i[4] }} </li> -->
                     <li>
-                        <button type="button" class="btn btn-primary" onclick="showDetails()">Ver detalhes</button>
+                        <button type="button" class="btn btn-primary"  id="btn{{ar.index(i)}}">Ver detalhes</button>
                         {% if user.admin %}
-                        <button type="button" class="btn btn-secondary" onclick="showDetails()">Marcar como resolvido</button>
+                        <button type="button" class="btn btn-secondary">Marcar como resolvido</button>
                         {% endif %}
                     </li>
                 </ul>
             </div>
             {% endfor %}
-        </div>
-            
-    <!-- <div class="resolvidos detalhes-os" id="resolvidos"> -->
-    <!-- </div>    -->
-</div>    
 
-<div class="right" style="display: block;">
-    <h1 style="margin: 0px;">Detalhes:</h1>
+    </div>
 
-        <div class="detalhes-os" style="width: 90%; margin: auto;">
-            <p style="margin: 10px; font-size: 1.4em;" id="detalhes">
+        <!-- <div class="specs">
+                <p>
+                <strong>
+                    ESPECIFICAÇÕES DAS MÁQUINAS:
+                </strong>             
 
-            </p>
-        </div>
-
-        <div class="specs">
-            <p>
-   <strong>
-       ESPECIFICAÇÕES DAS MÁQUINAS:
-   </strong>             
-
-<br>
-Modelo: HP ProDesk 400 G4 SFF<br>
-Processador: Intel(R) Core(TM) i5-7500 CPU @ 3.40GHz   3.41 GHz<br>
-RAM instalada: 8,00 GB<br>
-ID do dispositivo: 9C41604B-5B4C-4034-9A23-9585620597F8<br>
-ID do produto: 00329-00000-00003-AA870<br>
-Sistema operacional de 64 bits, processador baseado em x64<br>
-<br>
-<strong>
-    ESPECIFICAÇÕES DO WINDOWS
-</strong>
-<br>
-Windows 10 Enterprise<br>
-Versão: 21H2<br>
-Compilação do SO: 19044.1645<br>
-Windows Feature Experience Pack 120.2212.4170.0<br>
-<br>
-<strong>
-    ESPECIFICAÇÕES DO MONITOR
-</strong>
-<br>
-Monitor AOC modelo E2023PWD<br>
-Entrada utilizada: VGA<br>
-Tamanho do painel: 19,5" Widescreen<br>
-Resolução máxima: 1600 x 900 @ 60 Hz (HD)<br>
-<br>
-<strong>
-    APLICATIVOS
-</strong>
-<br>
--3D Builder<br>
--Adobe Acrobat Reader DC-Português<br>
--Adobe Flash Player 32 NPAPI<br>
--Alarmes e Relógio<br>
--Android Studio<br>
--Audio Controls<br>
--Câmera<br>
--Calculadora<br>
--Captura e Esboço<br>
--Code Writer<br>
--Fotos<br>
--Google Chrome<br>
--Google Earth Pro<br>
--Gravador de Voz<br>
--Java SE Development Kit 8 Update 201<br>
--Java 8 Update 201<br>
--Mapas<br>
--Microsoft Edge<br>
--Microsoft Office Professional Plus 2016<br>
--Microsoft Visio Professional 2016<br>
--Mozilla Firefox (x86 pt-BR)<br>
--MySQL Server 5.7<br>
--NetBeans IDE 8.2<br>
--Oracle Database 11g Express Edition<br>
--Oracle VM VirtualBox 5.2.26<br>
--Paint 3D<br>
--Phyton 3.7.3 (32 bit)<br>
--VLC media player<br>
--WinRAR 5.50 (64 bit)<br>
--Zelio Soft 2 v4.6.0<br>
--Zotero<br>
-
-
-            </p>
-        </div>
+                <br>
+                Modelo: HP ProDesk 400 G4 SFF<br>
+                Processador: Intel(R) Core(TM) i5-7500 CPU @ 3.40GHz   3.41 GHz<br>
+                RAM instalada: 8,00 GB<br>
+                Sistema operacional de 64 bits, processador baseado em x64<br>
+                <br>
+                <strong>
+                    ESPECIFICAÇÕES DO WINDOWS
+                </strong>
+                <br>
+                Windows 10 Enterprise<br>
+                Versão: 21H2<br>
+                Windows Feature Experience Pack 120.2212.4170.0<br>
+                <br>
+                <strong>
+                    ESPECIFICAÇÕES DO MONITOR
+                </strong>
+                <br>
+                Monitor AOC modelo E2023PWD<br>
+                Entrada utilizada: VGA<br>
+                Tamanho do painel: 19,5" Widescreen<br>
+                Resolução máxima: 1600 x 900 @ 60 Hz (HD)<br>
+                <br>
+                <strong>
+                    APLICATIVOS
+                </strong>
+                <br>
+                -3D Builder<br>
+                -Adobe Acrobat Reader<br>
+                -Adobe Flash Player 32 NPAPI<br>
+                -Android Studio<br>
+                -Audio Controls<br>
+                -Câmera<br>
+                -Calculadora<br>
+                -Captura e Esboço<br>
+                -Code Writer<br>
+                -Fotos<br>
+                -Google Chrome<br>
+                -Google Earth Pro<br>
+                -Gravador de Voz<br>
+                -Java SE Development Kit 8 Update 201<br>
+                -Java 8 Update 201<br>
+                -Mapas<br>
+                -Microsoft Edge<br>
+                -Microsoft Office Professional Plus 2016<br>
+                -Microsoft Visio Professional 2016<br>
+                -Mozilla Firefox (x86 pt-BR)<br>
+                -MySQL Server 5.7<br>
+                -NetBeans IDE 8.2<br>
+                -Oracle Database 11g Express Edition<br>
+                -Oracle VM VirtualBox 5.2.26<br>
+                -Paint 3D<br>
+                -Phyton 3.7.3 (32 bit)<br>
+                -VLC media player<br>
+                -WinRAR 5.50 (64 bit)<br>
+                -Zelio Soft 2 v4.6.0<br>
+                -Zotero<br>
+                    </p>
+        </div> -->
 </div>
-  
 
-<script src="{{ url_for ('static', filename='scripts/main.js') }}"></script>
+    <div class="right" style="display: block;" id="right">
+        <h1 style="margin: 0px;">Detalhes:</h1>
+
+        <div class="detalhes-os" id="detalhes" style="width: 90%; margin: auto;">
+            <p style="margin: 10px; font-size: 1.4em;" id="pDetalhes">
+                Veja detalhes sobre cada OS clicando ao lado.
+            </p>
+        </div>
+    </div>
+    
+
+<script src="{{ url_for ('static', filename='scripts/main.js') }}">
+</script>
+
+<script>
+    let right = document.getElementById("right")
+    let divDetalhes = document.getElementById("detalhes")
+    let p = document.getElementById("pDetalhes")
+    document.addEventListener('click', function(e) {
+        if ((e.target.id).includes("btn")) {
+            let btn = document.getElementById(e.target.id)
+            let btnid = e.target.id
+            let os = btnid.slice(3)
+            os = parseInt(os)
+            console.log(`OS #${os} Selecionada.`)
+
+            let ar = "{{ar}}"
+            ar = ar.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").split(',')
+
+            let oss = []
+            for (let i = 0; i < ar.length; i+=5) {
+                oss.push(ar.slice(i, i+5))
+            }
+            console.log(oss)
+
+            oss.forEach((el) => {
+                el.forEach((subel) => {
+                    // console.log(subel)
+                })
+            })
+
+
+            p.textContent = ""
+            
+            let osUl = document.createElement("ul")
+
+            let lab = document.createElement("li")
+            lab.textContent = "Laboratório: " + oss[os][0]
+            let maq = document.createElement("li")
+            maq.textContent = "Máquina: " + oss[os][1]
+            let prob = document.createElement("li")
+            prob.textContent = "Problema: " + oss[os][2]
+            let desc = document.createElement("li")
+            desc.textContent = "Descrição: " + oss[os][3]
+            let status = document.createElement("li")
+            status.textContent = "Status: " + oss[os][4]
+
+            osUl.appendChild(lab)
+            osUl.appendChild(maq)
+            osUl.appendChild(prob)
+            osUl.appendChild(desc)
+            osUl.appendChild(status)
+
+            p.appendChild(osUl)
+            // for (let i = 0; i < oss[os].length; i++){
+            //     p.textContent += oss[os][i]
+            // }
+
+            
+        }
+        
+    }, false);
+</script>
 
 {% endblock %}
