@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, url_for, request, flash
-# from .database import create_oss_table, create_users_table
+from datetime import datetime
 
 auth = Blueprint('auth', __name__)
 """
@@ -41,13 +41,15 @@ def gfg():
         maq = str(request.form.get("maq"))
         prob = str(request.form.get("prob"))
         detalhes = str(request.form.get("detalhes-os"))
+        data = str(datetime.now())[:-7]
+        status = "Pendente"
         if (not(lab == "" or maq == "" or prob == "" or detalhes == "")):
             from .database import Insert_OS, create_oss_table
             try: 
                 create_oss_table()
             except:
                 pass
-            Insert_OS(lab, maq, prob, detalhes, "Pendente")
+            Insert_OS(lab, maq, prob, detalhes, data, status)
     if (lab >= "301") and (lab <= "309"):
                 lab = '/imgs/lab302.png'
     else:

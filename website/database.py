@@ -1,3 +1,5 @@
+# BANCO OFICIAL:
+
 def create_database():
     import mysql.connector
 
@@ -23,6 +25,35 @@ def connect_db():
     )
     return mydb
 
+# ==========================================================
+# BANCO DE TESTES LOCAIS:
+# def create_database():
+#     import mysql.connector
+
+#     mydb = mysql.connector.connect(
+#         host="localhost",
+#         user="root",
+#         password="mulinhas", #"MUL1NH4S"
+#     )
+#     cur = mydb.cursor()
+
+#     sql = "CREATE DATABASE mulas; USE mulas"
+#     cur.execute(sql)
+#     mydb.commit()
+
+# def connect_db():
+#     import mysql.connector
+
+#     mydb = mysql.connector.connect(
+#         host="localhost",
+#         user="root",
+#         password="mulinhas", #"MUL1NH4S"
+#         database="mulas"
+#     )
+#     return mydb
+
+# ==========================================================
+
 def create_users_table():
     import mysql.connector
 
@@ -39,7 +70,7 @@ def create_oss_table():
     mydb = connect_db()
     mycursor = mydb.cursor()
 
-    sql = "CREATE TABLE oss (Sala varchar(3), Maquina varchar(2), Problema varchar(50), Reportado varchar(100), Resolvido varchar(18));"
+    sql = "CREATE TABLE oss (Sala varchar(3), Maquina varchar(2), Problema varchar(50), Detalhes varchar(255), Data varchar(100), Status varchar(18));"
     mycursor.execute(sql)
     mydb.commit()
     
@@ -59,7 +90,7 @@ def Insert_Login(user, senha, email, admin):
     print(mycursor.rowcount, "record inserted.")
 
 
-def Insert_OS(Sala, Maquina, Problema, Reportado, Resolvido):
+def Insert_OS(Sala, Maquina, Problema, Detalhes, Data, Status):
     import mysql.connector
 
     mydb = connect_db()
@@ -68,8 +99,8 @@ def Insert_OS(Sala, Maquina, Problema, Reportado, Resolvido):
     # CREATE TABLE bd (user varchar(20), senha varchar(20), data varchar(10));
     # CREATE TABLE oss (Sala varchar(3), Maquina varchar(2), Problema varchar(50), Reportado varchar(100), Resolvido varchar(18))
 
-    sql = "INSERT INTO oss (Sala, Maquina, Problema, Reportado, Resolvido) VALUES (%s, %s, %s, %s, %s)"
-    val = [Sala, Maquina, Problema, Reportado, Resolvido]
+    sql = "INSERT INTO oss (Sala, Maquina, Problema, Detalhes, Data, Status) VALUES (%s, %s, %s, %s, %s, %s)"
+    val = [Sala, Maquina, Problema, Detalhes, Data, Status]
 
     mycursor.execute(sql, val)
     mydb.commit()

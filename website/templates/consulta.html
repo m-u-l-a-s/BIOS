@@ -126,8 +126,8 @@
             ar = ar.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").split(',')
 
             let oss = []
-            for (let i = 0; i < ar.length; i+=5) {
-                oss.push(ar.slice(i, i+5))
+            for (let i = 0; i < ar.length; i+=6) {
+                oss.push(ar.slice(i, i+6))
             }
             console.log(oss)
 
@@ -150,8 +150,10 @@
             prob.textContent = "Problema: " + oss[os][2]
             let desc = document.createElement("li")
             desc.textContent = "Descrição: " + oss[os][3]
+            let data = document.createElement("li")
+            desc.textContent = "Reportado em: " + oss[os][4]
             let status = document.createElement("li")
-            status.textContent = "Status: " + oss[os][4]
+            status.textContent = "Status: " + oss[os][5]
 
             osUl.appendChild(lab)
             osUl.appendChild(maq)
