@@ -29,8 +29,9 @@
 
     </div>
 
-        <!-- <div class="specs">
+        <div class="specs">
                 <p>
+                    <hr>
                 <strong>
                     ESPECIFICAÇÕES DAS MÁQUINAS:
                 </strong>             
@@ -93,7 +94,7 @@
                 -Zelio Soft 2 v4.6.0<br>
                 -Zotero<br>
                     </p>
-        </div> -->
+        </div>
 </div>
 
     <div class="right" style="display: block;" id="right">
@@ -129,44 +130,35 @@
             for (let i = 0; i < ar.length; i+=6) {
                 oss.push(ar.slice(i, i+6))
             }
-            console.log(oss)
-
-            oss.forEach((el) => {
-                el.forEach((subel) => {
-                    // console.log(subel)
-                })
-            })
-
 
             p.textContent = ""
             
-            let osUl = document.createElement("ul")
-
-            let lab = document.createElement("li")
-            lab.textContent = "Laboratório: " + oss[os][0]
-            let maq = document.createElement("li")
-            maq.textContent = "Máquina: " + oss[os][1]
-            let prob = document.createElement("li")
-            prob.textContent = "Problema: " + oss[os][2]
-            let desc = document.createElement("li")
-            desc.textContent = "Descrição: " + oss[os][3]
-            let data = document.createElement("li")
-            desc.textContent = "Reportado em: " + oss[os][4]
-            let status = document.createElement("li")
-            status.textContent = "Status: " + oss[os][5]
-
-            osUl.appendChild(lab)
-            osUl.appendChild(maq)
-            osUl.appendChild(prob)
-            osUl.appendChild(desc)
-            osUl.appendChild(status)
-
-            p.appendChild(osUl)
-            // for (let i = 0; i < oss[os].length; i++){
-            //     p.textContent += oss[os][i]
-            // }
-
-            
+            if (oss[os][0] != "" && oss[os][1] != "" && oss[os][2] != "") {
+                
+                let osUl = document.createElement("ul")
+    
+                let lab = document.createElement("li")
+                lab.textContent = "Laboratório: " + oss[os][0]
+                let maq = document.createElement("li")
+                maq.textContent = "Máquina: " + oss[os][1]
+                let prob = document.createElement("li")
+                prob.textContent = "Problema: " + oss[os][2]
+                let desc = document.createElement("li")
+                desc.textContent = "Descrição: " + oss[os][3]
+                let data = document.createElement("li")
+                data.textContent = "Reportado em:" +  oss[os][4]
+                let status = document.createElement("li")
+                status.textContent = "Status: " + oss[os][5]
+    
+                osUl.appendChild(lab)
+                osUl.appendChild(maq)
+                osUl.appendChild(prob)
+                osUl.appendChild(desc)
+                osUl.appendChild(data)
+                osUl.appendChild(status)
+    
+                p.appendChild(osUl)                
+            }           
         }
         
     }, false);

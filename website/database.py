@@ -1,43 +1,16 @@
 # BANCO OFICIAL:
 
-def create_database():
-    import mysql.connector
-
-    mydb = mysql.connector.connect(
-        host="anxjos.mysql.pythonanywhere-services.com",
-        user="anxjos",
-        password="mulinhas", #"MUL1NH4S"
-    )
-    cur = mydb.cursor()
-
-    sql = "CREATE DATABASE anxjos$db; USE anxjos$db"
-    cur.execute(sql)
-    mydb.commit()
-
-def connect_db():
-    import mysql.connector
-
-    mydb = mysql.connector.connect(
-        host="anxjos.mysql.pythonanywhere-services.com",
-        user="anxjos",
-        password="mulinhas", #"MUL1NH4S"
-        database="anxjos$db"
-    )
-    return mydb
-
-# ==========================================================
-# BANCO DE TESTES LOCAIS:
 # def create_database():
 #     import mysql.connector
 
 #     mydb = mysql.connector.connect(
-#         host="localhost",
-#         user="root",
+#         host="anxjos.mysql.pythonanywhere-services.com",
+#         user="anxjos",
 #         password="mulinhas", #"MUL1NH4S"
 #     )
 #     cur = mydb.cursor()
 
-#     sql = "CREATE DATABASE mulas; USE mulas"
+#     sql = "CREATE DATABASE anxjos$db; USE anxjos$db"
 #     cur.execute(sql)
 #     mydb.commit()
 
@@ -45,12 +18,39 @@ def connect_db():
 #     import mysql.connector
 
 #     mydb = mysql.connector.connect(
-#         host="localhost",
-#         user="root",
+#         host="anxjos.mysql.pythonanywhere-services.com",
+#         user="anxjos",
 #         password="mulinhas", #"MUL1NH4S"
-#         database="mulas"
+#         database="anxjos$db"
 #     )
 #     return mydb
+
+# ==========================================================
+# BANCO DE TESTES LOCAIS:
+def create_database():
+    import mysql.connector
+
+    mydb = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="mulinhas", #"MUL1NH4S"
+    )
+    cur = mydb.cursor()
+
+    sql = "CREATE DATABASE mulas; USE mulas"
+    cur.execute(sql)
+    mydb.commit()
+
+def connect_db():
+    import mysql.connector
+
+    mydb = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="mulinhas", #"MUL1NH4S"
+        database="mulas"
+    )
+    return mydb
 
 # ==========================================================
 
@@ -70,7 +70,7 @@ def create_oss_table():
     mydb = connect_db()
     mycursor = mydb.cursor()
 
-    sql = "CREATE TABLE oss (Sala varchar(3), Maquina varchar(2), Problema varchar(50), Detalhes varchar(255), Data varchar(100), Status varchar(18));"
+    sql = "CREATE TABLE oss (Sala varchar(255), Maquina varchar(255), Problema varchar(255), Detalhes varchar(255), Data varchar(255), Status varchar(255));"
     mycursor.execute(sql)
     mydb.commit()
     

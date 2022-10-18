@@ -50,11 +50,11 @@ def gfg():
             except:
                 pass
             Insert_OS(lab, maq, prob, detalhes, data, status)
-    if (lab >= "301") and (lab <= "309"):
-                lab = '/imgs/lab302.png'
-    else:
-                lab = '/imgs/lab402.png'        
-    return render_template("reportar.html", lab = lab, os = os)
+    # if (lab >= "301") and (lab <= "309"):
+    #             lab = '/imgs/lab302.png'
+    # else:
+    #             lab = '/imgs/lab402.png'        
+    return render_template("reportar.html", os = os)
 
 @auth.route('/img', methods=["GET", "POST"])
 def img():

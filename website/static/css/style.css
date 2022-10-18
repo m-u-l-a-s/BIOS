@@ -3,9 +3,6 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.2em;
     background-color: rgb(122, 122, 122);
-    /* background-image: url("../imgs/2.png"); */
-    /* background-size: cover;
-    background-repeat: no-repeat; */
 }
 /* 
 #lab-layout {
@@ -58,7 +55,7 @@ li{
     display: flex;
     
     height: 84vh;
-    width: 80%;
+    width: 84%;
 
     margin: 1% auto;
     
@@ -186,11 +183,8 @@ li{
     margin: auto;
     margin-bottom: 0px;
     width: 96%;
-    height: 40%;
-
     color: black;
     background-color: white;
-    overflow: scroll;
     text-align: center;
     border-radius: 8px;
 }
