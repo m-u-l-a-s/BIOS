@@ -9,13 +9,16 @@
 <div class="left" style="display: block;">
     <h1 style="text-align: center;">Reporte um problema abaixo:</h1>
     <br><br>
-    <form action="{{ url_for('auth.img')}}" method="post" id="img"></form>
-    <ul id="reportar">
-        <li style="margin-left: 5%;">
+    <!-- <form action="{{ url_for('auth.img')}}" method="post" id="img"></form> -->
+    <ul id="reportar" style="margin: auto; text-align: center;">
+        <li>
             <form action="{{ url_for('auth.gfg')}}" method="post" id="gfg">
                 <div>
-                    <p>Laboratório:
-                        <select id="lab" name="lab">
+                    <p>
+                        <select id="lab" name="lab" style="width: 100%;">
+                            
+                            <option value="" selected disabled>Laboratório</option>
+                            
                             <optgroup label="Terceiro Andar">
                                 
                                 <option value="301"> 301 </option>
@@ -37,15 +40,15 @@
                         </select>
                 
                     </p>
-                    <input type="submit" value="Selecionar" class="btn btn-secondary" id="btn_img"  hidden>
+                    <!-- <input type="submit" value="Selecionar" class="btn btn-secondary" id="btn_img"  hidden> -->
                 </div>
                 
 
 
-                <p>Máquina:
+                <p>
                     <!--<input type="text" name="report" id="maq">-->
-                    <select id="maq" name="maq">
-                        <option value="">  </option>
+                    <select id="maq" name="maq" style="width: 100%;">
+                        <option value="" selected disabled>Máquina</option>
                         <option value="01"> 01 </option>
                         <option value="02"> 02 </option>
                         <option value="03"> 03 </option>
@@ -69,9 +72,10 @@
                     </select>
                 </p>
 
-                <p>Categoria do Problema:
+                <p>
                     <!--<input type="text" name="report" id="prob">-->
-                    <select id="prob" name="prob">
+                    <select id="prob" name="prob" style="width: 100%;">
+                        <option value="" selected disabled> Categoria do Problema </option>
                         <option value="Monitor"> Monitor </option>
                         <option value="Mouse"> Mouse </option>
                         <option value="Teclado"> Teclado </option>
@@ -82,9 +86,8 @@
                         <option value="Outros"> Outros </option>
                     </select>
                 </p>
-
-                <textarea name="detalhes-os" id="detalhes-os" cols="25" rows="2"
-                    placeholder="Nos dê mais alguns detalhes!"></textarea>
+                <br>
+                <textarea name="detalhes-os" id="detalhes-os" cols="25" rows="2" placeholder="Nos dê mais alguns detalhes!"></textarea>
             </form>
             <br>
             <input type="submit" value="Enviar" id="submit" class="btn btn-secondary" form="gfg">
@@ -94,13 +97,31 @@
 
 
 <div class="right">
-    {% if lab %}
-    <img src="{{url_for('static', filename = lab) }}" alt="" id="lab-layout">
-    {% else %}
     <img src="../static/imgs/logo_mulas.png" id="logo">
-    {% endif %}
 </div>
+
 <script src="{{ url_for ('static', filename='scripts/main.js') }}"></script>
+
+<script>
+    
+    let labs = document.getElementById("lab")
+    let img = document.getElementById("logo")
+    
+    labs.addEventListener("change", function() {
+        let lab = parseInt(labs.value)
+        console.log(lab)
+        if (lab > 300 && lab < 400) {
+            img.src = "../static/imgs/lab302.png"    
+            img.id = ""
+        } else {
+            img.src = "../static/imgs/lab402.png"
+            img.id = ""
+        }
+    })
+
+
+
+</script>
 
 
 

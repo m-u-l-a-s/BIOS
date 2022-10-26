@@ -9,7 +9,7 @@
         <h1>Problemas Reportados:</h1>
         
             {% for i in ar %}
-            <div class="ordem-servico">
+            <div class="ordem-servico" id="os{{ar.index(i)}}">
                 <ul class="pendente" style="text-align: start;">
                     <li>Ordem de Serviço #{{ ar.index(i) + 1 }} </li> 
                     <!-- <li class="detalhes">Laboratório: {{ i[0] }} </li>
@@ -20,7 +20,7 @@
                     <li>
                         <button type="button" class="btn btn-primary"  id="btn{{ar.index(i)}}">Ver detalhes</button>
                         {% if user.admin %}
-                        <button type="button" class="btn btn-secondary">Marcar como resolvido</button>
+                        <button type="button" class="btn btn-secondary" id="res{{ar.index(i)}}">Marcar como resolvido</button>
                         {% endif %}
                     </li>
                 </ul>
@@ -29,8 +29,9 @@
 
     </div>
 
-        <!-- <div class="specs">
+        <div class="specs">
                 <p>
+                    <hr>
                 <strong>
                     ESPECIFICAÇÕES DAS MÁQUINAS:
                 </strong>             
@@ -93,7 +94,7 @@
                 -Zelio Soft 2 v4.6.0<br>
                 -Zotero<br>
                     </p>
-        </div> -->
+        </div>
 </div>
 
     <div class="right" style="display: block;" id="right">
@@ -116,8 +117,10 @@
     let p = document.getElementById("pDetalhes")
     document.addEventListener('click', function(e) {
         if ((e.target.id).includes("btn")) {
+            console.log(e.target.id)
             let btn = document.getElementById(e.target.id)
             let btnid = e.target.id
+            
             let os = btnid.slice(3)
             os = parseInt(os)
             console.log(`OS #${os} Selecionada.`)
@@ -129,47 +132,53 @@
             for (let i = 0; i < ar.length; i+=6) {
                 oss.push(ar.slice(i, i+6))
             }
-            console.log(oss)
-
-            oss.forEach((el) => {
-                el.forEach((subel) => {
-                    // console.log(subel)
-                })
-            })
-
 
             p.textContent = ""
             
-            let osUl = document.createElement("ul")
+            if (oss[os][0] != "" && oss[os][1] != "" && oss[os][2] != "") {
+                
+                let osUl = document.createElement("ul")
+    
+                let lab = document.createElement("li")
+                lab.textContent = "Laboratório: " + oss[os][0]
+                let maq = document.createElement("li")
+                maq.textContent = "Máquina: " + oss[os][1]
+                let prob = document.createElement("li")
+                prob.textContent = "Problema: " + oss[os][2]
+                let desc = document.createElement("li")
+                desc.textContent = "Descrição: " + oss[os][3]
+                let data = document.createElement("li")
+                data.textContent = "Reportado em:" +  oss[os][4]
+                let status = document.createElement("li")
+                status.textContent = "Status: " + oss[os][5]
+    
+                osUl.appendChild(lab)
+                osUl.appendChild(maq)
+                osUl.appendChild(prob)
+                osUl.appendChild(desc)
+                osUl.appendChild(data)
+                osUl.appendChild(status)
+    
+                p.appendChild(osUl)  
+            }   
 
-            let lab = document.createElement("li")
-            lab.textContent = "Laboratório: " + oss[os][0]
-            let maq = document.createElement("li")
-            maq.textContent = "Máquina: " + oss[os][1]
-            let prob = document.createElement("li")
-            prob.textContent = "Problema: " + oss[os][2]
-            let desc = document.createElement("li")
-            desc.textContent = "Descrição: " + oss[os][3]
-            let data = document.createElement("li")
-            desc.textContent = "Reportado em: " + oss[os][4]
-            let status = document.createElement("li")
-            status.textContent = "Status: " + oss[os][5]
-
-            osUl.appendChild(lab)
-            osUl.appendChild(maq)
-            osUl.appendChild(prob)
-            osUl.appendChild(desc)
-            osUl.appendChild(status)
-
-            p.appendChild(osUl)
-            // for (let i = 0; i < oss[os].length; i++){
-            //     p.textContent += oss[os][i]
-            // }
-
-            
         }
         
+        else if ((e.target.id).includes("res")) {
+            let resbtn = document.getElementById(e.target.id)
+            let id = e.target.id
+            id = id.slice(3)
+            let osResolvida = document.getElementById(`os${id}`)
+            osResolvida.classList.toggle("os-resolvida")
+            if (osResolvida.classList.contains("os-resolvida")) {
+                resbtn.textContent = "Marcar como pendente"
+            } else {
+                resbtn.textContent = "Marcar como resolvido"
+            }
+        }  
+        
     }, false);
+
 </script>
 
 {% endblock %}
