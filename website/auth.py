@@ -79,6 +79,29 @@ def consulta(current_user = user):
 def contato():
     return render_template('contato.html')
 
+@auth.route('/edition', methods=['GET', 'POST'])
+def edition():
+    if request.method == 'POST':
+        lab = str(request.form.get("lab"))
+        from .database import Insert_Lab, Select_Lab
+        
+        lab_info = Select_Lab(lab)
+        print(lab_info)
+        if len(lab_info) > 0:
+            sala = Select_Lab(lab)[0][0]
+            linhas = Select_Lab(lab)[0][1]
+            cols = Select_Lab(lab)[0][2]
+            reportados = Select_Lab(lab)[0][3]
+            reportados = [reportados[i:i+2] for i in range(0, len(reportados), 2)]
+            reportados = [int(i) for i in reportados]
+            mntc = Select_Lab(lab)[0][4]
+            mntc = [mntc[i:i+2] for i in range(0, len(mntc), 2)]
+            mntc = [int(i) for i in mntc]
+            print(type(reportados))
+            print(reportados)
+            return render_template('edition.html', sala=sala, linhas=linhas, cols=cols, reportados=reportados, mntc=mntc)
+        else: return render_template("edition.html", erro="Este laboratório ainda não foi registrado.")
+    else: return render_template('edition.html')
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
