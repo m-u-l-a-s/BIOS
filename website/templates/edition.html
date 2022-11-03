@@ -75,12 +75,25 @@
     <div class="empty"></div>
 
     {% if sala %}
+
     
     {% for i in range(0, linhas) %}
     <div class="mesa">
         {% for j in range(0, cols) %}
+        
         <div class="maq">
-            <span id="numtag">{{(j + 1) + (cols*i)}}</span>
+            <span id="numtag">
+                {% if i % 2 == 0 %}
+
+                {{(cols - j) + ((i+1)*cols)}}
+                
+                {% else %}
+    
+                {{(cols - j) + ((i-1)*cols)}}
+    
+                {% endif %}
+                
+            </span>
         </div>
         {% endfor %}
     </div>
