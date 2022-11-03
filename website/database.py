@@ -121,10 +121,11 @@ def Insert_Lab(sala, linhas, colunas, reportados, mntc):
     mydb = connect_db()
     mycursor = mydb.cursor()
 
-    sql = f"REPLACE INTO labs (sala, linhas, colunas, reportados, mntc) VALUES ({sala}, {linhas}, {colunas}, {reportados}, {mntc})"
-    # val = [sala, linhas, colunas, reportados, mntc]
+    sql = f"REPLACE INTO labs (sala, linhas, colunas, reportados, mntc) VALUES (%s, %s, %s, %s, %s)"
+    # {sala}, {linhas}, {colunas}, {reportados}, {mntc}
+    val = [sala, linhas, colunas, reportados, mntc]
 
-    mycursor.execute(sql)
+    mycursor.execute(sql, val)
     mydb.commit()
     #print(mycursor.rowcount, "record inserted.")
 
@@ -178,5 +179,5 @@ Funções Existentes:
 
 try: create_labs_table()
 except: pass
-Insert_Lab(402, 8, 4, "010203", "112203")
-print(Select_Lab(402))
+# Insert_Lab(402, 8, 4, "010203", "112203")
+# print(Select_Lab(402))

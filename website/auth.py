@@ -82,8 +82,24 @@ def contato():
 @auth.route('/edition', methods=['GET', 'POST'])
 def edition():
     if request.method == 'POST':
-        lab = str(request.form.get("lab"))
         from .database import Insert_Lab, Select_Lab
+        
+        lab = str(request.form.get("lab"))
+        
+        if "salvar-layout" in request.form:
+            # newlab = request.form.get("lab")
+            num = str(request.form.get("num"))
+            linhas = request.form.get("bancadas")
+            colunas = request.form.get("maquinas")
+            reportados = ""
+            mntc = ""
+
+            if len(num) == 3:
+                Insert_Lab(num, linhas, colunas, reportados, mntc)
+
+            return render_template('edition.html', msg=f"Laboratório {num} alterado com sucesso!", num=num)
+
+
         
         lab_info = Select_Lab(lab)
         print(lab_info)
@@ -100,6 +116,7 @@ def edition():
             print(type(reportados))
             print(reportados)
             return render_template('edition.html', sala=sala, linhas=linhas, cols=cols, reportados=reportados, mntc=mntc)
+            
         else: return render_template("edition.html", erro="Este laboratório ainda não foi registrado.")
     else: return render_template('edition.html')
 
