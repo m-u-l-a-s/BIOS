@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+        <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous"
+      />
+        <title>BIOS - Editor</title>
+    </head>
+    <body>
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbar"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" id="home" href="https://github.com/m-u-l-a-s/BIOS" target="_blank">
+                  <img src="{{ url_for('static', filename='imgs/logo_mulas.png') }}" alt="" width="30px">
+                </a>
+                <a class="nav-item nav-link" id="index" href="reportar">Reportar um Problema</a>
+                <!-- <span style="color: gray; margin: auto;"> _ </span> -->
+                <a class="nav-item nav-link" id="consulta" href="consulta">Consultar</a>
+                <!-- <span style="color: gray; margin: auto;"><></span> -->
+                
+                <!-- <a class="nav-item nav-link" id="login" href="edition">Editar laboratórios</a> -->
+                <!-- <span style="color: gray; margin: auto;"><></span> -->
+                
+                <a class="nav-item nav-link" id="contato" href="contato">Contato</a>
+                <!-- <span style="color: gray; margin: auto;"><></span> -->
+                <!-- <a class="nav-item nav-link" id="login" href="login">Login</a> -->
+    
+                <!-- <span style="color: gray; margin: auto;"><></span> -->
+                <!-- <a class="nav-item nav-link" id="signUp" href="sign-up">Sign Up</a> -->
+                <a class="nav-item nav-link" id="logout" href="/">Logout</a>
+              </div>
+            </div>
+          </nav>
+    
+    <div class="conteudo">
+
+        <h1>Editor de Laboratórios</h1>
+        <br>
+        <form action="{{ url_for('auth.edition')}}" method="post" id="edition">
+            <select id="lab" name="lab" onchange="this.form.submit()" style="float: left; margin: 0px 10px;">
+                            
+                <option value="" selected disabled>Laboratório</option>
+                
+                <optgroup label="Terceiro Andar">
+                    
+                    <option value="301"> 301 </option>
+                    <option value="302"> 302 </option>
+                    <option value="303"> 303 </option>
+                    <option value="304"> 304 </option>
+                    <option value="305"> 305 </option>
+                    <option value="306"> 306 </option>
+                    <option value="307"> 307 </option>
+                </optgroup>
+            
+                <optgroup label="Quarto Andar">
+                    <option value="401"> 401 </option>
+                    <option value="402"> 402 </option>
+                    <option value="403"> 403 </option>
+                    <option value="404"> 404 </option>
+                    <option value="405"> 405 </option>
+                    <option value="406"> 406 </option>
+                    <option value="407"> 407 </option>
+                </optgroup>
+            </select>
+    </form>
+    
+    <!-- {% if erro %}
+    <p>{{erro}}</p>
+    {% endif %}
+    
+    {% if msg %}
+    <p>{{msg}}</p>
+    {% endif %} -->
+    
+    
+<form action="{{ url_for('auth.edition')}}" method="post" id="salvar-layout">
+    <input type="text" name="bancadas" id="bancadas" class="input" placeholder="{{linhas or 'Bancadas'}}" style="width: 8rem;border: none;">
+    <input type="text" name="maquinas" id="maquinas" class="input" placeholder="{{cols or 'Máquinas por bancada'}}" style="width: 14rem; border: none;">
+    <input type="hidden" name="num" value="{{ sala }}">
+    <button type="button" id="enviar" class="btn btn-secondary">Enviar</button>
+    <button type="submit" name ="salvar-layout" style="margin-right: 0px;" class="btn btn-secondary" style="float: right; margin: 0px 10px;">Salvar Layout</button>
+</form>
+
+{% if sala or num%}
+<br>
+<h2 style="text-align: center;" id="lab-name">Laboratório {{sala or num}}</h2>
+{% endif %}
+
+<div class="layout">
+    
+    <div class="mesa">
+        <img src="../static/imgs/maq.png" alt="" class="maq">
+    </div>
+    
+    <div class="empty"></div>
+    
+    {% if sala %}
+    
+    
+    {% for i in range(0, linhas) %}
+    <div class="mesa">
+        {% for j in range(0, cols) %}
+        
+        <div class="maq" draggable="true">
+            <span id="numtag">
+                <strong>
+
+                    {% if i % 2 == 0 %}
+                    
+                    {{(cols - j) + ((i+1)*cols)}}
+                    
+                    {% else %}
+                    
+                    {{(cols - j) + ((i-1)*cols)}}
+                    
+                    {% endif %}
+                </strong>
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    
+    {% endif %}
+    
+</div>
+</div>
+
+<style>
+    body {
+        text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 1.2em;
+        background-color: rgb(122, 122, 122);
+    }
+
+    .conteudo {
+        width: 84%;
+        margin: 1% auto;
+        color: white;
+        background: rgba(34, 34, 34, 0.808);
+        border: 2px solid black;
+        border-radius: 8px;
+    }
+    
+    h1 {
+        font-size: 2.5vw;
+        margin-top: 0%;
+        background: rgba(0, 0, 0, 0.2);
+        color: white;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 4px;
+    }
+
+    .layout {
+        color: black;
+        background: white;
+        border: 2px solid black;
+        border-radius: 8px;
+        display: grid;
+        grid-template:
+            'a x' minmax(60px, 100px)
+            'b b' minmax(60px, 100px)
+            'c c' minmax(60px, 100px)
+            'd d' minmax(60px, 100px) 
+            'f f' minmax(60px, 100px) 
+            'g g' minmax(60px, 100px) 
+            'h h' minmax(60px, 100px) /
+            minmax(0, 1fr) minmax(0, 1fr)
+        /* grid-gap: 1rem; */
+    }
+    .mesa {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: white;
+        border: 2px solid black;
+        border-radius: 4px;
+        margin: 20px;
+    }
+    /* .mesa-prof {
+        grid-area: t;
+    }
+    .mesa-cima {
+        grid-area: c;
+    }
+    .mesa-meio {
+        grid-area: m;
+    }
+    .mesa-baixo {
+        grid-area: b;
+    } */
+    .maq {
+        background-image: url("../static/imgs/maq.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: auto;
+        justify-content: space-evenly;
+        transition: transform .2s;
+    }
+
+    .maq:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    } 
+
+    .prob {
+        background-image: url("../static/imgs/maq_def.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #numtag {
+        display: flex;
+        width: 60px;
+        height: 100%;
+        align-items: center; 
+        justify-content: center;
+    }
+
+
+</style>
+
+<script>
+
+
+    const pcs = document.querySelectorAll(".maq")
+    pcs.forEach(pc => {
+        addEventListener("click", () => {
+            pc.classList.toggle("prob")
+        })
+        pc.addEventListener("dragstart", dragStart); //click on image to drag
+        pc.addEventListener("dragover", dragOver);   //drag an image
+        pc.addEventListener("dragenter", dragEnter); //dragging an image into another one
+        pc.addEventListener("dragleave", dragLeave); //dragging an image away from another one
+        pc.addEventListener("drop", dragDrop);       //drop an image onto another one
+        pc.addEventListener("dragend", dragEnd);      //after you completed dragDrop
+    })
+
+    let lab = document.querySelector("#lab")
+    let sala = document.querySelector(".layout")
+    let inputBancadas = document.querySelector("#bancadas")
+    let inputMaquinas = document.querySelector("#maquinas")
+    const btn = document.querySelector("#enviar")
+    const salvar = document.querySelector("#salvar")
+
+    var bancadas = 0;
+
+    btn.addEventListener("click", function() {
+        sala.innerHTML = "<div class='mesa'><img src='../static/imgs/maq.png' class='maq'></div> <div class='empty'></div>"
+        bancadas = inputBancadas.value
+        //maquinas por bancada
+        mpb = inputMaquinas.value
+
+        for (let r = 0; r < bancadas; r++) {
+
+            let mesa = document.createElement("div");
+            mesa.classList.add("mesa")
+            mesa.setAttribute("draggable", true)
+
+
+            //lugares
+            let maquinas = [];
+            for (let i=1; i <= bancadas*4; i++) {
+                maquinas.push(i.toString()); //put "1" to "25" into the array (puzzle imgs names)
+            }
+
+            for (let i = 0; i < mpb; i++) {
+                let maq = document.createElement("img");
+                maq.classList.add("maq")
+                maq.src = "../static/imgs/maq.png";
+                maq.setAttribute("draggable", true)
+
+                maq.addEventListener("dragstart", dragStart); //click on image to drag
+                maq.addEventListener("dragover", dragOver);   //drag an image
+                maq.addEventListener("dragenter", dragEnter); //dragging an image into another one
+                maq.addEventListener("dragleave", dragLeave); //dragging an image away from another one
+                maq.addEventListener("drop", dragDrop);       //drop an image onto another one
+                maq.addEventListener("dragend", dragEnd);      //after you completed dragDrop
+                // maq.addEventListener("click", changeColor);
+
+                mesa.append(maq);
+        }
+
+            sala.append(mesa);
+
+        }
+    })
+
+    function dragStart() {
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+    }
+
+    function dragEnter(e) {
+        e.preventDefault();
+    }
+
+    function dragLeave() {
+
+    }
+
+    function dragDrop() {
+        otherTile = this; //this refers to image that is being dropped on
+    }
+
+    function dragEnd() {
+
+    }
+</script>
+
+</body>
+</html>

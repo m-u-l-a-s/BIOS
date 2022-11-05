@@ -73,6 +73,16 @@ def create_oss_table():
     sql = "CREATE TABLE oss (Sala varchar(255), Maquina varchar(255), Problema varchar(255), Detalhes varchar(255), Data varchar(255), Status varchar(255));"
     mycursor.execute(sql)
     mydb.commit()
+
+def create_labs_table():
+    import mysql.connector
+
+    mydb = connect_db()
+    mycursor = mydb.cursor()
+
+    sql = "CREATE TABLE labs (sala INT PRIMARY KEY, linhas INT, colunas INT, reportados varchar(255), mntc varchar(255));"
+    mycursor.execute(sql)
+    mydb.commit()
     
 
 def Insert_Login(user, senha, email, admin):
@@ -104,6 +114,19 @@ def Insert_OS(Sala, Maquina, Problema, Detalhes, Data, Status):
 
     mycursor.execute(sql, val)
     mydb.commit()
+
+def Insert_Lab(sala, linhas, colunas, reportados, mntc):
+    import mysql.connector
+
+    mydb = connect_db()
+    mycursor = mydb.cursor()
+
+    sql = f"REPLACE INTO labs (sala, linhas, colunas, reportados, mntc) VALUES (%s, %s, %s, %s, %s)"
+    # {sala}, {linhas}, {colunas}, {reportados}, {mntc}
+    val = [sala, linhas, colunas, reportados, mntc]
+
+    mycursor.execute(sql, val)
+    mydb.commit()
     #print(mycursor.rowcount, "record inserted.")
 
 
@@ -114,6 +137,19 @@ def Select_Login(current_user):
     mycursor = mydb.cursor()
 
     sql = f"SELECT * FROM users WHERE user = '{current_user}';"
+
+    mycursor.execute(sql)
+    myresult = mycursor.fetchall()
+
+    return myresult
+
+def Select_Lab(sala):
+    import mysql.connector
+
+    mydb = connect_db()
+    mycursor = mydb.cursor()
+
+    sql = f"SELECT * FROM labs WHERE sala = {sala};"
 
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
@@ -131,7 +167,6 @@ def Select_OS():
     myresult = mycursor.fetchall()
     return myresult
 
-
 '''
 Funções Existentes:
     connect_db() # criar conexão com banco de dados
@@ -140,3 +175,9 @@ Funções Existentes:
                 Select_Login()
                     Select_OS()
 '''
+
+
+try: create_labs_table()
+except: pass
+# Insert_Lab(402, 8, 4, "010203", "112203")
+# print(Select_Lab(402))
