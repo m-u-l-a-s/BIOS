@@ -13,7 +13,7 @@ ar = []
 lab = ""
 
 linhas = 6
-cols = 2
+cols = 4
 mntc = [1,3,5,10]
 reportados = [2,4,8,18]
 
