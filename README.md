@@ -22,7 +22,6 @@ Nosso foco é em identificar o objetivo principal de um produto para desenvolver
 * [Amanda Mendes Caldeira](https://github.com/AmendoaM)
 * [Jean Cesar de Oliveira Rodrigues](https://github.com/JeanRodrigues1)
 * [Renan Graciano Faria](https://github.com/VonNexx)
-* [Thomas Januzzi Lewindon](https://github.com/Thomasjanuzzi)
 #### Product Owner:
 * [Alita Willians da Silva Amancio](https://github.com/AlitaAmancio)
 #### Scrum Master:
@@ -62,6 +61,11 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
    |         |- 📑 Backlog_Produto_02.ods
    |         |- 📑 Backlog_Sprint_02.ods
    |         |- 📑 Burndown_Sprint_02.ods
+   |         |- 📑 README.md
+   |    |- 📁 Sprint03
+   |         |- 📑 Backlog_Produto_03.ods
+   |         |- 📑 Backlog_Sprint_03.ods
+   |         |- 📑 Burndown_Sprint_03.ods
    |
    |-  📁 website
    |    |
@@ -75,17 +79,23 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
    |            |- 📑 3.png
    |            |- 📑 4.png
    |            |- 📑 fundo.png
+   |            |- 📑 fundobranco.jpg
    |            |- 📑 lab302.png
    |            |- 📑 lab304.png
    |            |- 📑 logo_mulas.png
+   |            |- 📑 maq_def.png
+   |            |- 📑 maq.png
+   |            |- 📑 pc_vazio.png
    |        |- 📁 scripts
    |            |- 📑 main.js
    |    |- 📁 templates
    |         |- 📑 base.html
    |         |- 📑 consulta.html
    |         |- 📑 contato.html
+   |         |- 📑 edition.html
    |         |- 📑 index.html
    |         |- 📑 login.html
+   |         |- 📑 reportar.html
    |         |- 📑 sign-up.html
    |   |- 📑 __init__.py
    |   |- 📑 auth.py
@@ -102,9 +112,10 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 
 ## Backlog do produto:
 ### User Stories:
-![userStories](https://user-images.githubusercontent.com/89790349/194779353-6e1cba0c-f457-48f1-8689-1557a5263ed4.jpeg)
+![userstories_sprint03](https://user-images.githubusercontent.com/89790349/200197532-979ab1ad-860a-42d3-9f61-d1d302ff0e20.png)
 
 ### Planejamento de Entregas:
+
 ![planejamentoEntregas](https://user-images.githubusercontent.com/89790349/194782333-eff5535a-eee3-4bd8-8087-6a2b89d6eb26.png)
 
 
