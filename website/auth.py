@@ -5,10 +5,17 @@ auth = Blueprint('auth', __name__)
 """
 <input type="submit" value="Selecionar" class="btn btn-secondary">
 os = (lab,maq,prob,rep,stat,detalhes)
+
+<!--<img src="../static/imgs/logo_mulas.png" id="logo">-->
 """
 os = ('1','1','1','1',"Pendente", "waow")
 ar = []
 lab = ""
+
+linhas = 6
+cols = 2
+mntc = [1,3,5,10]
+reportados = [2,4,8,18]
 
 user = {
     "user": "aluno", 
@@ -31,7 +38,7 @@ def home():
 
 @auth.route('/reportar')
 def reportar():
-    return render_template('reportar.html', lab=lab)
+    return render_template('reportar.html', lab=lab, linhas = linhas, cols = cols, mntc = mntc, reportados = reportados)
 
 
 @auth.route('/reportar', methods=["GET", "POST"])
@@ -54,7 +61,7 @@ def gfg():
     #             lab = '/imgs/lab302.png'
     # else:
     #             lab = '/imgs/lab402.png'        
-    return render_template("reportar.html", os = os)
+    return render_template("reportar.html", os = os , linhas = linhas, cols = cols, mntc = mntc, reportados = reportados)
 
 @auth.route('/img', methods=["GET", "POST"])
 def img():
@@ -65,7 +72,7 @@ def img():
             lab = '/imgs/lab302.png'
         else:
             lab = '/imgs/lab402.png'
-    return render_template("reportar.html", lab = lab, os = os)
+    return render_template("reportar.html", lab = lab, os = os, linhas = linhas, cols = cols, mntc = mntc, reportados = reportados)
 
 @auth.route('/consulta')
 def consulta(current_user = user):

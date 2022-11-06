@@ -16,11 +16,11 @@
                 <div>
                     <p>
                         <select id="lab" name="lab" style="width: 100%;">
-                            
+
                             <option value="" selected disabled>Laboratório</option>
-                            
+
                             <optgroup label="Terceiro Andar">
-                                
+
                                 <option value="301"> 301 </option>
                                 <option value="302"> 302 </option>
                                 <option value="303"> 303 </option>
@@ -28,7 +28,7 @@
                                 <option value="305"> 305 </option>
                                 <option value="306"> 306 </option>
                             </optgroup>
-    
+
                             <optgroup label="Quarto Andar">
                                 <option value="401"> 401 </option>
                                 <option value="402"> 402 </option>
@@ -38,11 +38,11 @@
                                 <option value="406"> 406 </option>
                             </optgroup>
                         </select>
-                
+
                     </p>
                     <!-- <input type="submit" value="Selecionar" class="btn btn-secondary" id="btn_img"  hidden> -->
                 </div>
-                
+
 
 
                 <p>
@@ -87,7 +87,8 @@
                     </select>
                 </p>
                 <br>
-                <textarea name="detalhes-os" id="detalhes-os" cols="25" rows="2" placeholder="Nos dê mais alguns detalhes!"></textarea>
+                <textarea name="detalhes-os" id="detalhes-os" cols="25" rows="2"
+                    placeholder="Nos dê mais alguns detalhes!"></textarea>
             </form>
             <br>
             <input type="submit" value="Enviar" id="submit" class="btn btn-secondary" form="gfg">
@@ -97,21 +98,70 @@
 
 
 <div class="right">
-    <img src="../static/imgs/logo_mulas.png" id="logo">
+
+
+    <div class="layout">
+
+        <div class="mesa">
+            <img src="../static/imgs/maq.png" alt="" class="maq">
+        </div>
+
+        <div class="empty"></div>
+
+
+        {% for i in range(0, linhas) %}
+        <div class="mesa">
+            {% for j in range(0, cols) %}
+
+            {% if i % 2 == 0 %}
+
+            <span>{{(cols - j) + ((i+1)*cols)}}</span>
+
+            {% else %}
+
+            <span>{{(cols - j) + ((i-1)*cols)}}</span>
+
+            {% endif %}
+
+
+
+            {% if ( (cols - j) + ((i+1)*cols) or (cols - j) + ((i-1)*cols)) in mntc %}
+
+            <img src="../static/imgs/pc_vazio.png" alt="" class="maq">
+
+            {% elif ( (cols - j) + ((i+1)*cols) or (cols - j) + ((i-1)*cols)) in reportados %}
+
+            <img src="../static/imgs/maq_def.png" alt="" class="maq">
+
+            {% else %}
+
+            <img src="../static/imgs/maq.png" alt="" class="maq">
+            {% endif %}
+
+
+
+
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+    </div>
+
+
 </div>
 
 <script src="{{ url_for ('static', filename='scripts/main.js') }}"></script>
 
 <script>
-    
+
     let labs = document.getElementById("lab")
     let img = document.getElementById("logo")
-    
-    labs.addEventListener("change", function() {
+
+    labs.addEventListener("change", function () {
         let lab = parseInt(labs.value)
         console.log(lab)
         if (lab > 300 && lab < 400) {
-            img.src = "../static/imgs/lab302.png"    
+            img.src = "../static/imgs/lab302.png"
             img.id = ""
         } else {
             img.src = "../static/imgs/lab402.png"
@@ -122,6 +172,55 @@
 
 
 </script>
+
+<style>
+    .layout {
+        margin-top: 200px;
+        display: grid;
+        justify-content: right;
+        grid-template:
+            'a x' minmax(60px, 100px) 'b b' minmax(60px, 100px) 'c c' minmax(60px, 100px) 'd d' minmax(60px, 100px) 'f f' minmax(60px, 100px) 'g g' minmax(60px, 100px) 'h h' minmax(60px, 100px) /
+            minmax(0, 1fr) minmax(0, 1fr)
+            /* grid-gap: 1rem; */
+    }
+
+    .mesa {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: white;
+        border: 2px solid black;
+        border-radius: 4px;
+        margin: 2px;
+    }
+
+    /* .mesa-prof {
+        grid-area: t;
+    }
+    .mesa-cima {
+        grid-area: c;
+    }
+    .mesa-meio {
+        grid-area: m;
+    }
+    .mesa-baixo {
+        grid-area: b;
+    } */
+    .maq {
+        width: 40% !important;
+        /*justify-content: space-evenly !important;*/
+        height: 40% !important;
+        border: none !important;
+        border-radius: 0px !important;
+    }
+
+    span {
+        color: black !important;
+        position: relative !important;
+        text-align: center;
+        left: 28px;
+        bottom: 1px;
+    }
+</style>
 
 
 
