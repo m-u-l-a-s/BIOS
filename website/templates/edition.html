@@ -94,13 +94,13 @@
     
     
 <form action="{{ url_for('auth.edition')}}" method="post" id="salvar-layout">
-    <input type="text" name="bancadas" id="bancadas" class="input" placeholder="{{linhas or 'Bancadas'}}" style="width: 8rem;border: none;">
-    <input type="text" name="maquinas" id="maquinas" class="input" placeholder="{{cols or 'Máquinas por bancada'}}" style="width: 14rem; border: none;">
+    <input type="text" name="bancadas" id="bancadas" class="input" value="{{linhas}}" placeholder="{{linhas or 'Bancadas'}}" style="width: 8rem;border: none;">
+    <input type="text" name="maquinas" id="maquinas" class="input" value="{{cols}}" placeholder="{{cols or 'Máquinas por bancada'}}" style="width: 14rem; border: none;">
     <input type="hidden" name="num" value="{{ sala }}">
     <input type="hidden" name="reportados" value="" id="reportados">
     <input type="hidden" name="mntc" value="" id="mntc">
     <button type="button" id="enviar" class="input">Enviar</button>
-    <button type="submit" name ="salvar-layout" style="margin-right: 0px;" class="input" style="float: right; margin: 0px 10px;">Salvar Layout</button>
+    <button type="submit" id="save" name="salvar-layout" style="margin-right: 0px;" class="input" style="float: right; margin: 0px 10px;">Salvar Layout</button>
 </form>
 
 {% if sala or num%}
@@ -245,6 +245,12 @@
 
     let reportados = document.getElementById("reportados")   
     let mntc = document.getElementById("mntc")   
+    let save = document.getElementById("save")
+    let r = "{{reportados}}"
+    r = r.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").split(',')
+
+    let m = "{{mntc}}"
+    m = m.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").split(',')
 
     const pcs = document.querySelectorAll(".maq")
     pcs.forEach(pc => {
@@ -255,6 +261,13 @@
         pc.addEventListener("dragleave", dragLeave); //dragging an image away from another one
         pc.addEventListener("drop", dragDrop);       //drop an image onto another one
         pc.addEventListener("dragend", dragEnd);      //after you completed dragDrop
+
+        if (r.includes(pc.id)) {
+            document.getElementById(pc.id).classList.add("prob")
+        }
+        if (m.includes(pc.id)) {
+            document.getElementById(pc.id).classList.add("mntc")
+        }
     })
 
     function changeColor() {

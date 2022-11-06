@@ -115,7 +115,7 @@ def Insert_OS(Sala, Maquina, Problema, Detalhes, Data, Status):
     mycursor.execute(sql, val)
     mydb.commit()
 
-def Insert_Lab(sala, linhas, colunas, reportados, mntc):
+def Insert_Lab(sala, linhas=0, colunas=0, reportados="", mntc=""):
     import mysql.connector
 
     mydb = connect_db()
