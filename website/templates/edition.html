@@ -38,12 +38,12 @@
                 <a class="nav-item nav-link" id="consulta" href="consulta">Consultar</a>
                 <!-- <span style="color: gray; margin: auto;"><></span> -->
                 
-                <!-- <a class="nav-item nav-link" id="login" href="edition">Editar laboratórios</a> -->
+                <a class="nav-item nav-link" id="login" href="edition">Editar laboratórios</a>
                 <!-- <span style="color: gray; margin: auto;"><></span> -->
                 
                 <a class="nav-item nav-link" id="contato" href="contato">Contato</a>
                 <!-- <span style="color: gray; margin: auto;"><></span> -->
-                <!-- <a class="nav-item nav-link" id="login" href="login">Login</a> -->
+                <a class="nav-item nav-link" id="login" href="login">Login</a>
     
                 <!-- <span style="color: gray; margin: auto;"><></span> -->
                 <!-- <a class="nav-item nav-link" id="signUp" href="sign-up">Sign Up</a> -->
@@ -57,7 +57,7 @@
         <h1>Editor de Laboratórios</h1>
         <br>
         <form action="{{ url_for('auth.edition')}}" method="post" id="edition">
-            <select id="lab" name="lab" onchange="this.form.submit()" style="float: left; margin: 0px 10px;">
+            <select id="lab" name="lab" onchange="this.form.submit()" style="float: left; margin: 0px 10px;" class="input">
                             
                 <option value="" selected disabled>Laboratório</option>
                 
@@ -84,21 +84,23 @@
             </select>
     </form>
     
-    <!-- {% if erro %}
+    {% if erro %}
     <p>{{erro}}</p>
     {% endif %}
     
     {% if msg %}
     <p>{{msg}}</p>
-    {% endif %} -->
+    {% endif %}
     
     
 <form action="{{ url_for('auth.edition')}}" method="post" id="salvar-layout">
     <input type="text" name="bancadas" id="bancadas" class="input" placeholder="{{linhas or 'Bancadas'}}" style="width: 8rem;border: none;">
     <input type="text" name="maquinas" id="maquinas" class="input" placeholder="{{cols or 'Máquinas por bancada'}}" style="width: 14rem; border: none;">
     <input type="hidden" name="num" value="{{ sala }}">
-    <button type="button" id="enviar" class="btn btn-secondary">Enviar</button>
-    <button type="submit" name ="salvar-layout" style="margin-right: 0px;" class="btn btn-secondary" style="float: right; margin: 0px 10px;">Salvar Layout</button>
+    <input type="hidden" name="reportados" value="" id="reportados">
+    <input type="hidden" name="mntc" value="" id="mntc">
+    <button type="button" id="enviar" class="input">Enviar</button>
+    <button type="submit" name ="salvar-layout" style="margin-right: 0px;" class="input" style="float: right; margin: 0px 10px;">Salvar Layout</button>
 </form>
 
 {% if sala or num%}
@@ -121,8 +123,8 @@
     <div class="mesa">
         {% for j in range(0, cols) %}
         
-        <div class="maq" draggable="true">
-            <span id="numtag">
+            <span class="maq numtag" id="{% if i % 2 == 0 %}{{(cols - j) + ((i+1)*cols)}}{% else %}{{(cols - j) + ((i-1)*cols)}}{% endif %}">
+                <!-- {% if i % 2 == 0 %}{{(cols - j) + ((i+1)*cols)}}{% else %}{{(cols - j) + ((i-1)*cols)}}{% endif %} -->
                 <strong>
 
                     {% if i % 2 == 0 %}
@@ -136,7 +138,6 @@
                     {% endif %}
                 </strong>
             </span>
-        </div>
         {% endfor %}
     </div>
     {% endfor %}
@@ -168,11 +169,11 @@
         margin-top: 0%;
         background: rgba(0, 0, 0, 0.2);
         color: white;
-        border: 1px solid rgb(255, 255, 255);
         border-radius: 4px;
     }
 
     .layout {
+        margin-top: 20px;
         color: black;
         background: white;
         border: 2px solid black;
@@ -197,18 +198,7 @@
         border-radius: 4px;
         margin: 20px;
     }
-    /* .mesa-prof {
-        grid-area: t;
-    }
-    .mesa-cima {
-        grid-area: c;
-    }
-    .mesa-meio {
-        grid-area: m;
-    }
-    .mesa-baixo {
-        grid-area: b;
-    } */
+
     .maq {
         background-image: url("../static/imgs/maq.png");
         background-repeat: no-repeat;
@@ -228,7 +218,12 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-    #numtag {
+
+    .mntc {
+        background-image: none;
+    }
+
+    .numtag {
         display: flex;
         width: 60px;
         height: 100%;
@@ -236,17 +231,24 @@
         justify-content: center;
     }
 
+    .input {
+        height: 36px;
+
+        border: 2px solid black;
+        border-radius: 4px;
+    }
+
 
 </style>
 
 <script>
 
+    let reportados = document.getElementById("reportados")   
+    let mntc = document.getElementById("mntc")   
 
     const pcs = document.querySelectorAll(".maq")
     pcs.forEach(pc => {
-        addEventListener("click", () => {
-            pc.classList.toggle("prob")
-        })
+        addEventListener("click", changeColor)
         pc.addEventListener("dragstart", dragStart); //click on image to drag
         pc.addEventListener("dragover", dragOver);   //drag an image
         pc.addEventListener("dragenter", dragEnter); //dragging an image into another one
@@ -254,6 +256,40 @@
         pc.addEventListener("drop", dragDrop);       //drop an image onto another one
         pc.addEventListener("dragend", dragEnd);      //after you completed dragDrop
     })
+
+    function changeColor() {
+        obj = window.event.target
+        if (obj.classList.contains("numtag")) {
+            console.log(obj.id)
+            if (!obj.classList.contains("mntc") && !obj.classList.contains("prob")) {
+                obj.classList.add("prob")
+
+                mntc.value = mntc.value.replace(`${obj.id},`,"")
+                reportados.value += obj.id + ","
+
+                console.log(`reportados: ${reportados.value}`)
+                console.log(`manutenção: ${mntc.value}`)
+                
+            } else if (obj.classList.contains("prob")) {
+                obj.classList.remove("prob")
+                obj.classList.add("mntc")
+                
+                reportados.value = reportados.value.replace(`${obj.id},`,"")
+                mntc.value += obj.id + ","
+
+                console.log(`reportados: ${reportados.value}`)
+                console.log(`manutenção: ${mntc.value}`)
+
+            } else if (obj.classList.contains("mntc")) {
+                obj.classList.remove("mntc")
+                obj.classList.remove("prob")
+
+                mntc.value = mntc.value.replace(`${obj.id},`,"")
+                console.log(`reportados: ${reportados.value}`)
+                console.log(`manutenção: ${mntc.value}`)
+            }
+        }
+    }
 
     let lab = document.querySelector("#lab")
     let sala = document.querySelector(".layout")
