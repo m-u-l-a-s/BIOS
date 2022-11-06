@@ -131,15 +131,12 @@
 
             {% elif ( (cols - j) + ((i+1)*cols) or (cols - j) + ((i-1)*cols)) in reportados %}
 
-            <img src="../static/imgs/maq_def.png" alt="" class="maq">
+            <img src="../static/imgs/maq_def.png" alt="" class="maq okkei">
 
             {% else %}
 
-            <img src="../static/imgs/maq.png" alt="" class="maq">
+            <img src="../static/imgs/maq.png" alt="" class="maq okkei">
             {% endif %}
-
-
-
 
             {% endfor %}
         </div>
@@ -187,11 +184,17 @@
     .mesa {
         display: flex;
         justify-content: space-evenly;
+        overflow:hidden;
+        transition: transform .4s;
         background-color: white;
         border: 2px solid black;
         border-radius: 4px;
         margin: 2px;
         align-items: center;
+    }
+
+    .okkei:hover{
+        transform: scale(2.2);
     }
 
     /* .mesa-prof {
