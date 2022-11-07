@@ -125,9 +125,9 @@ def edition():
 
             if len(num) == 3:
                 Insert_Lab(num, linhas, colunas, reportados, mntc)
-                return render_template('edition.html', msg=f"Laboratório {num} alterado com sucesso!", num=num)
+                return render_template('edition.html', msg=f"Laboratório {num} alterado com sucesso!", num=num, reportados=reportados, mntc=mntc)
 
-            else: return render_template('edition.html', erro=f"Não foi possível alterar o layout.", num=num)
+            else: return render_template('edition.html', erro=f"Não foi possível alterar o layout.", num=num, reportados=reportados, mntc=mntc)
 
         
         lab_info = Select_Lab(lab)
