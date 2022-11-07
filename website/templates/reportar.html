@@ -6,8 +6,6 @@
 
 <!-- <h1>Reporte um problema abaixo</h1> -->
 
-{% set texto = "../static/imgs/maq.png" %}
-
 <div class="left" style="display: block;">
     <h1 style="text-align: center;">Reporte um problema abaixo:</h1>
     <br><br>
@@ -19,7 +17,7 @@
                     <p>
                         <select id="lab" name="lab" style="width: 100%;">
 
-                            <option value="" selected disabled>Laboratório</option>
+                            <option value="{{lab}}" selected disabled>{{lab}}</option>
 
                             <optgroup label="Terceiro Andar">
 
@@ -113,7 +111,6 @@
         
         <div class="empty"></div>
         
-        {% if sala %}
         
         
         {% for i in range(0, linhas) %}
@@ -160,7 +157,6 @@
         </div>
         {% endfor %}
         
-        {% endif %}
 
     </div>
 
@@ -173,17 +169,11 @@
 
     let labs = document.getElementById("lab")    
 
-    /*labs.addEventListener("change", function () {
-        let lab = parseInt(labs.value)
-        console.log(lab)
-        if (lab > 300 && lab < 400) {
-            img.src = "../static/imgs/lab302.png"
-            img.id = ""
-        } else {
-            img.src = "../static/imgs/lab402.png"
-            img.id = ""
-        }
-    })*/
+    labs.addEventListener("change", function () {
+        let lab = parseInt(labs.value);
+        let btn = document.getElementById("submit");
+        btn.click();
+    })
 
 
 

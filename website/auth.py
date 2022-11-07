@@ -10,12 +10,19 @@ os = (lab,maq,prob,rep,stat,detalhes)
 """
 os = ('1','1','1','1',"Pendente", "waow")
 ar = []
-lab = ""
+lab = "Laboratório"
 
 linhas = 6
 cols = 4
-mntc = [1,3,5,10]
-reportados = [2,4,8,18]
+mntc = ["1","3","5","10",""]
+reportados = ["2","4","8","18",""]
+
+def converter(m):
+    l = []
+    for i in range(0,len(m)-1):
+        l.append(int(m[i]))
+    return l
+
 
 user = {
     "user": "aluno", 
@@ -38,11 +45,12 @@ def home():
 
 @auth.route('/reportar')
 def reportar():
-    return render_template('reportar.html', lab=lab, linhas = linhas, cols = cols, mntc = mntc, reportados = reportados)
+    return render_template('reportar.html', lab=lab, linhas = linhas, cols = cols, mntc = converter(mntc), reportados = converter(reportados))
 
 
 @auth.route('/reportar', methods=["GET", "POST"])
 def gfg():
+    from .database import Select_Lab
     if request.method == "POST":
         lab = str(request.form.get("lab"))
         maq = str(request.form.get("maq"))
@@ -56,12 +64,21 @@ def gfg():
                 create_oss_table()
             except:
                 pass
-            Insert_OS(lab, maq, prob, detalhes, data, status)
-    # if (lab >= "301") and (lab <= "309"):
-    #             lab = '/imgs/lab302.png'
-    # else:
-    #             lab = '/imgs/lab402.png'        
-    return render_template("reportar.html", os = os , linhas = linhas, cols = cols, mntc = mntc, reportados = reportados)
+            Insert_OS(lab, maq, prob, detalhes, data, status)   
+        lab_info = Select_Lab(lab)
+        print(lab_info)
+        if len(lab_info) > 0:
+            sala = Select_Lab(lab)[0][0]
+            linhas = Select_Lab(lab)[0][1]
+            cols = Select_Lab(lab)[0][2]
+            reportados = Select_Lab(lab)[0][3]
+            reportados = reportados.split(",")
+            # reportados = [int(i) for i in reportados]
+            mntc = Select_Lab(lab)[0][4]
+            mntc = mntc.split(",")
+            # mntc = [mntc[i:i+2] for i in range(0, len(mntc), 2)]
+            # mntc = [int(i) for i in mntc]    
+    return render_template("reportar.html",lab = lab,  os = os , linhas = linhas, cols = cols, mntc = converter(mntc), reportados = converter(reportados))
 
 @auth.route('/img', methods=["GET", "POST"])
 def img():
