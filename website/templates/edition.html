@@ -246,14 +246,23 @@
     let reportados = document.getElementById("reportados")   
     let mntc = document.getElementById("mntc")   
     let save = document.getElementById("save")
+
     let r = "{{reportados}}"
     r = r.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").split(',')
 
     let m = "{{mntc}}"
     m = m.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").split(',')
 
+    if (r.length > 0) { reportados.value += r.toString() }
+    if (m.length > 0) { mntc.value += m.toString() }
+
+    console.log(reportados.value)
+    console.log(mntc.value)
+
     const pcs = document.querySelectorAll(".maq")
     pcs.forEach(pc => {
+        rep = reportados.value
+        mn = mntc.value
         addEventListener("click", changeColor)
         pc.addEventListener("dragstart", dragStart); //click on image to drag
         pc.addEventListener("dragover", dragOver);   //drag an image
@@ -262,11 +271,22 @@
         pc.addEventListener("drop", dragDrop);       //drop an image onto another one
         pc.addEventListener("dragend", dragEnd);      //after you completed dragDrop
 
-        if (r.includes(pc.id)) {
-            document.getElementById(pc.id).classList.add("prob")
-        }
-        if (m.includes(pc.id)) {
-            document.getElementById(pc.id).classList.add("mntc")
+        if (document.getElementById(pc.id) && pc.id) {
+            
+                    if (r.includes(pc.id)) {
+                        document.getElementById(pc.id).classList.add("prob")
+                    }
+                    if (m.includes(pc.id)) {
+                        document.getElementById(pc.id).classList.add("mntc")
+                    }
+                    if (rep.includes(pc.id)) {
+                        console.log("aqui")
+                        document.getElementById(pc.id).classList.add("prob")
+                    }
+                    if (mn.includes(pc.id)) {
+                        console.log("aqui tbm")
+                        document.getElementById(pc.id).classList.add("mntc")
+                    }
         }
     })
 
