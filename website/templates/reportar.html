@@ -46,9 +46,9 @@
 
 
                 <p>
-                    <!--<input type="text" name="report" id="maq">-->
-                    <select id="maq" name="maq" style="width: 100%;">
-                        <option value="" selected disabled>Máquina</option>
+                    <input type="text" name="maq" id="maq">
+                    <!--<select id="maq" name="maq" style="width: 100%;">
+                        <option value="" selected >Máquina</option>
                         <option value="01"> 01 </option>
                         <option value="02"> 02 </option>
                         <option value="03"> 03 </option>
@@ -69,7 +69,7 @@
                         <option value="18"> 18 </option>
                         <option value="19"> 19 </option>
                         <option value="20"> 20 </option>
-                    </select>
+                    </select>-->
                 </p>
 
                 <p>
@@ -103,7 +103,7 @@
     <div class="layout">
 
         <div class="mesa">
-            <div class="maq normal">
+            <div class="numtag maq normal" id="Prof">
                 <span id="numtag"> <strong> Prof </strong></span>
             </div>
             <!--<img src="../static/imgs/maq.png" alt="" class="maq">-->
@@ -129,7 +129,7 @@
             {% endif %} 
 
             
-            {% set class = "maq normal" %}
+            {% set class = "numtag maq normal" %}
             
             {% if index in mntc %}
                         
@@ -137,15 +137,15 @@
                         
             {% elif index in reportados %}
                         
-            {% set class = "maq problema" %}
+            {% set class = "numtag maq problema" %}
                        
             {% endif %}   
 
 
 
 
-            <div class= "{{class}}">
-                <span id="numtag">
+            <div class= "{{class}}" id="{{index}}">
+                <span id="{{index}}">
                     <strong>
     
                         {{index}}
@@ -175,7 +175,20 @@
         btn.click();
     })
 
+    const pcs = document.querySelectorAll("div.numtag");
+    pcs.forEach(pc => {
+        addEventListener("click", pickNumber)
+    });
 
+    function pickNumber(){
+        obj = window.event.target;
+        if (obj.classList.contains("maq")) {
+            if (!obj.classList.contains("mntc")) {
+                console.log("IM HERE")
+                document.getElementById("maq").value = obj.id;
+            } 
+        }
+    }
 
 </script>
 
