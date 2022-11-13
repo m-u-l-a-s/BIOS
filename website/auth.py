@@ -23,6 +23,11 @@ def converter(m):
         l.append(int(m[i]))
     return l
 
+def addPC(vetor, maq):
+    vetor[-1] = str(maq)
+    vetor.append("")
+    return vetor
+
 
 user = {
     "user": "aluno", 

@@ -6,7 +6,7 @@
 
 <!-- <h1>Reporte um problema abaixo</h1> -->
 
-<div class="left" style="display: block;">
+<div class="left" style="display: block; overflow: hidden;">
     <h1 style="text-align: center;">Reporte um problema abaixo:</h1>
     <br><br>
     <!-- <form action="{{ url_for('auth.img')}}" method="post" id="img"></form> -->
@@ -46,7 +46,7 @@
 
 
                 <p>
-                    <input type="text" name="maq" id="maq">
+                    <input type="text" name="maq" id="maq" hidden >
                     <!--<select id="maq" name="maq" style="width: 100%;">
                         <option value="" selected >Máquina</option>
                         <option value="01"> 01 </option>
@@ -71,6 +71,8 @@
                         <option value="20"> 20 </option>
                     </select>-->
                 </p>
+
+                <p id="labelmaq">Máquina Selecionada:</p>
 
                 <p>
                     <!--<input type="text" name="report" id="prob">-->
@@ -97,7 +99,11 @@
 </div>
 
 
-<div class="right">
+<div class="right" style="flex-direction: column;">
+
+    <div>
+        <h2>Clique em uma máquina!</h2>
+    </div>
 
 
     <div class="layout">
@@ -186,6 +192,7 @@
             if (!obj.classList.contains("mntc")) {
                 console.log("IM HERE")
                 document.getElementById("maq").value = obj.id;
+                document.getElementById("labelmaq").textContent = "Máquina Selecionada: " + obj.id
             } 
         }
     }
