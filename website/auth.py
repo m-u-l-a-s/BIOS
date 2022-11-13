@@ -23,6 +23,9 @@ def converter(m):
         l.append(int(m[i]))
     return l
 
+def AppendReport(s,maq):
+    return s + maq + ','
+
 def addPC(vetor, maq):
     vetor[-1] = str(maq)
     vetor.append("")
@@ -63,26 +66,29 @@ def gfg():
         detalhes = str(request.form.get("detalhes-os"))
         data = str(datetime.now())[:-7]
         status = "Pendente"
-        if (not(lab == "" or maq == "" or prob == "" or detalhes == "")):
-            from .database import Insert_OS, create_oss_table
-            try: 
-                create_oss_table()
-            except:
-                pass
-            Insert_OS(lab, maq, prob, detalhes, data, status)   
         lab_info = Select_Lab(lab)
         print(lab_info)
         if len(lab_info) > 0:
             sala = Select_Lab(lab)[0][0]
             linhas = Select_Lab(lab)[0][1]
             cols = Select_Lab(lab)[0][2]
-            reportados = Select_Lab(lab)[0][3]
-            reportados = reportados.split(",")
+            reportadosSTR = Select_Lab(lab)[0][3]
+            reportados = reportadosSTR.split(",")
             # reportados = [int(i) for i in reportados]
-            mntc = Select_Lab(lab)[0][4]
-            mntc = mntc.split(",")
+            mntcSTR = Select_Lab(lab)[0][4]
+            mntc = mntcSTR.split(",")
             # mntc = [mntc[i:i+2] for i in range(0, len(mntc), 2)]
-            # mntc = [int(i) for i in mntc]    
+            # mntc = [int(i) for i in mntc]   
+        if (not(lab == "" or maq == "" or prob == "" or detalhes == "")):
+            from .database import Insert_OS, create_oss_table, Insert_Lab
+            try: 
+                create_oss_table()
+
+            except:
+                pass
+            Insert_OS(lab, maq, prob, detalhes, data, status)   
+            reportadosSTR = AppendReport(reportadosSTR,maq)
+            Insert_Lab(lab, linhas, cols, reportadosSTR, mntcSTR) 
     return render_template("reportar.html",lab = lab,  os = os , linhas = linhas, cols = cols, mntc = converter(mntc), reportados = converter(reportados))
 
 @auth.route('/img', methods=["GET", "POST"])
