@@ -2,7 +2,7 @@ body {
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.2em;
-    background-color: rgb(122, 122, 122);
+    background-image: url(../imgs/fundobranco.jpg);
 }
 /* 
 #lab-layout {
@@ -76,6 +76,10 @@ li{
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 4px;
     overflow: scroll;
+}
+
+.left h1 {
+    background-color: black;
 }
 
 .right {
