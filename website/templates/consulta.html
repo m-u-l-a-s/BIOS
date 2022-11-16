@@ -18,9 +18,9 @@
                     <li class="detalhes">Descrição: {{ i[3] }}</li>
                     <li class="detalhes">Status: {{ i[4] }} </li> -->
                     <li>
-                        <button type="button" class="btn btn-primary"  id="btn{{ar.index(i)}}">Ver detalhes</button>
+                        <button type="button" class="btn-secondary btn-lg btn-home"  id="btn{{ar.index(i)}}">Ver detalhes</button>
                         {% if user.admin %}
-                        <button type="button" class="btn btn-secondary" id="res{{ar.index(i)}}">Marcar como resolvido</button>
+                        <button type="button" class="btn-secondary btn-lg btn-home" id="res{{ar.index(i)}}">Marcar como resolvido</button>
                         {% endif %}
                     </li>
                 </ul>
