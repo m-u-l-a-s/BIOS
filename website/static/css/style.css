@@ -6,7 +6,15 @@ body {
 }
 
 .dropbtn {
-    background-color: rgba(34, 34, 34, 0.808);
+    /* background-color: rgba(34, 34, 34, 0.808); */
+    border: none;
+    border-radius: 2px;
+    width: 200%;
+    text-align: start;
+}
+
+.dropbtn:hover {
+    border-radius: 4px;
 }
 
 .dropdown {
@@ -15,6 +23,8 @@ body {
 }
 
 .dropdownContent {
+    width: 200%;
+    text-align: start;
     display: none;
     position: absolute;
     background-color: rgba(34, 34, 34, 0.808);
@@ -24,12 +34,18 @@ body {
 
 .dropdown:hover .dropdownContent {
     display: block;
+    border-radius: 4px;
 }
 
 .dropdownContent a {
     color: white;
+    text-decoration: none;
     display:block;
     padding: 10px 16px;
+}
+
+.dropdownContent a:hover {
+    background-color: rgb(47, 47, 47);
 }
 
 /* 
