@@ -130,11 +130,11 @@
                 Veja detalhes sobre cada OS clicando ao lado.
             </p>
         </div>
-
+        {% if user.admin %}
         <div class="AdminSalvar">
             <button type="button" class="btn btn-secondary" id="SalvarRes">Salvar Mudanças</button>
         </div>
-
+        {% endif %}
         <form action="{{ url_for('auth.UpdateStatus')}}" method="post" id="UpdateStatus">
             <input type="text" name="data" id="data" hidden >
         </form>

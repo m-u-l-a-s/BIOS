@@ -41,7 +41,7 @@ user = {
     "user": "aluno", 
     "senha": "", 
     "email": "aluno@fatec.gov.sp.br", 
-    "admin": True #False
+    "admin": False #False
 }
 admin = {
     "user": "admin", 
