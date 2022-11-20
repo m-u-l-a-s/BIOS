@@ -1,30 +1,30 @@
 # BANCO OFICIAL:
+"""
+def create_database():
+    import mysql.connector
 
-# def create_database():
-#     import mysql.connector
+    mydb = mysql.connector.connect(
+        host="anxjos.mysql.pythonanywhere-services.com",
+        user="anxjos",
+        password="mulinhas", #"MUL1NH4S"
+    )
+    cur = mydb.cursor()
 
-#     mydb = mysql.connector.connect(
-#         host="anxjos.mysql.pythonanywhere-services.com",
-#         user="anxjos",
-#         password="mulinhas", #"MUL1NH4S"
-#     )
-#     cur = mydb.cursor()
+    sql = "CREATE DATABASE anxjos$db; USE anxjos$db"
+    cur.execute(sql)
+    mydb.commit()
 
-#     sql = "CREATE DATABASE anxjos$db; USE anxjos$db"
-#     cur.execute(sql)
-#     mydb.commit()
+def connect_db():
+    import mysql.connector
 
-# def connect_db():
-#     import mysql.connector
-
-#     mydb = mysql.connector.connect(
-#         host="anxjos.mysql.pythonanywhere-services.com",
-#         user="anxjos",
-#         password="mulinhas", #"MUL1NH4S"
-#         database="anxjos$db"
-#     )
-#     return mydb
-
+    mydb = mysql.connector.connect(
+        host="anxjos.mysql.pythonanywhere-services.com",
+        user="anxjos",
+        password="mulinhas", #"MUL1NH4S"
+        database="anxjos$db"
+    )
+    return mydb
+"""
 # ==========================================================
 # BANCO DE TESTES LOCAIS:
 def create_database():
@@ -113,6 +113,17 @@ def Insert_OS(Sala, Maquina, Problema, Detalhes, Data, Status):
     val = [Sala, Maquina, Problema, Detalhes, Data, Status]
 
     mycursor.execute(sql, val)
+    mydb.commit()
+
+def Update_Status(datas, status):
+    import mysql.connector
+
+    mydb = connect_db()
+    mycursor = mydb.cursor()
+
+    sql = f"UPDATE oss SET Status = '{status}' WHERE Data = '{datas}';"
+
+    mycursor.execute(sql)
     mydb.commit()
 
 def Insert_Lab(sala, linhas=0, colunas=0, reportados="", mntc=""):

@@ -5,9 +5,10 @@
 {% block content %}
 
 <div class="left" style="display: block">
+
     <div class="pendentes" id="pendentes-div">
         <h1>Problemas Reportados:</h1>
-        
+
             {% for i in ar %}
             <div class="ordem-servico" id="os{{ar.index(i)}}">
                 <ul class="pendente" style="text-align: start;">
@@ -105,16 +106,29 @@
                 Veja detalhes sobre cada OS clicando ao lado.
             </p>
         </div>
+
+        <div class="AdminSalvar">
+            <button type="button" class="btn btn-secondary" id="SalvarRes">Salvar Mudanças</button>
+        </div>
+
+        <form action="{{ url_for('auth.UpdateStatus')}}" method="post" id="UpdateStatus">
+            <input type="text" name="data" id="data" hidden >
+        </form>
+        <input type="submit" value="Enviar" id="submit" class="btn btn-secondary btn-lg btn-home" form="UpdateStatus" hidden >
     </div>
     
 
 <script src="{{ url_for ('static', filename='scripts/main.js') }}">
 </script>
 
+<style>
+</style>
+
 <script>
     let right = document.getElementById("right")
     let divDetalhes = document.getElementById("detalhes")
     let p = document.getElementById("pDetalhes")
+    let datas = "";
     document.addEventListener('click', function(e) {
         if ((e.target.id).includes("btn")) {
             console.log(e.target.id)
@@ -175,9 +189,40 @@
             } else {
                 resbtn.textContent = "Marcar como resolvido"
             }
-        }  
+        } 
+        
+        else if ((e.target.id).includes("SalvarRes"))
+        {
+            const pcs = document.querySelectorAll("div.os-resolvida");
+            pcs.forEach(FuncReport);
+            //console.log(datas)
+            document.getElementById("data").value = datas;
+            datas = "";
+            document.getElementById("submit").click()
+        }
         
     }, false);
+
+    function FuncReport(item, index) {
+        //let btn = document.getElementById(e.target.id);
+        let btnid = item.id;  
+        let os = btnid.slice(2);
+        os = parseInt(os);
+        console.log(btnid)
+        let ar = "{{ar}}"
+        ar = ar.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").split(',')
+
+        let oss = []
+        for (let i = 0; i < ar.length; i+=6) {
+            oss.push(ar.slice(i, i+6))
+        }
+        if(oss[os][5] == " Pendente" || oss[os][5] == " Pendente]]")
+        {
+            datas += oss[os][4] + ','
+        }
+        
+        //console.log(oss[os][4])
+    }
 
 </script>
 
