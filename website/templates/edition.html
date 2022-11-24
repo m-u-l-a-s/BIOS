@@ -6,26 +6,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             .dropbtn {
-                background-color: rgba(34, 34, 34, 0.808);
+                border: none;
+                border-radius: 2px;
+                width: 200%;
+                text-align: start;
             }
+
+            .dropbtn:hover {
+                border-radius: 4px;
+            }
+
             .dropdown {
                 position: relative;
                 display: inline-block;
             }
+
             .dropdownContent {
+                width: 200%;
+                text-align: start;
                 display: none;
                 position: absolute;
                 background-color: rgba(34, 34, 34, 0.808);
                 overflow: auto;
-                box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.808);
             }
+
             .dropdown:hover .dropdownContent {
                 display: block;
+                border-radius: 4px;
             }
+
             .dropdownContent a {
                 color: white;
-                display: block;
+                text-decoration: none;
+                display:block;
                 padding: 10px 16px;
+            }
+
+            .dropdownContent a:hover {
+                background-color: rgb(47, 47, 47);
+                color: white;
+                text-decoration: none;
             }
         </style>
         <link
@@ -59,7 +80,7 @@
                   </a>
                   <a class ="nav-item nav-link" id="inicio" href="/">Início</a>
                   <div class="dropdown">
-                    <button class="dropbtn nav-item nav-link">Serviços ↴</button>
+                    <button class="dropbtn nav-item nav-link bg-dark">Serviços ↴</button>
                     <div class="dropdownContent">
                   <a href="reportar">Reportar um Problema</a>
                   <a href="consulta">Consultar</a>
