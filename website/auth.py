@@ -94,6 +94,8 @@ def gfg():
             Insert_OS(lab, maq, prob, detalhes, data, status)   
             reportadosSTR = AppendReport(reportadosSTR,maq)
             Insert_Lab(lab, linhas, cols, reportadosSTR, mntcSTR) 
+            
+            return render_template("reportar.html",lab = lab,  os = os , linhas = linhas, cols = cols, mntc = converter(mntc), reportados = converter(reportados))
     return render_template("reportar.html",lab = lab,  os = os , linhas = linhas, cols = cols, mntc = converter(mntc), reportados = converter(reportados))
 
 @auth.route('/img', methods=["GET", "POST"])
