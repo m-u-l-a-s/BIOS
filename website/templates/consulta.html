@@ -5,10 +5,12 @@
 {% block content %}
 
 <div class="left" style="display: block">
+
     <div class="pendentes" id="pendentes-div">
         <h1>Problemas Reportados:</h1>
-        
+
             {% for i in ar %}
+            {% if i[5] == 'Pendente' %}
             <div class="ordem-servico" id="os{{ar.index(i)}}">
                 <ul class="pendente">
                     <div class="botao-os"> 
@@ -29,76 +31,98 @@
                     </li>
                 </ul>
             </div>
+            {% endif %}
+            {% endfor %}
+            <h1>Problemas Resolvidos:</h1>
+            {% for i in ar %}
+            {% if i[5] == 'Resolvido' %}
+            <div class="ordem-servico os-resolvida" id="os{{ar.index(i)}}">
+                <ul class="pendente" style="text-align: start;">
+                    <li>Ordem de Serviço #{{ ar.index(i) + 1 }} </li> 
+                    <!-- <li class="detalhes">Laboratório: {{ i[0] }} </li>
+                    <li class="detalhes">Máquina: {{ i[1] }} </li>
+                    <li class="detalhes">Problema: {{ i[2] }} </li>
+                    <li class="detalhes">Descrição: {{ i[3] }}</li>
+                    <li class="detalhes">Status: {{ i[4] }} </li> -->
+                    <li>
+                        <button type="button" class="btn-secondary btn-lg btn-home"  id="btn{{ar.index(i)}}">Ver detalhes</button>
+                        {% if user.admin %}
+                        <button type="button" class="btn-secondary btn-lg btn-home" id="res{{ar.index(i)}}">Marcar como resolvido</button>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+            {% endif %}
+
             {% endfor %}
 
     </div button-specs>
 
-        <div class ="specs">
-                <p>
-                    <hr>
-                <strong>
-                    ESPECIFICAÇÕES DAS MÁQUINAS:
-                </strong>             
-
-                <br>
-                Modelo: HP ProDesk 400 G4 SFF<br>
-                Processador: Intel(R) Core(TM) i5-7500 CPU @ 3.40GHz   3.41 GHz<br>
-                RAM instalada: 8,00 GB<br>
-                Sistema operacional de 64 bits, processador baseado em x64<br>
-                <br>
-                <strong>
-                    ESPECIFICAÇÕES DO WINDOWS
-                </strong>
-                <br>
-                Windows 10 Enterprise<br>
-                Versão: 21H2<br>
-                Windows Feature Experience Pack 120.2212.4170.0<br>
-                <br>
-                <strong>
-                    ESPECIFICAÇÕES DO MONITOR
-                </strong>
-                <br>
-                Monitor AOC modelo E2023PWD<br>
-                Entrada utilizada: VGA<br>
-                Tamanho do painel: 19,5" Widescreen<br>
-                Resolução máxima: 1600 x 900 @ 60 Hz (HD)<br>
-                <br>
-                <strong>
-                    APLICATIVOS
-                </strong>
-                <br>
-                -3D Builder<br>
-                -Adobe Acrobat Reader<br>
-                -Adobe Flash Player 32 NPAPI<br>
-                -Android Studio<br>
-                -Audio Controls<br>
-                -Câmera<br>
-                -Calculadora<br>
-                -Captura e Esboço<br>
-                -Code Writer<br>
-                -Fotos<br>
-                -Google Chrome<br>
-                -Google Earth Pro<br>
-                -Gravador de Voz<br>
-                -Java SE Development Kit 8 Update 201<br>
-                -Java 8 Update 201<br>
-                -Mapas<br>
-                -Microsoft Edge<br>
-                -Microsoft Office Professional Plus 2016<br>
-                -Microsoft Visio Professional 2016<br>
-                -Mozilla Firefox (x86 pt-BR)<br>
-                -MySQL Server 5.7<br>
-                -NetBeans IDE 8.2<br>
-                -Oracle Database 11g Express Edition<br>
-                -Oracle VM VirtualBox 5.2.26<br>
-                -Paint 3D<br>
-                -Phyton 3.7.3 (32 bit)<br>
-                -VLC media player<br>
-                -WinRAR 5.50 (64 bit)<br>
-                -Zelio Soft 2 v4.6.0<br>
-                -Zotero<br>
+    <br>
+    <div class ="specs">
+        <a href="#especificacoes" data-toggle="collapse">ESPECIFICAÇÕES DAS MÁQUINAS</a>
+            <div id="especificacoes" class="collapse">
+                    <p>
+                    <br>
+                    Modelo: HP ProDesk 400 G4 SFF<br>
+                    Processador: Intel(R) Core(TM) i5-7500 CPU @ 3.40GHz   3.41 GHz<br>
+                    RAM instalada: 8,00 GB<br>
+                    Sistema operacional de 64 bits, processador baseado em x64<br>
+                    <br>
+                    <strong>
+                        ESPECIFICAÇÕES DO WINDOWS
+                    </strong>
+                    <br>
+                    Windows 10 Enterprise<br>
+                    Versão: 21H2<br>
+                    Windows Feature Experience Pack 120.2212.4170.0<br>
+                    <br>
+                    <strong>
+                        ESPECIFICAÇÕES DO MONITOR
+                    </strong>
+                    <br>
+                    Monitor AOC modelo E2023PWD<br>
+                    Entrada utilizada: VGA<br>
+                    Tamanho do painel: 19,5" Widescreen<br>
+                    Resolução máxima: 1600 x 900 @ 60 Hz (HD)<br>
+                    <br>
+                    <strong>
+                        APLICATIVOS
+                    </strong>
+                    <br>
+                    -3D Builder<br>
+                    -Adobe Acrobat Reader<br>
+                    -Adobe Flash Player 32 NPAPI<br>
+                    -Android Studio<br>
+                    -Audio Controls<br>
+                    -Câmera<br>
+                    -Calculadora<br>
+                    -Captura e Esboço<br>
+                    -Code Writer<br>
+                    -Fotos<br>
+                    -Google Chrome<br>
+                    -Google Earth Pro<br>
+                    -Gravador de Voz<br>
+                    -Java SE Development Kit 8 Update 201<br>
+                    -Java 8 Update 201<br>
+                    -Mapas<br>
+                    -Microsoft Edge<br>
+                    -Microsoft Office Professional Plus 2016<br>
+                    -Microsoft Visio Professional 2016<br>
+                    -Mozilla Firefox (x86 pt-BR)<br>
+                    -MySQL Server 5.7<br>
+                    -NetBeans IDE 8.2<br>
+                    -Oracle Database 11g Express Edition<br>
+                    -Oracle VM VirtualBox 5.2.26<br>
+                    -Paint 3D<br>
+                    -Phyton 3.7.3 (32 bit)<br>
+                    -VLC media player<br>
+                    -WinRAR 5.50 (64 bit)<br>
+                    -Zelio Soft 2 v4.6.0<br>
+                    -Zotero<br>
                     </p>
-        </div>
+            </div>
+    </div>
 </div>
 
 
@@ -110,6 +134,15 @@
                 Veja detalhes sobre cada OS clicando ao lado.
             </p>
         </div>
+        {% if user.admin %}
+        <div class="AdminSalvar">
+            <button type="button" class="btn btn-secondary" id="SalvarRes">Salvar Mudanças</button>
+        </div>
+        {% endif %}
+        <form action="{{ url_for('auth.UpdateStatus')}}" method="post" id="UpdateStatus">
+            <input type="text" name="data" id="data" hidden >
+        </form>
+        <input type="submit" value="Enviar" id="submit" class="btn btn-secondary btn-lg btn-home" form="UpdateStatus" hidden >
     </div>
 
     
@@ -117,10 +150,14 @@
 <script src="{{ url_for ('static', filename='scripts/main.js') }}">
 </script>
 
+<style>
+</style>
+
 <script>
     let right = document.getElementById("right")
     let divDetalhes = document.getElementById("detalhes")
     let p = document.getElementById("pDetalhes")
+    let datas = "";
     document.addEventListener('click', function(e) {
         if ((e.target.id).includes("btn")) {
             console.log(e.target.id)
@@ -181,9 +218,40 @@
             } else {
                 resbtn.textContent = "Marcar como resolvido"
             }
-        }  
+        } 
+        
+        else if ((e.target.id).includes("SalvarRes"))
+        {
+            const pcs = document.querySelectorAll("div.os-resolvida");
+            pcs.forEach(FuncReport);
+            //console.log(datas)
+            document.getElementById("data").value = datas;
+            datas = "";
+            document.getElementById("submit").click()
+        }
         
     }, false);
+
+    function FuncReport(item, index) {
+        //let btn = document.getElementById(e.target.id);
+        let btnid = item.id;  
+        let os = btnid.slice(2);
+        os = parseInt(os);
+        console.log(btnid)
+        let ar = "{{ar}}"
+        ar = ar.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").split(',')
+
+        let oss = []
+        for (let i = 0; i < ar.length; i+=6) {
+            oss.push(ar.slice(i, i+6))
+        }
+        if(oss[os][5] == " Pendente" || oss[os][5] == " Pendente]]")
+        {
+            datas += oss[os][4] + ','
+        }
+        
+        //console.log(oss[os][4])
+    }
 
 </script>
 

@@ -9,6 +9,11 @@ os = (lab,maq,prob,rep,stat,detalhes)
 <!--<img src="../static/imgs/logo_mulas.png" id="logo">-->
 """
 os = ('1','1','1','1',"Pendente", "waow")
+"""ar = [
+    ["303","8","Mouse","Butão","Data idk, Pendente"],
+        ["304","2","Teclado","Butão","Data idk 2, Pendente"]
+]"""
+
 ar = []
 lab = "Laboratório"
 
@@ -36,7 +41,7 @@ user = {
     "user": "aluno", 
     "senha": "", 
     "email": "aluno@fatec.gov.sp.br", 
-    "admin": False
+    "admin": False #False
 }
 admin = {
     "user": "admin", 
@@ -89,6 +94,8 @@ def gfg():
             Insert_OS(lab, maq, prob, detalhes, data, status)   
             reportadosSTR = AppendReport(reportadosSTR,maq)
             Insert_Lab(lab, linhas, cols, reportadosSTR, mntcSTR) 
+            
+            return render_template("reportar.html",lab = lab,  os = os , linhas = linhas, cols = cols, mntc = converter(mntc), reportados = converter(reportados))
     return render_template("reportar.html",lab = lab,  os = os , linhas = linhas, cols = cols, mntc = converter(mntc), reportados = converter(reportados))
 
 @auth.route('/img', methods=["GET", "POST"])
@@ -105,7 +112,6 @@ def img():
 @auth.route('/consulta')
 def consulta(current_user = user):
     from .database import Select_OS, Select_Login
-
     ar = Select_OS()
     return render_template('consulta.html', ar = ar, user = current_user)
 
@@ -211,5 +217,20 @@ def sign_up():
             flash('Conta criada!', category='success')
             # return redirect(url_for('views.home'))
     return render_template("sign-up.html") #user=current_user
+
+@auth.route('/consultar', methods=["GET", "POST"])
+def UpdateStatus(current_user = user):
+    from .database import Update_Status, Select_OS
+    if request.method == "POST":
+        datas = str(request.form.get("data"))
+        if not (datas == ""): 
+            datas = datas.split(',') #[' Data idk', ' Data idk 2', '']
+            datas = datas[:len(datas)-1]
+            print(datas)
+            for i in datas:
+                i = i[1:]
+                Update_Status(i, 'Resolvido')
+        ar = Select_OS()
+    return render_template('consulta.html', ar = ar, user = current_user)
     
 
