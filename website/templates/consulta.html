@@ -23,9 +23,9 @@
                     <li class="detalhes">Status: {{ i[4] }} </li> -->
                     <li>
                         
-                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}" style="width: 160px; border-radius: 20px; background-color: white; text-decoration-color: black !important; ">Ver detalhes</button>
+                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ver detalhes</button>
                         {% if user.admin %}
-                        <button type="button" class="btn-secondary btn-lg btn-home" id="res{{ar.index(i)}}">Marcar como resolvido</button>
+                        <button class="resolvido-botao" type="button" id="btn{{ar.index(i)}}">Marcar como resolvido</button>
                         {% endif %}
                         
                     </li>
@@ -38,16 +38,18 @@
             {% if i[5] == 'Resolvido' %}
             <div class="ordem-servico os-resolvida" id="os{{ar.index(i)}}">
                 <ul class="pendente" style="text-align: start;">
+                    <div class="botao-os">
                     <li>Ordem de Serviço #{{ ar.index(i) + 1 }} </li> 
+                    </div>
                     <!-- <li class="detalhes">Laboratório: {{ i[0] }} </li>
                     <li class="detalhes">Máquina: {{ i[1] }} </li>
                     <li class="detalhes">Problema: {{ i[2] }} </li>
                     <li class="detalhes">Descrição: {{ i[3] }}</li>
                     <li class="detalhes">Status: {{ i[4] }} </li> -->
                     <li>
-                        <button type="button" class="btn-secondary btn-lg btn-home"  id="btn{{ar.index(i)}}">Ver detalhes</button>
+                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ver detalhes</button>
                         {% if user.admin %}
-                        <button type="button" class="btn-secondary btn-lg btn-home" id="res{{ar.index(i)}}">Marcar como resolvido</button>
+                        <button class="resolvido-botao" type="button" id="btn{{ar.index(i)}}">Marcar como resolvido</button>
                         {% endif %}
                     </li>
                 </ul>

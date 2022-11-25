@@ -216,10 +216,24 @@ border-color: black;
 
 }
 
-.pendente li button {
+.detalhes-botao {
     text-align: center;
     margin-top: 10px;
+    width: 160px; 
+    border-radius: 20px; 
+    background-color: white; 
+    text-decoration-color: black 
 }
+
+.resolvido-botao {
+    text-align: center;
+    margin-top: 10px;
+    width: 300px; 
+    border-radius: 20px; 
+    background-color: white; 
+    text-decoration-color: black   
+}
+
 
 
 
@@ -276,7 +290,7 @@ border-color: black;
 }
 
 .os-resolvida {
-    background-color: gray;
+    background-color: white;
     text-decoration: line-through;
 }
 
