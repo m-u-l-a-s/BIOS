@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Inter','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.2em;
     background-image: url(../imgs/fundobranco.jpg);
 }
@@ -60,12 +60,14 @@ body {
 
 /* responsive font sizes: */
 h1 {
+    text-align: center;
     font-size: 2.5vw;
     margin-top: 0%;
     background: rgba(0, 0, 0, 0.2);
     color: white;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 4px;
+
 }
 
 h2 {
@@ -85,6 +87,10 @@ p {
     display: flex;
     align-items: center;
     width: fit-content;
+}
+
+.mesa {
+    height: 80px;
 }
 
 input, select {
@@ -163,13 +169,19 @@ li{
 
 .pendente {
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .pendente li {
     margin: 0px;
+    display: flex;
+    text-align: left;
+
 }
 
 .ordem-servico {
+    display: inline-block;
     width: 80%;
     margin: auto;
     margin-bottom: 10px;
@@ -177,9 +189,40 @@ li{
     border: 1px solid black;
     border-radius: 10px;
     position: inherit;
-    text-align: start;
-    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background: white;
+    height: 100px;
+    
 }
+
+.botao-os {
+    background-color: gray;
+    width: 130px;
+    height: 65px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 80px;
+    background: #2F3020;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    color: white;
+    
+    }
+
+.botao-os li {
+text-align: center;
+border-color: black;
+
+
+}
+
+.pendente li button {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
 
 .titulo-os {
     width: fit-content;
@@ -190,12 +233,13 @@ li{
 }
 
 .ordem-servico ul li {
-    display: block;
+    display: inline-block;
+    text-decoration: white;
+    
 }
 
 .detalhes-os {
-    color: black;
-    background-color: white;
+    color: white;
     border-radius: 4px;
 }
 
@@ -231,6 +275,7 @@ li{
     background-color: gray;
     text-decoration: line-through;
 }
+
 
 .specs {
     margin: auto;
