@@ -198,6 +198,10 @@ li{
     border-radius: 4px;
 }
 
+.comentarioTecnico {
+    width: 500px;
+}
+
 .resolvido {
     background: rgba(0, 0, 0, 0.4);
 }
@@ -239,6 +243,12 @@ li{
     background-color: white;
     text-align: center;
     border-radius: 8px;
+}
+
+.specs a {
+    width: 100%;
+    color: black;
+
 }
 
 .specs p {
