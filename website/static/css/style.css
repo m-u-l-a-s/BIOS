@@ -198,16 +198,17 @@ li{
     border-radius: 4px;
 }
 
-.comentarioTecnico {
-    width: 500px;
-}
-
 .resolvido {
     background: rgba(0, 0, 0, 0.4);
 }
 
 .resolvido li{
     text-decoration: line-through;
+}
+
+.sugestoes {
+    text-align: center;
+    height: fit-content;
 }
 
 .novo-usuario {

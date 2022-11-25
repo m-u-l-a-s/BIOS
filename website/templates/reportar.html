@@ -261,6 +261,41 @@
 
 </style>
 
+<script>
 
+    const problemas = document.querySelector("#prob")
+    const div = document.querySelector(".left")
+    let p = document.createElement("p")
+    div.appendChild(p).className= "sugestoes"
+
+
+    problemas.addEventListener("change", sugerir)
+
+    function sugerir() {
+        if (problemas.value == "Monitor") {
+            displayMessage("⚠SUGESTÃO: Se o LED do monitor de vídeo não estiver ligado, verifique se o cabo de alimentação do monitor de vídeo está instalado corretamente. Conecte de maneira firme, caso não esteja.")
+        }
+        if (problemas.value == "Mouse") {
+            displayMessage("⚠SUGESTÃO: Tente desconectar e conectar novamente as entradas dos periféricos. Caso não funcione, reinicie o computador.")
+        }
+        if (problemas.value == "Teclado") {
+            displayMessage("⚠SUGESTÃO:Tente desconectar e conectar novamente as entradas dos periféricos. Caso não funcione, reinicie o computador.")
+        }
+        if (problemas.value == "Máquina não liga") {
+            displayMessage("⚠SUGESTÃO: Verifique se existe alguma luz ligada na máquina ao conectá-la a energia. Caso tenha, pode haver algum problema com o monitor, saída de vídeo ou cabo. Tente conectar a máquina à outra tomada. Desconecte todos os cabos externos do computador, mantendo apenas a fonte de alimentação e o cabo de monitor de vídeo. Se o LED do monitor de vídeo não estiver ligado, verifique se o cabo de alimentação do monitor de vídeo está instalado corretamente. Conecte de maneira firme, caso não esteja.")
+        }
+        if (problemas.value == "Internet") {
+            displayMessage("⚠SUGESTÃO: Verifique se a senha da Internet está correta. Se isso já tiver sido feito, observe se todas as entradas estão conectadas corretamente no modem.")
+        }
+        if (problemas.value == "Máquina muito lenta") {
+            displayMessage("⚠SUGESTÃO: Verifique se o armazanamento interno já alcançou sua capacidade máxima. Atualize e rode o antivírus.")
+        }
+    }
+
+    function displayMessage(msg) {
+        p.textContent = msg
+    }
+
+</script>
 
 {% endblock %}
