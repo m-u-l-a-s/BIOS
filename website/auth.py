@@ -113,6 +113,10 @@ def img():
 def consulta(current_user = user):
     from .database import Select_OS, Select_Login
     ar = Select_OS()
+    """ar = [
+    ["303","8","Mouse","Butão","Data idk", "Pendente"], 
+        ["304","2","Teclado","Butão","Data idk 2", "Pendente"]
+]"""
     return render_template('consulta.html', ar = ar, user = current_user)
 
 
@@ -220,9 +224,10 @@ def sign_up():
 
 @auth.route('/consultar', methods=["GET", "POST"])
 def UpdateStatus(current_user = user):
-    from .database import Update_Status, Select_OS
+    from .database import Update_Status, Update_Desc, Select_OS
     if request.method == "POST":
         datas = str(request.form.get("data"))
+        comentario = str(request.form.get("UpdDesc"))
         if not (datas == ""): 
             datas = datas.split(',') #[' Data idk', ' Data idk 2', '']
             datas = datas[:len(datas)-1]
@@ -230,6 +235,8 @@ def UpdateStatus(current_user = user):
             for i in datas:
                 i = i[1:]
                 Update_Status(i, 'Resolvido')
+        if not (comentario == ""):
+            Update_Desc(i, comentario)
         ar = Select_OS()
     return render_template('consulta.html', ar = ar, user = current_user)
     

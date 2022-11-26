@@ -135,17 +135,15 @@
             </p>
         </div>
         {% if user.admin %}
-        <div class="comentario">
-            <form action="">
-                <textarea name="comentarioTecnico" id="" cols="30" rows="05" placeholder="Como este problema foi resolvido?"></textarea>
-            </form>
-        </div>
+        <textarea style="visibility: hidden;" name="comentarioTecnico" id="comentarioTecnico" cols="30" rows="05" placeholder="Como este problema foi resolvido?"></textarea>
+
         <div class="AdminSalvar">
-            <button type="button" class="btn btn-secondary" id="SalvarRes">Salvar Mudanças</button>
+            <button style="visibility: hidden;" type="button" class="btn btn-secondary" id="SalvarRes">Salvar Mudanças</button>
         </div>
         {% endif %}
         <form action="{{ url_for('auth.UpdateStatus')}}" method="post" id="UpdateStatus">
             <input type="text" name="data" id="data" hidden >
+            <input type="text" name="UpdDesc" id="UpdDesc" hidden >
         </form>
         <input type="submit" value="Enviar" id="submit" class="btn btn-secondary btn-lg btn-home" form="UpdateStatus" hidden >
     </div>
@@ -163,6 +161,7 @@
     let divDetalhes = document.getElementById("detalhes")
     let p = document.getElementById("pDetalhes")
     let datas = "";
+    let comentario = "";
     document.addEventListener('click', function(e) {
         if ((e.target.id).includes("btn")) {
             console.log(e.target.id)
@@ -195,6 +194,7 @@
                 prob.textContent = "Problema: " + oss[os][2]
                 let desc = document.createElement("li")
                 desc.textContent = "Descrição: " + oss[os][3]
+                desc.style.whiteSpace = "pre-wrap"
                 let data = document.createElement("li")
                 data.textContent = "Reportado em:" +  oss[os][4]
                 let status = document.createElement("li")
@@ -213,6 +213,9 @@
         }
         
         else if ((e.target.id).includes("res")) {
+            document.getElementById("comentarioTecnico").style.visibility = "visible";
+            document.getElementById("SalvarRes").style.visibility = "visible";
+
             let resbtn = document.getElementById(e.target.id)
             let id = e.target.id
             id = id.slice(3)
@@ -232,6 +235,10 @@
             //console.log(datas)
             document.getElementById("data").value = datas;
             datas = "";
+
+            let comeTec = document.getElementById("comentarioTecnico").value;
+            document.getElementById("UpdDesc").value = comentario + "\n" + " Solução: " + comeTec; //comentario;
+            //document.getElementById("comentarioTecnico").value = document.getElementById("UpdDesc").value;
             document.getElementById("submit").click()
         }
         
@@ -252,9 +259,9 @@
         }
         if(oss[os][5] == " Pendente" || oss[os][5] == " Pendente]]")
         {
-            datas += oss[os][4] + ','
+            datas += oss[os][4] + ',';
+            comentario = oss[os][3];
         }
-        
         //console.log(oss[os][4])
     }
 

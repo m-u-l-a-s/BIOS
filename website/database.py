@@ -126,6 +126,17 @@ def Update_Status(datas, status):
     mycursor.execute(sql)
     mydb.commit()
 
+def Update_Desc(datas, desc):
+    import mysql.connector
+
+    mydb = connect_db()
+    mycursor = mydb.cursor()
+
+    sql = f"UPDATE oss SET Detalhes = '{desc}' WHERE Data = '{datas}';"
+
+    mycursor.execute(sql)
+    mydb.commit()
+
 def Insert_Lab(sala, linhas=0, colunas=0, reportados="", mntc=""):
     import mysql.connector
 
