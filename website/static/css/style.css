@@ -22,7 +22,7 @@ body {
     content: '\25bc';
     position: absolute;
     opacity: 0;
-    top: 0;
+    right: -5%;
     transition: 0.5s;
 }
 
@@ -32,7 +32,7 @@ body {
 
 .dropbtn:hover span::after{
     opacity: 1;
-    right: 0;
+    right: -5%;
 }
 
 .dropbtn:hover {
@@ -213,7 +213,7 @@ li{
 
 .ordem-servico {
     display: inline-block;
-    width: 85%;
+    width: 95%;
     margin: auto;
     margin-bottom: 10px;
     padding: 5px;
@@ -222,7 +222,7 @@ li{
     position: inherit;
     text-align: center;
     background: white;
-    height: 120px;
+    height: 130px;
     
 }
 
@@ -231,13 +231,24 @@ li{
     margin-top: 15px;
     margin-bottom: 10px;
     width: 160px; 
-    height: 75px;
+    height: 80px;
     border: none;
     background-color: white; 
     text-decoration-color: black;
     font-size: 1.1vw;
+    box-shadow: 0 9px #999;
     border-radius: 20px;
-    
+    border: 1px solid black;
+}
+
+.detalhes-botao:hover {
+    background-color: lightgray;
+}
+
+.detalhes-botao:active {
+    background-color: lightgray;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 .resolvido-botao {
@@ -250,7 +261,18 @@ li{
     background-color: white; 
     text-decoration-color: black;
     font-size: 1.1vw;
-    
+    box-shadow: 0 9px #999;
+    border: 1px solid black;
+}
+
+.resolvido-botao:hover {
+    background-color: lightgray;
+}
+
+.resolvido-botao:active {
+    background-color: lightgray;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 .titulo-os {
@@ -276,9 +298,9 @@ li{
     background: rgba(0, 0, 0, 0.4);
 }
 
-.resolvido li{
+/* .resolvido li{
     text-decoration: line-through;
-}
+} */
 
 .sugestoes {
     background-color: lightgray;
@@ -316,7 +338,7 @@ li{
 
 .os-resolvida {
     background-color: white;
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
 }
 
 

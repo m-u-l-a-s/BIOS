@@ -48,6 +48,27 @@
                 color: white;
                 text-decoration: none;
             }
+            .dropbtn span {
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+
+            .dropbtn span::after {
+                content: '\25bc';
+                position: absolute;
+                opacity: 0;
+                right: -25%;
+                transition: 0.5s;
+            }
+            .dropbtn:hover span {
+                padding-right: 10px;
+            }
+            .dropbtn:hover span::after{
+                opacity: 1;
+                right: -20%;
+            }
+
         </style>
         <link
         rel="stylesheet"
@@ -80,7 +101,7 @@
                   </a>
                   <a class ="nav-item nav-link" id="inicio" href="/">Início</a>
                   <div class="dropdown">
-                    <button class="dropbtn nav-item nav-link bg-dark">Serviços ↴</button>
+                    <button class="dropbtn nav-item nav-link bg-dark"><span> Serviços </span></button>
                     <div class="dropdownContent">
                   <a href="reportar">Reportar um Problema</a>
                   <a href="consulta">Consultar</a>
