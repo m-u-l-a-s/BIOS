@@ -75,6 +75,10 @@ body {
     border: 0.2px solid rgba(0, 0, 0, 0.404);
 } */
 
+.mesa span {
+ font-size: smaller;
+}
+
 .home {
     display: block;
     margin: auto;
@@ -227,21 +231,26 @@ li{
     margin-top: 15px;
     margin-bottom: 10px;
     width: 160px; 
+    height: 75px;
     border: none;
     background-color: white; 
     text-decoration-color: black;
     font-size: 1.1vw;
+    border-radius: 20px;
+    
 }
 
 .resolvido-botao {
     text-align: center;
     margin-top: 15px;
-    width: 150px;
-    height: 90px;
+    margin-left: 30px;
+    width: 130px;
+    height: 80px;
     border-radius: 20px; 
     background-color: white; 
     text-decoration-color: black;
     font-size: 1.1vw;
+    
 }
 
 .titulo-os {

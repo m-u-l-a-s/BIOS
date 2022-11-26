@@ -23,7 +23,7 @@
                     <li class="detalhes">Status: {{ i[4] }} </li> -->
                     <li>
                         
-                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ordem de Serviço #{{ ar.index(i) + 1 }}<br> Laboratório #{{ i[0] }} <br> Máquina #{{ i[1] }} </button>
+                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ordem de Serviço {{ ar.index(i) + 1 }}<br> Laboratório {{ i[0] }} <br> Máquina {{ i[1] }} </button>
                         {% if user.admin %}
                         <button class="resolvido-botao" type="button" id="btn{{ar.index(i)}}">Marcar como resolvido</button>
                         {% endif %}
@@ -45,7 +45,7 @@
                     <li class="detalhes">Descrição: {{ i[3] }}</li>
                     <li class="detalhes">Status: {{ i[4] }} </li> -->
                     <li>
-                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ordem de Serviço #{{ ar.index(i) + 1 }}<br> Laboratório #{{ i[0] }} <br> Máquina #{{ i[1] }} </button>
+                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ordem de Serviço {{ ar.index(i) + 1 }}<br> Laboratório {{ i[0] }} <br> Máquina {{ i[1] }} </button>
                         {% if user.admin %}
                         <button class="resolvido-botao" type="button" id="btn{{ar.index(i)}}">Marcar como resolvido</button>
                         {% endif %}
