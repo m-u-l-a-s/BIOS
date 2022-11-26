@@ -23,7 +23,6 @@ body {
     position: absolute;
     opacity: 0;
     top: 0;
-    right: 10%;
     transition: 0.5s;
 }
 
