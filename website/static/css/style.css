@@ -12,6 +12,29 @@ body {
     text-align: start;
 }
 
+.dropbtn span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.dropbtn span::after {
+    content: '\25bc';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    transition: 0.5s;
+}
+
+.dropbtn:hover span {
+    padding-right: 10px;
+}
+
+.dropbtn:hover span::after{
+    opacity: 1;
+    right: 0;
+}
+
 .dropbtn:hover {
     border-radius: 4px;
 }
