@@ -306,62 +306,63 @@
 
 <script>
 
+    let lab = document.querySelector("#lab")
+    let sala = document.querySelector(".layout")
+    let inputBancadas = document.querySelector("#bancadas")
+    let inputMaquinas = document.querySelector("#maquinas")
+    const btn = document.querySelector("#enviar")
+    const salvar = document.querySelector("#salvar")
+
+    var bancadas = 0;
+
     let reportados = document.getElementById("reportados")   
     let mntc = document.getElementById("mntc")   
     let save = document.getElementById("save")
 
     let r = "{{reportados}}"
-    r = r.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").split(',')
-
+    r = r.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").replace(" ", "").split(',')
+    r = r.filter(function(entry) { return entry.trim() != ''; });
+    r = r.map(function (x) { 
+        return parseInt(x, 10); 
+        });
+        
     let m = "{{mntc}}"
-    m = m.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").split(',')
-
+    m = m.replace(/&#39;/gi, '').replace('[', '').replace(']', '').replace(/\(|\)/g, "").replace(" ", "").split(',')
+    m = m.filter(function(entry) { return entry.trim() != ''; });
+    m = m.map(function (x) { 
+        return parseInt(x, 10); 
+        });
+        
     if (r.length > 0) { reportados.value += r.toString() }
     if (m.length > 0) { mntc.value += m.toString() }
 
-    console.log(reportados.value)
-    console.log(mntc.value)
-
     const pcs = document.querySelectorAll(".maq")
     pcs.forEach(pc => {
-        rep = reportados.value
-        mn = mntc.value
+
         addEventListener("click", changeColor)
-        pc.addEventListener("dragstart", dragStart); //click on image to drag
-        pc.addEventListener("dragover", dragOver);   //drag an image
-        pc.addEventListener("dragenter", dragEnter); //dragging an image into another one
-        pc.addEventListener("dragleave", dragLeave); //dragging an image away from another one
-        pc.addEventListener("drop", dragDrop);       //drop an image onto another one
-        pc.addEventListener("dragend", dragEnd);      //after you completed dragDrop
 
         if (document.getElementById(pc.id) && pc.id) {
-            
-                    if (r.includes(pc.id)) {
-                        document.getElementById(pc.id).classList.add("prob")
-                    }
-                    if (m.includes(pc.id)) {
-                        document.getElementById(pc.id).classList.add("mntc")
-                    }
-                    if (rep.includes(pc.id)) {
-                        console.log("aqui")
-                        document.getElementById(pc.id).classList.add("prob")
-                    }
-                    if (mn.includes(pc.id)) {
-                        console.log("aqui tbm")
-                        document.getElementById(pc.id).classList.add("mntc")
-                    }
+            if (r.includes(parseInt(pc.id))) {
+                console.log(pc.id + "é problemático")
+                document.getElementById(pc.id).classList.add("prob")
+            }
+            if (m.includes(parseInt(pc.id))) {
+                document.getElementById(pc.id).classList.add("mntc")
+            }
         }
     })
 
     function changeColor() {
         obj = window.event.target
+        console.log(r)
+        console.log(m)
         if (obj.classList.contains("numtag")) {
-            console.log(obj.id)
             if (!obj.classList.contains("mntc") && !obj.classList.contains("prob")) {
                 obj.classList.add("prob")
 
                 mntc.value = mntc.value.replace(`${obj.id},`,"")
                 reportados.value += obj.id + ","
+                r.push(parseInt(obj.id))
 
                 console.log(`reportados: ${reportados.value}`)
                 console.log(`manutenção: ${mntc.value}`)
@@ -372,6 +373,8 @@
                 
                 reportados.value = reportados.value.replace(`${obj.id},`,"")
                 mntc.value += obj.id + ","
+                r.splice(parseInt(obj.id), 1)
+                m.push(parseInt(obj.id))
 
                 console.log(`reportados: ${reportados.value}`)
                 console.log(`manutenção: ${mntc.value}`)
@@ -380,21 +383,14 @@
                 obj.classList.remove("mntc")
                 obj.classList.remove("prob")
 
+                m.splice(parseInt(obj.id), 1)
+
                 mntc.value = mntc.value.replace(`${obj.id},`,"")
                 console.log(`reportados: ${reportados.value}`)
                 console.log(`manutenção: ${mntc.value}`)
             }
         }
     }
-
-    let lab = document.querySelector("#lab")
-    let sala = document.querySelector(".layout")
-    let inputBancadas = document.querySelector("#bancadas")
-    let inputMaquinas = document.querySelector("#maquinas")
-    const btn = document.querySelector("#enviar")
-    const salvar = document.querySelector("#salvar")
-
-    var bancadas = 0;
 
     btn.addEventListener("click", function() {
         sala.innerHTML = "<div class='mesa'><img src='../static/imgs/maq.png' class='maq'></div> <div class='empty'></div>"
@@ -412,7 +408,7 @@
             //lugares
             let maquinas = [];
             for (let i=1; i <= bancadas*4; i++) {
-                maquinas.push(i.toString()); //put "1" to "25" into the array (puzzle imgs names)
+                maquinas.push(i.toString());
             }
 
             for (let i = 0; i < mpb; i++) {
@@ -420,15 +416,6 @@
                 maq.classList.add("maq")
                 maq.src = "../static/imgs/maq.png";
                 maq.setAttribute("draggable", true)
-
-                maq.addEventListener("dragstart", dragStart); //click on image to drag
-                maq.addEventListener("dragover", dragOver);   //drag an image
-                maq.addEventListener("dragenter", dragEnter); //dragging an image into another one
-                maq.addEventListener("dragleave", dragLeave); //dragging an image away from another one
-                maq.addEventListener("drop", dragDrop);       //drop an image onto another one
-                maq.addEventListener("dragend", dragEnd);      //after you completed dragDrop
-                // maq.addEventListener("click", changeColor);
-
                 mesa.append(maq);
         }
 
@@ -437,28 +424,6 @@
         }
     })
 
-    function dragStart() {
-    }
-
-    function dragOver(e) {
-        e.preventDefault();
-    }
-
-    function dragEnter(e) {
-        e.preventDefault();
-    }
-
-    function dragLeave() {
-
-    }
-
-    function dragDrop() {
-        otherTile = this; //this refers to image that is being dropped on
-    }
-
-    function dragEnd() {
-
-    }
 </script>
 
 </body>
