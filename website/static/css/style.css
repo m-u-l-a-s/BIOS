@@ -194,9 +194,12 @@ li{
 }
 
 .pendente {
-    text-align: center;
+    margin: 0px;
     display: flex;
+    width: 100%;
+    text-align: center;
     align-items: center;
+    justify-content: space-around;
 }
 
 .pendente li {
@@ -207,31 +210,29 @@ li{
 }
 
 .pendente img {
+    width: 4em;
     margin-top: 20px;
     margin-right: 10px;
 }
 
 .ordem-servico {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 95%;
     margin: auto;
     margin-bottom: 10px;
-    padding: 5px;
     border: 1px solid black;
     border-radius: 10px;
     position: inherit;
     text-align: center;
     background: white;
     height: 130px;
-    
 }
 
 .detalhes-botao {
     text-align: center;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    width: 160px; 
-    height: 80px;
+    height: 80%;
     border: none;
     background-color: white; 
     text-decoration-color: black;
@@ -252,11 +253,9 @@ li{
 }
 
 .resolvido-botao {
+    padding-top: 14%;
+    padding-bottom: 14%;
     text-align: center;
-    margin-top: 15px;
-    margin-left: 30px;
-    width: 130px;
-    height: 80px;
     border-radius: 20px; 
     background-color: white; 
     text-decoration-color: black;
@@ -369,6 +368,12 @@ li{
 #pDetalhes ul li {
     display: block;
     text-align: start;
+}
+
+#comentarioTecnico {
+    background-color: rgba(253, 205, 186, 0.808);
+    border: 2px solid black;
+    border-radius: 6px;
 }
 
 @keyframes change{
