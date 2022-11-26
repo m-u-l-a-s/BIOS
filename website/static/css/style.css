@@ -179,6 +179,11 @@ li{
 
 }
 
+.pendente img {
+    margin-top: 30px;
+    align-items: center;
+}
+
 .ordem-servico {
     display: inline-block;
     width: 80%;
@@ -190,46 +195,29 @@ li{
     position: inherit;
     text-align: center;
     background: white;
-    height: 100px;
+    height: 120px;
     
-}
-
-.botao-os {
-    background-color: gray;
-    width: 130px;
-    height: 65px;
-    display: inline-block;
-    text-align: center;
-    margin-top: 10px;
-    margin-right: 80px;
-    background: lightgray;
-    border: 2px solid #000000;
-    border-radius: 20px;
-    color: black;
-    }
-
-.botao-os li {
-text-align: center;
-border-color: black;
-
-
 }
 
 .detalhes-botao {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 30px;
     width: 160px; 
-    border-radius: 20px; 
+    border: none;
     background-color: white; 
-    text-decoration-color: black 
+    text-decoration-color: black;
+    font-size: 1.1vw;
 }
 
 .resolvido-botao {
     text-align: center;
     margin-top: 10px;
+    width: 150px;
+    height: 90px;
     border-radius: 20px; 
     background-color: white; 
-    text-decoration-color: black   
+    text-decoration-color: black;
+    font-size: 1.1vw;
 }
 
 .titulo-os {
