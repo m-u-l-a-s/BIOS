@@ -247,29 +247,30 @@ li{
 }
 
 .detalhes-botao:active {
-    background-color: lightgray;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 
 .resolvido-botao {
+    background-color: #8ec07c;
     padding-top: 14%;
     padding-bottom: 14%;
     text-align: center;
     border-radius: 20px; 
-    background-color: white; 
     text-decoration-color: black;
     font-size: 1.1vw;
     box-shadow: 0 9px #999;
     border: 1px solid black;
+    opacity: 0.8;
+    filter: alpha(opacity=40);
 }
 
 .resolvido-botao:hover {
-    background-color: lightgray;
+    opacity: 1;
+    filter: alpha(opacity=100);
 }
 
 .resolvido-botao:active {
-    background-color: lightgray;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
@@ -289,6 +290,8 @@ li{
 }
 
 .detalhes-os {
+    background-color: rgba(32, 32, 32, 0.756);
+
     color: white;
     border-radius: 4px;
 }

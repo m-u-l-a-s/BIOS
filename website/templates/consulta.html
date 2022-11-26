@@ -50,10 +50,7 @@
                         <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ordem de Serviço {{ ar.index(i) + 1 }}<br> Laboratório {{ i[0] }} <br> Máquina {{ i[1] }} </button>
                         {% if user.admin %}
                     </li>
-                    <li>
-                        <button class="resolvido-botao" type="button" id="res{{ar.index(i)}}"> Marcar como resolvido </button>
                         {% endif %}
-                    </li>
                 </ul>
             </div>
             {% endif %}
@@ -227,8 +224,10 @@
             osResolvida.classList.toggle("os-resolvida")
             if (osResolvida.classList.contains("os-resolvida")) {
                 resbtn.textContent = "Marcar como pendente"
+                resbtn.style.backgroundColor = "#D96846"
             } else {
                 resbtn.textContent = "Marcar como resolvido"
+                resbtn.style.backgroundColor = "#8ec07c"
             }
         } 
         
