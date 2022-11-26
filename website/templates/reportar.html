@@ -92,7 +92,6 @@
                 <textarea name="detalhes-os" id="detalhes-os" cols="25" rows="2"
                     placeholder="Nos dê mais alguns detalhes!"></textarea>
             </form>
-            <br>
             <input type="submit" value="Enviar" id="submit" class="btn btn-secondary btn-lg btn-home" form="gfg">
         </li>
     </ul>
@@ -266,8 +265,12 @@
     const problemas = document.querySelector("#prob")
     const div = document.querySelector(".left")
     let p = document.createElement("p")
-    div.appendChild(p).className= "sugestoes"
-
+    
+    const container = document.createElement("div")
+    container.classList.add("sugestoes")
+    
+    container.appendChild(p)
+    div.appendChild(container)
 
     problemas.addEventListener("change", sugerir)
 
@@ -279,16 +282,22 @@
             displayMessage("⚠SUGESTÃO: Tente desconectar e conectar novamente as entradas dos periféricos. Caso não funcione, reinicie o computador.")
         }
         if (problemas.value == "Teclado") {
-            displayMessage("⚠SUGESTÃO:Tente desconectar e conectar novamente as entradas dos periféricos. Caso não funcione, reinicie o computador.")
+            displayMessage("⚠SUGESTÃO: Tente desconectar e conectar novamente as entradas dos periféricos. Caso não funcione, reinicie o computador.")
         }
         if (problemas.value == "Máquina não liga") {
-            displayMessage("⚠SUGESTÃO: Verifique se existe alguma luz ligada na máquina ao conectá-la a energia. Caso tenha, pode haver algum problema com o monitor, saída de vídeo ou cabo. Tente conectar a máquina à outra tomada. Desconecte todos os cabos externos do computador, mantendo apenas a fonte de alimentação e o cabo de monitor de vídeo. Se o LED do monitor de vídeo não estiver ligado, verifique se o cabo de alimentação do monitor de vídeo está instalado corretamente. Conecte de maneira firme, caso não esteja.")
+            displayMessage("⚠SUGESTÃO: Tente conectar a máquina à outra tomada. Desconecte todos os cabos externos do computador, mantendo apenas a fonte de alimentação e o cabo de monitor de vídeo. Verifique se o cabo de alimentação do monitor de vídeo está firme e instalado corretamente.")
         }
         if (problemas.value == "Internet") {
             displayMessage("⚠SUGESTÃO: Verifique se a senha da Internet está correta. Se isso já tiver sido feito, observe se todas as entradas estão conectadas corretamente no modem.")
         }
         if (problemas.value == "Máquina muito lenta") {
             displayMessage("⚠SUGESTÃO: Verifique se o armazanamento interno já alcançou sua capacidade máxima. Atualize e rode o antivírus.")
+        }
+        if (problemas.value == "Programas / Software") {
+            displayMessage("⚠SUGESTÃO: Tente atualizar o programa para uma versão mais recente.")
+        }
+        if (problemas.value == "Outros") {
+            displayMessage("")
         }
     }
 

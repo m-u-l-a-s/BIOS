@@ -14,7 +14,10 @@
             <div class="ordem-servico" id="os{{ar.index(i)}}">
                 <ul class="pendente">
                     <div class="botao-os"> 
-                    <li>Ordem de Serviço {{ ar.index(i) + 1 }} </li> 
+                    <!-- <li>Ordem de Serviço #{{ ar.index(i) + 1 }} </li>  -->
+                    <li>Laboratório #{{ i[0] }} </li> 
+                    <li>Máquina #{{ i[1] }} </li> 
+
                     </div>
                     <!-- <li class="detalhes">Laboratório: {{ i[0] }} </li>
                     <li class="detalhes">Máquina: {{ i[1] }} </li>
@@ -23,7 +26,7 @@
                     <li class="detalhes">Status: {{ i[4] }} </li> -->
                     <li>
                         
-                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ver detalhes</button>
+                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Laboratório #{{ i[0] }} </button>
                         {% if user.admin %}
                         <button class="resolvido-botao" type="button" id="btn{{ar.index(i)}}">Marcar como resolvido</button>
                         {% endif %}
@@ -39,7 +42,9 @@
             <div class="ordem-servico os-resolvida" id="os{{ar.index(i)}}">
                 <ul class="pendente" style="text-align: start;">
                     <div class="botao-os">
-                    <li>Ordem de Serviço #{{ ar.index(i) + 1 }} </li> 
+                    <!-- <li>Ordem de Serviço #{{ ar.index(i) + 1 }} </li>  -->
+                    <li></li> 
+                    <li>Máquina #{{ i[1] }} </li> 
                     </div>
                     <!-- <li class="detalhes">Laboratório: {{ i[0] }} </li>
                     <li class="detalhes">Máquina: {{ i[1] }} </li>
@@ -47,7 +52,7 @@
                     <li class="detalhes">Descrição: {{ i[3] }}</li>
                     <li class="detalhes">Status: {{ i[4] }} </li> -->
                     <li>
-                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ver detalhes</button>
+                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Laboratório #{{ i[0] }} </button>
                         {% if user.admin %}
                         <button class="resolvido-botao" type="button" id="btn{{ar.index(i)}}">Marcar como resolvido</button>
                         {% endif %}

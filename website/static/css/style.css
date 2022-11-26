@@ -202,11 +202,10 @@ li{
     text-align: center;
     margin-top: 10px;
     margin-right: 80px;
-    background: #2F3020;
+    background: lightgray;
     border: 2px solid #000000;
     border-radius: 20px;
-    color: white;
-    
+    color: black;
     }
 
 .botao-os li {
@@ -228,14 +227,10 @@ border-color: black;
 .resolvido-botao {
     text-align: center;
     margin-top: 10px;
-    width: 300px; 
     border-radius: 20px; 
     background-color: white; 
     text-decoration-color: black   
 }
-
-
-
 
 .titulo-os {
     width: fit-content;
@@ -265,8 +260,17 @@ border-color: black;
 }
 
 .sugestoes {
+    background-color: lightgray;
+    border-radius: 20px;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
     text-align: center;
     height: fit-content;
+}
+
+.sugestoes p {
+    font-size: 1.1vw;
 }
 
 .novo-usuario {
