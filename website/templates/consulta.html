@@ -8,6 +8,7 @@
 
     <div class="pendentes" id="pendentes-div">
         <h1>Problemas Reportados:</h1>
+        <p style="text-align:center ;">Histórico de Chamados:</p>
 
             {% for i in ar %}
             {% if i[5] == 'Pendente' %}
@@ -22,7 +23,7 @@
                     <li class="detalhes">Status: {{ i[4] }} </li> -->
                     <li>
                         
-                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Laboratório #{{ i[0] }} <br> Máquina #{{ i[1] }} </button>
+                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ordem de Serviço #{{ ar.index(i) + 1 }}<br> Laboratório #{{ i[0] }} <br> Máquina #{{ i[1] }} </button>
                         {% if user.admin %}
                         <button class="resolvido-botao" type="button" id="btn{{ar.index(i)}}">Marcar como resolvido</button>
                         {% endif %}
@@ -44,7 +45,7 @@
                     <li class="detalhes">Descrição: {{ i[3] }}</li>
                     <li class="detalhes">Status: {{ i[4] }} </li> -->
                     <li>
-                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Laboratório #{{ i[0] }} <br> Máquina #{{ i[1] }} </button>
+                        <button class="detalhes-botao" type="button" id="btn{{ar.index(i)}}">Ordem de Serviço #{{ ar.index(i) + 1 }}<br> Laboratório #{{ i[0] }} <br> Máquina #{{ i[1] }} </button>
                         {% if user.admin %}
                         <button class="resolvido-botao" type="button" id="btn{{ar.index(i)}}">Marcar como resolvido</button>
                         {% endif %}
