@@ -2,13 +2,12 @@
 
 ## Sumário:
 * [Apresentação da Equipe](#apresentação-da-equipe)
-* [Planejamento de Entregas](#planejamento-de-entregas)
-* [Projeto](#projeto)
-* [Objetivo](#objetivo)
+* [Objetivo](#objetivo-do-produto)
 * [Protótipo](#protótipo)
 * [Tecnologias](#tecnologias-e-ferramentas-utilizadas)
 * [Arquitetura do projeto](#arquitetura-do-projeto)
 * [Backlog](#backlog-do-produto)
+* [Planejamento de Entregas](#planejamento-de-entregas)
 * [Preview da Plataforma](#plataforma)
 
 ## Apresentação da Equipe:
@@ -121,11 +120,14 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 
 ## Backlog do produto:
 ### User Stories:
-![userstories_sprint03](https://user-images.githubusercontent.com/89790349/200197532-979ab1ad-860a-42d3-9f61-d1d302ff0e20.png)
+
+![userStoriesSprint04](https://user-images.githubusercontent.com/89790349/204164340-ef19fd65-fa7f-4e4a-a964-b1b9053480e5.png)
+
+
 
 ### Planejamento de Entregas:
 
-![planejamentoEntregas](https://user-images.githubusercontent.com/89790349/194782333-eff5535a-eee3-4bd8-8087-6a2b89d6eb26.png)
+![entregas](https://user-images.githubusercontent.com/89790349/204164349-caa9c862-78a9-4af5-a840-61e2e879cc36.png)
 
 
 
@@ -135,4 +137,4 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 
 Acesse a nossa plataforma através do link: http://anxjos.pythonanywhere.com/
 
-![TelaHome](https://user-images.githubusercontent.com/89790349/194779366-eeb643f4-3f16-4f99-b428-5be25e1d969b.jpeg)
+![home](https://user-images.githubusercontent.com/89790349/204164359-a010c7bf-226a-4197-969b-de9597403ea6.png)
