@@ -21,7 +21,6 @@ Nosso foco é em identificar o objetivo principal de um produto para desenvolver
 * [Alexandre Jonas de Souza Fonseca](https://github.com/AlexandreJonas)
 * [Amanda Mendes Caldeira](https://github.com/AmendoaM)
 * [Jean Cesar de Oliveira Rodrigues](https://github.com/JeanRodrigues1)
-* [Renan Graciano Faria](https://github.com/VonNexx)
 #### Product Owner:
 * [Alita Willians da Silva Amancio](https://github.com/AlitaAmancio)
 #### Scrum Master:
@@ -66,6 +65,11 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
    |         |- 📑 Backlog_Produto_03.ods
    |         |- 📑 Backlog_Sprint_03.ods
    |         |- 📑 Burndown_Sprint_03.ods
+   |         |- 📑 README.md
+   |    |- 📁 Sprint04
+   |         |- 📑 Backlog_Produto_04.ods
+   |         |- 📑 Backlog_Sprint_04.ods
+   |         |- 📑 Burndown_Sprint_04.ods
    |
    |-  📁 website
    |    |
@@ -78,14 +82,21 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
    |            |- 📑 2.png
    |            |- 📑 3.png
    |            |- 📑 4.png
+   |            |- 📑 alert.png
+   |            |- 📑 ausente.png
    |            |- 📑 fundo.png
    |            |- 📑 fundobranco.jpg
    |            |- 📑 lab302.png
    |            |- 📑 lab304.png
    |            |- 📑 logo_mulas.png
+   |            |- 📑 maq_def_antigo.png
    |            |- 📑 maq_def.png
+   |            |- 📑 maq_ok.png
    |            |- 📑 maq.png
+   |            |- 📑 ok.png
+   |            |- 📑 pc_vazio_antigo.png
    |            |- 📑 pc_vazio.png
+   |            |- 📑 seta.png
    |        |- 📁 scripts
    |            |- 📑 main.js
    |    |- 📁 templates
@@ -100,8 +111,6 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
    |   |- 📑 __init__.py
    |   |- 📑 auth.py
    |   |- 📑 database.py
-   |   |- 📑 db.yaml
-   |   |- 📑 models.py
    |   |- 📑 views.py
    |- 📑 .gitignore
    |- 📑 LICENSE
