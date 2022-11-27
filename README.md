@@ -135,6 +135,6 @@ https://www.figma.com/file/OQB5uFJBy4JoArI6ij8w8M/Prot%C3%B3tipo-BIOS?node-id=0%
 
 ### BIOS - Brilliant Integrated Organic Systems 
 
-Acesse a nossa plataforma através do link: http://anxjos.pythonanywhere.com/
+Acesse a nossa plataforma através do link: http://mulas.pythonanywhere.com/
 
 ![home](https://user-images.githubusercontent.com/89790349/204164359-a010c7bf-226a-4197-969b-de9597403ea6.png)
