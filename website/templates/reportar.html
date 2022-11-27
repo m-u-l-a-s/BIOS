@@ -94,6 +94,25 @@
             <input type="submit" value="Enviar" id="submit" class="btn btn-secondary btn-lg btn-home" form="gfg">
         </li>
     </ul>
+
+    <br><br>
+
+    <div class="legenda">
+        <p><strong>Legenda:</strong></p>
+        <p>
+            <img src="../static/imgs/ok.png" alt="" style="width: 30px;">
+            Computador ok
+        </p>
+        <p>
+            <img src="../static/imgs/ausente.png" alt="" style="width: 30px;">
+            Máquina em manutenção
+        </p>
+        <p>
+            <img src="../static/imgs/alert.png" alt="" style="width: 30px;">
+            Máquina com problema
+        </p>
+    </div>
+
 </div>
 
 
@@ -167,6 +186,8 @@
 
 </div>
 
+
+
 <script src="{{ url_for ('static', filename='scripts/main.js') }}"></script>
 
 <script>
@@ -232,7 +253,7 @@
     }
 
     .normal{
-        background-image: url("../static/imgs/maq.png");
+        background-image: url("../static/imgs/maq_ok.png");
         background-size: 100%;
     }
 
@@ -246,7 +267,7 @@
     .maq {        
         background-repeat: no-repeat;
         background-size: contain;
-        width: 2.5rem;
+        width: 3rem;
         height: 3rem;
         justify-content: space-evenly;
         transition: transform .2s;
