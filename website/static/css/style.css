@@ -113,7 +113,8 @@ p {
     display: flex;
     align-items: center;
     width: fit-content;
-    margin: 0px 0px 0px 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .mesa {
@@ -292,9 +293,12 @@ li{
 
 .detalhes-os {
     background-color: rgba(32, 32, 32, 0.756);
-
     color: white;
     border-radius: 4px;
+}
+
+#detalhes-os {
+    margin-bottom: 0.6em;
 }
 
 .resolvido {
@@ -370,11 +374,13 @@ li{
 }
 
 .legenda {
+    display: flex;
+    justify-content: center;
     text-align: start;
-    margin-left: 27.5%;
 }
 
 .legenda span {
+    font-size: 1.1rem;
     background-color: lightgray;
     border-radius: 6px;
     padding: 0.2em;
