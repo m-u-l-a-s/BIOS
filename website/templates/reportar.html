@@ -94,22 +94,26 @@
             <input type="submit" value="Enviar" id="submit" class="btn btn-secondary btn-lg btn-home" form="gfg">
         </li>
     </ul>
-
-    <br><br>
-
+    <br>
     <div class="legenda">
-        <p><strong>Legenda:</strong></p>
         <p>
-            <img src="../static/imgs/ok.png" alt="" style="width: 30px;">
-            Computador ok
-        </p>
-        <p>
-            <img src="../static/imgs/ausente.png" alt="" style="width: 30px;">
-            Máquina em manutenção
-        </p>
-        <p>
-            <img src="../static/imgs/alert.png" alt="" style="width: 30px;">
-            Máquina com problema
+            <strong>Legenda:</strong>   <br>
+            <span>
+                <img src="../static/imgs/ok.png" alt="" style="width: 1rem;">
+                Computador ok
+            </span>
+            <br>
+            <span>
+
+                <img src="../static/imgs/ausente.png" alt="" style="width: 1rem;">
+                Máquina em manutenção
+            </span>
+
+            <br>
+            <span>
+                <img src="../static/imgs/alert.png" alt="" style="width: 1rem;">
+                Máquina com problema
+            </span>
         </p>
     </div>
 
@@ -209,7 +213,6 @@
         obj = window.event.target;
         if (obj.classList.contains("maq")) {
             if (!obj.classList.contains("mntc")) {
-                console.log("IM HERE")
                 document.getElementById("maq").value = obj.id;
                 document.getElementById("labelmaq").textContent = "Máquina Selecionada: " + obj.id
             } 
@@ -285,6 +288,7 @@
     const problemas = document.querySelector("#prob")
     const div = document.querySelector(".left")
     let p = document.createElement("p")
+    const leg = document.querySelector(".legenda")
     
     const container = document.createElement("div")
     container.classList.add("sugestoes")
@@ -295,6 +299,7 @@
     problemas.addEventListener("change", sugerir)
 
     function sugerir() {
+        leg.style.display = "none"
         if (problemas.value == "Monitor") {
             displayMessage("⚠SUGESTÃO: Se o LED do monitor de vídeo não estiver ligado, verifique se o cabo de alimentação do monitor de vídeo está instalado corretamente. Conecte de maneira firme, caso não esteja.")
         }

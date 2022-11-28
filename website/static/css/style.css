@@ -113,6 +113,7 @@ p {
     display: flex;
     align-items: center;
     width: fit-content;
+    margin: 0px 0px 0px 0px;
 }
 
 .mesa {
@@ -366,6 +367,17 @@ li{
 
 .detalhes-div {
     display: none;
+}
+
+.legenda {
+    text-align: start;
+    margin-left: 27.5%;
+}
+
+.legenda span {
+    background-color: lightgray;
+    border-radius: 6px;
+    padding: 0.2em;
 }
 
 #pDetalhes ul li {
