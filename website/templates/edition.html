@@ -353,17 +353,18 @@
     })
 
     function changeColor() {
-        obj = window.event.target
-        console.log(r)
-        console.log(m)
+        let obj = window.event.target
+        let index = parseInt(obj.id)
+        
         if (obj.classList.contains("numtag")) {
             if (!obj.classList.contains("mntc") && !obj.classList.contains("prob")) {
                 obj.classList.add("prob")
 
-                mntc.value = mntc.value.replace(`${obj.id},`,"")
+                //mntc.value = mntc.value.replace(`${obj.id},`,"")
                 reportados.value += obj.id + ","
                 r.push(parseInt(obj.id))
-
+                //m.splice(parseInt(obj.id), 1)
+                
                 console.log(`reportados: ${reportados.value}`)
                 console.log(`manutenção: ${mntc.value}`)
                 
@@ -373,8 +374,8 @@
                 
                 reportados.value = reportados.value.replace(`${obj.id},`,"")
                 mntc.value += obj.id + ","
-                r.splice(parseInt(obj.id), 1)
                 m.push(parseInt(obj.id))
+                r.splice(r.indexOf(index), 1)
 
                 console.log(`reportados: ${reportados.value}`)
                 console.log(`manutenção: ${mntc.value}`)
@@ -383,13 +384,21 @@
                 obj.classList.remove("mntc")
                 obj.classList.remove("prob")
 
-                m.splice(parseInt(obj.id), 1)
+                m.splice(m.indexOf(index), 1)
+                r.splice(r.indexOf(index), 1)
 
                 mntc.value = mntc.value.replace(`${obj.id},`,"")
                 console.log(`reportados: ${reportados.value}`)
                 console.log(`manutenção: ${mntc.value}`)
-            }
+            } 
+            // else {
+            //     r.push(parseInt(obj.id))
+            //     console.log(`reportados: ${reportados.value}`)
+            //     console.log(`manutenção: ${mntc.value}`)
+            // }
         }
+        console.log(`Reportados: `, r)
+        console.log(`Manutenção:`, m)
     }
 
     btn.addEventListener("click", function() {
